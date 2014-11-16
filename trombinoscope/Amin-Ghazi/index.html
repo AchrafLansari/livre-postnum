@@ -10,7 +10,26 @@
 		var ficSVG = "../../svg/trombi_Amin_Ghazi.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
 		
-		var arrIds = ["photo-1", "photo-2", "photo-3", "photo-4", "photo-5", "photo-6", "photo-7", "photo-8", "photo-9", "photo-10", "photo-11", "photo-12", "photo-13", "photo-14", "photo-15"];
+		/*var arrIds = ["photo-1", "photo-2", "photo-3", "photo-4", "photo-5", "photo-6", "photo-7", "photo-8", "photo-9", "photo-10", "photo-11", "photo-12", "photo-13", "photo-14", "photo-15"];
+		*/
+		
+		var arrIds = [
+	{"idCSV":14,"idClick":"photo-1","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/6.jpg","nom":"Alex Pain","comp":"pas mal aussi"}
+			,{"idCSV":12,"idClick":"photo-2","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/12.jpg","nom":"Alexia Camail","comp":"pas mal aussi"}
+			,{"idCSV":1,"idClick":"photo-3","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/9.jpg","nom":"Ghazi Amin","comp":"Bien"}
+			,{"idCSV":13,"idClick":"photo-4","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/3.jpg","nom":"Antoine Barrès","comp":"Bien"}
+			,{"idCSV":4,"idClick":"photo-5","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/7.jpg","nom":"Clémentine Plissonnier","comp":"Bien"}
+			,{"idCSV":6,"idClick":"photo-7","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/13.jpg","nom":"Hélène DONATO GRIVELET","comp":"Bien"}
+			,{"idCSV":5,"idClick":"photo-8","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/15.jpg","nom":"Louis Crolus","comp":"Bien"}
+			,{"idCSV":8,"idClick":"photo-9","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/5.jpg","nom":"Macaire DEL MONACO","comp":"Bien"}
+			,{"idCSV":16,"idClick":"photo-10","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/17.jpg","nom":"Marc Biofa","comp":"Bien"}
+			,{"idCSV":11,"idClick":"photo-11","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/10.jpg","nom":"Quentin Brunet","comp":"Bien"}
+			,{"idCSV":3,"idClick":"photo-13","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/2.jpg","nom":"Hugo Stéphan","comp":"Bien"}
+			,{"idCSV":7,"idClick":"photo-14","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/14.jpg","nom":"Guillaume Briand","comp":"Bien"}
+			,{"idCSV":11,"idClick":"photo-15","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/8.jpg","nom":"Yolaine Raymond","comp":"Bien"}
+			,{"idCSV":10,"idClick":"photo-12","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/11.jpg","nom":"Simon Tschan","comp":"Bien"}
+			,{"idCSV":10,"idClick":"photo-6","urlTof":"http://localhost/projet-M-sanuel-SVG/livre-postnum/data/trombi/CDNL1415/4.jpg","nom":"Gabriela Paredes","comp":"Bien"}
+			];
 		
 		var rectFond;
 		var dataProfil;
@@ -51,8 +70,9 @@
 		
 			for (i = 0; i < arrIds.length; i++) {
 			//length = taille du tableau
-			     var el = document.getElementById(arrIds[i]); 
-			     el.addEventListener("click", afficheDetailEtu, false); 
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+				 el.addEventListener("click", afficheDetailEtu,false); 
 			} 		
 		}
 		/*
@@ -70,14 +90,65 @@
 		
 		
 		
-		function afficheDetailEtu(){
-			var couleur = document.getElementById("object-arrier-plan");
+		function afficheDetailEtu(evt){
+			/*var couleur = document.getElementById("object-arrier-plan");
 			
 			couleur.setAttribute("fill", "#D31624");
 			rectFond.setAttribute("fill", "red");
-			alert("OK");
+			alert("OK");*/
 			//var elemEtu = document.getElementById('g16893');
 			
+			/* ajouter une image dans un cadre */
+			/*alert("Bonjour");*/
+			var elemIma = document.getElementById('cadre');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlTof);
+			//change les textes
+			var elemTxt = document.getElementById('nom-prenom');
+			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
+			
+		/*changer l'information envie dans le tableau CSV */
+			elemTxt = document.getElementById('envie');
+			elemTxt.textContent=itemCSV["Envies"];
+			
+		/*changer l'information parcours dans le tableau CSV */
+			elemTxt = document.getElementById('parcours');
+			elemTxt.textContent=itemCSV["Parcours"];
+			
+		/*changer l'information email dans le tableau CSV */
+			elemTxt = document.getElementById('emails');
+			elemTxt.textContent=itemCSV["Email"];	
+			
+		/*changer l'information projects dans le tableau CSV */
+			elemTxt = document.getElementById('projets');
+			elemTxt.textContent=itemCSV["Projets"];
+			
+		/*changer l'information ambition dans le tableau CSV */
+			elemTxt = document.getElementById('ambition');
+			elemTxt.textContent=itemCSV["ambitions"];
+			
+		/*changer l'information code dans le tableau CSV */
+			elemTxt = document.getElementById('code');
+			elemTxt.textContent=itemCSV["Code"];
+			
+		/*changer l'information graphisme dans le tableau CSV */
+			elemTxt = document.getElementById('graphisme');
+			elemTxt.textContent=itemCSV["Graphisme"];
+			
+		/*changer l'information competence dans le tableau CSV */
+			elemTxt = document.getElementById('horodateur');
+			elemTxt.textContent=itemCSV["Horodateur"];
+		}
+		
+				function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
 		}
 
 		</script>
