@@ -10,11 +10,23 @@
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
 		var dataProfil;
 		
-		//var arrIds = ["Amin", "Alexandre", "Yolaine", "Hugo", "Clementine", "Guillaume", "Gabriela", "Marc", "Quentin", "Alexia", "Helene", "Macaire", "Louis", "Antoine", "Simon"];
+		//var arrIds = ["Amin",  "Clementine", "Guillaume", "Gabriela", "Marc", "Quentin", "Alexia", "Helene", "Macaire", "Louis", "Antoine", "Simon"];
 		var arrIds = [
-		     {"idCSV":9,"idClick":"Yolaine","nom":"Yolaine Raymond","comp":"Les compétences de Yolaine"}
-			,{"idCSV":12,"idClick":"Alexandre","nom":"Alex Pain","comp":"Les compétences d'Alexandre"}
-			,{"idCSV":1,"idClick":"Hugo","nom":"Hugo Stéphan","comp":"Les compétences de Hugo"}
+			{"idCSV":0,"idClick":"Amin"}
+			,{"idCSV":1,"idClick":"Hugo"}
+			,{"idCSV":2,"idClick":"Clementine"}
+			,{"idCSV":3,"idClick":"Louis"}
+			,{"idCSV":4,"idClick":"Helene"}
+			,{"idCSV":5,"idClick":"Guillaume"}
+			,{"idCSV":6,"idClick":"Macaire"}
+			,{"idCSV":7,"idClick":"Quentin"}
+			,{"idCSV":8,"idClick":"Simon"}
+			,{"idCSV":9,"idClick":"Yolaine"}
+			,{"idCSV":10,"idClick":"Alexia"}
+			,{"idCSV":11,"idClick":"Antoine"}
+			,{"idCSV":12,"idClick":"Alexandre"}
+			,{"idCSV":13,"idClick":"Gabriela"}
+			,{"idCSV":14,"idClick":"Marc"}
 			];
 		
 		
@@ -77,10 +89,12 @@
 			//Récupérer les données du csv
 			var itemCSV = dataProfil[item.idCSV];
 			//change les textes
-			var elemTxt = document.getElementById('Prenom');
-			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
-			elemTxt = document.getElementById('Competences');
-			elemTxt.textContent=itemCSV["Envies"];
+			var elemTxt = document.getElementById('Nom');
+			elemTxt.textContent=itemCSV["nom"];
+			var elemTxt = document.getElementById('PreN');
+			elemTxt.textContent=itemCSV["Prénom"];
+			elemTxt = document.getElementById('Graph');
+			elemTxt.textContent=itemCSV["Graphisme"];
 		}
 		
 		function getElementArr(arr, prop, val){
