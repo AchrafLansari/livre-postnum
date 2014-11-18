@@ -1,20 +1,24 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Explorateur de palette</title>
-	    <script type="text/javascript" src="js/d3.js"></script>
-	    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	    <script type="text/javascript" src="js/queue.v1.min.js" ></script>
+		<title>Palette Ecology of Mind</title>
+	    <script type="text/javascript" src="../js/d3.js"></script>
+	    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	    <script type="text/javascript" src="../js/queue.v1.min.js" ></script>
 		<script type="text/javascript">
 
-		var ficSVG = "svg/palettemoudhafer.svg";
-		//var ficSVG = "svg/tagcloudAccueil.svg";
+		var ficSVG = "../svg/paletteecologyofmind.svg";
 
-		alert(window.location.pathname);
-		
 		var dataProfil;
+
+		//alert(window.location.pathname + ficSVG);
 		
-		var arrIds = [{"idEle":"g3652","fonction":changeFillPath,"params":[{"mes":"coucou"}]}];
+		var arrIds = [
+		      			{"idEle":"Spring_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
+		      			{"idEle":"Summer_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
+		      			{"idEle":"Autumn_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
+		      			{"idEle":"Winter_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]}
+		      		];
 		
 		function load(){
 		 	//charge l'IHM SVG
@@ -59,7 +63,7 @@
 			
 		}
 		
-		function changeFillPath(evt){
+		function changeTemperature(evt){
 			var idEleEvt = evt.currentTarget.id;
 			/*
 			var eleChild = evt.currentTarget.children;
@@ -70,9 +74,12 @@
 				}
 			}
 			*/
+
+			/*
 			d3.select("#"+idEleEvt)
 				.selectAll("path")
 				.style("fill","red");
+			*/
 		}
 	    
 		function getElementArr(arr, prop, val){

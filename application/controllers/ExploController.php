@@ -7,6 +7,10 @@ class ExploController extends Zend_Controller_Action
     {
         // action body
     }
+    
+    public function ecologyAction(){
+    	
+    }
 
     public function sauvesvgAction()
     {
