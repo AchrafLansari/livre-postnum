@@ -6,7 +6,7 @@
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">
 
-		var ficSVG = "../../svg/CrolusLouisTrombi.svg";
+		var ficSVG = "../../svg/CrolusLouisTrombi2.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
 
 
@@ -96,12 +96,16 @@
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlTof);
 			//change les textes
-			var elemTxt = document.getElementById('TxtNom');
-			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
-			elemTxt = document.getElementById('Cadre_1');
-			elemTxt.textContent=itemCSV["Envies"];
+			var elemNom = document.getElementById('TxtNom');
+			var elemGraphisme = document.getElementById('Graphisme');
+			var elemCode = document.getElementById('Code');
+			var elemParcours = document.getElementById('Parcours');
 
-			//elemTxt.textContent="yozd";
+
+			elemNom.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
+			elemGraphisme.textContent="Graphisme : " + itemCSV["Graphisme"];
+			elemCode.textContent="Code : " + itemCSV["Code"];
+			elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
 
 
 		}

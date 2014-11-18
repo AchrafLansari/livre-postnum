@@ -2,65 +2,64 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Trombinoscope CDNL 14-15</title>
+        <style>svg {width:100%;margin:0 auto;}</style>
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		
 		<script type="text/javascript">
 
-		var ficSVG = "../../svg/macaire-DELMONACO-trombi.svg";
-		var ficCSV = "../../data/ProfilsCDNL1415.csv";
-		var dataProfil;
+		var ficSVG = "../../svg/macaire-trombi--version2.svg";																					// Met dans la variable ficSVG le contenu du fichier Trombi_Pain3.svg
 		
-		//var arrIds = ["image16", "image18", "image20", "image22", "image24", "image26", "image28", "image30", "image32", "image34", "image36", "image38", "image40", "image42", "image44"];
-		var arrIds = [
-		     {"idCSV":9,"idClick":"Yo","urlTof":"http://localhost/GitHub/livre-postnum/data/trombi/CDNL1415/8.jpg","nom":"Yolaine Raymond","comp":"pas mal"}
-			,{"idCSV":12,"idClick":"Alex","urlTof":"http://localhost/GitHub/livre-postnum/data/trombi/CDNL1415/6.jpg","nom":"Alex Pain","comp":"pas mal aussi"}
-			,{"idCSV":1,"idClick":"Hugo","urlTof":"http://localhost/GitHub/livre-postnum/data/trombi/CDNL1415/2.jpg","nom":"Hugo Stéphan","comp":"il confond son nom avec son mail..."}
-			];
+		var arrIds =																													// Met dans la variable arrIds l'ensemble des informations suivantes:
+		[
+		{"idClick":"hugo", "nom":"Hugo", "prenom":"Stephan", "age":"22", "Code":"7", "graph":"5","photoCdnl":"http://127.0.0.1/GitHub/livre-postnum/data/trombi/CDNL1415/2.jpg"},
+		{"idClick":"antoine", "Nom":"Barres", "Prenom":"Antoine", "Age":"25", "Code":"2", "Graph":"8","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/3.jpg"},
+		{"idClick":"gabriela", "Nom":"Paredes", "Prenom":"Gabriela", "Age":"28", "Code":"3", "Graph":"7"},
+		{"idClick":"macaire", "Nom":"Del Monaco", "Prenom":"Macaire", "Age":"30", "Code":"7", "Graph":"4"},
+		{"idClick":"alexandre", "Nom":"Pain", "Prenom":"Alexandre", "Age":"25", "Code":"7", "Graph":"5"},
+		{"idClick":"clementine", "Nom":"Plissonier", "Prenom":"Clementine", "Age":"21", "Code":"6", "Graph":"7"},
+		{"idClick":"yolaine", "Nom":"Raymond", "Prenom":"Yolaine", "Age":"24", "Code":"5", "Graph":"8"},
+		{"idClick":"amin", "Nom":"Gazi", "Prenom":"Amin", "Age":"25", "Code":"5", "Graph":"5"},
+		{"idClick":"quentin", "Nom":"Brunet", "Prenom":"Quentin", "Age":"24", "Code":"6", "Graph":"5"},
+		{"idClick":"simon", "Nom":"Tschan", "Prenom":"Simon", "Age":"24", "Code":"3", "Graph":"5"},
+		{"idClick":"alexia", "Nom":"Camail", "Prenom":"Alexia", "Age":"22", "Code":"6", "Graph":"7"},
+		{"idClick":"helene", "Nom":"Donato", "Prenom":"Helene", "Age":"22", "Code":"5", "Graph":"8"},
+		{"idClick":"guillaume", "Nom":"Briand", "Prenom":"Guillaume", "Age":"22", "Code":"6", "Graph":"8"},
+		{"idClick":"louis", "Nom":"Crolus", "Prenom":"Louis", "Age":"22", "Code":"4", "Graph":"5"},
+		{"idClick":"marc", "Nom":"Biofa", "Prenom":"Marc", "Age":"25", "Code":"7", "Graph":"5"},
+		];
 		
-		function load(){
-		 	//charge l'IHM SVG
-		    //merci à http://bl.ocks.org/KoGor/8162640
+		function load()
+		{																// Charge l'interface SVG
 		    	queue()
 		    		.defer(d3.xml, ficSVG, "image/svg+xml")
 		    		.await(IHMcharge);
-		    	chargeData(ficCSV);
 		}
 
-		function chargeData(url){
-			d3.csv(url, function(error, data) {
-
-				dataProfil = data;
-				//affiche les données dans la console
-				// Compute the distinct nodes from the links.
-				dataProfil.forEach(function(d, i) {
-				    console.log(i+" : "+d.nom);
-				});				
-				
-			});
-		}
-		
-	    function IHMcharge(error, xml){
-	    	//Adding our svg file to HTML document
+	    function IHMcharge(error, xml)
+	    {
 			var importedNode = document.importNode(xml.documentElement, true);
     	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
     	  		ajoutelesevenementauxelements();
 	    }		
 	    
-		// fonction pour ajouter un écouteur à UN ÉLÉMENT
-		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
-		function ajoutelesevenementauxelements() { 
-		
-			for (var i = 0; i < arrIds.length; i++) {
-				//length = taille du tableau
-			     var el = document.getElementById(arrIds[i].idClick); 
+		function ajoutelesevenementauxelements() 						// Fonction pour ajouter un écouteur à un élément (voire quel est le contenu de l'élément/variable)
+		{ 						
+									
+			for (var i = 0; i < arrIds.length; i++) {					// On va lire les informations comme si on lisait dans un tableau
+																		// fonctionnement de la boucle for :
+																		// on initialise ici une variable i à 0
+																		// on dit tant que la variable i n'a pas atteint la longueur/taille du tableau arrIds:
+																		// on incrémente i une pour passer à la ligne suivante du tableau
+
+
+			     var el = document.getElementById(arrIds[i].idClick); 	// on attribue à une variable el le contenu se trouvant dans le tableau arrIds pour chaque valeur de i
 				 var j = i;
-			     el.addEventListener("click", afficheDetailEtu,false); 
+			     el.addEventListener("click", afficheDetailEtu,false); 	// on ajoute un écouteur à el pour que au "click" on appelle la fonction afficheDetailEtu
 			    	
 			} 		
 		}
-		/*
-		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
-		 */
+		
 		function switchInfoPerso()
 		{
 			divInfo = document.getElementById('divacacher');
@@ -71,19 +70,23 @@
 		}
 		
 		function afficheDetailEtu(evt){
-			//récupère la balise image grand format
-			var elemIma = document.getElementById('image14');
-			//récupère les information de l'étudiant
-			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
-			//Récupérer les données du csv
-			var itemCSV = dataProfil[item.idCSV];
-			//mettre à jour l'image
-			elemIma.setAttribute("xlink:href",item.urlTof);
-			//change les textes
-			var elemTxt = document.getElementById('text37');
-			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
-			elemTxt = document.getElementById('text39');
-			elemTxt.textContent=itemCSV["Envies"];
+		
+			
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);	//récupère les information de l'étudiant
+			
+			
+			var elemTxt = document.getElementById('nom');						//change les zones ayant l'id correspond par le contenu de arrIds
+			elemTxt.textContent=item.nom;
+			elemTxt = document.getElementById('prenom');
+			elemTxt.textContent=item.prenom;
+			elemTxt = document.getElementById('age');
+			elemTxt.textContent=item.Age;
+			elemTxt = document.getElementById('code');
+			elemTxt.textContent=item.code;
+			elemTxt = document.getElementById('graph');
+			elemTxt.textContent=item.graph;
+			elemTxt = document.getElementById('photoCdnl');
+			elemTxt.textContent=item.photoCdnl;
 		}
 
 		function getElementArr(arr, prop, val){
@@ -92,10 +95,9 @@
 			}
 			return false;
 		}
-		
 		</script>
 	</head>
-	<body onload="load();">
+	<body onLoad="load();">
 		<div id="viz" ></div>
 	</body>
 </html>

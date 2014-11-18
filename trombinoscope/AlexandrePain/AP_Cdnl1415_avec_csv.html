@@ -7,39 +7,39 @@
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
 
-		var ficSVG = "../../svg/Trombi_AlexPain.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficSVG = "../../svg/Trombi_Alex_Pain.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
 
 		var arrIds = [
-			 {"idCSV":5,"idClick":"Portrait13","urlTof":"http://127.0.0.1/livre-postnum/data/trombi/CDNL1415/14.jpg"},
+			 {"idCSV":5,"idClick":"Portrait13","urlphoto":"http://127.0.0.1/livre-postnum/data/trombi/CDNL1415/14.jpg"},
 			 
-		     {"idCSV":14,"idClick":"Portrait15","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/17.jpg"}
+		     {"idCSV":14,"idClick":"Portrait15","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/17.jpg"}
 
-			,{"idCSV":1,"idClick":"Portrait1","urlTof":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/2.jpg"}
+			,{"idCSV":1,"idClick":"Portrait1","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/2.jpg"}
 
-			,{"idCSV":4,"idClick":"Portrait12","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/13.jpg"}
+			,{"idCSV":4,"idClick":"Portrait12","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/13.jpg"}
 
-			,{"idCSV":3,"idClick":"Portrait14","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/15.jpg"}
+			,{"idCSV":3,"idClick":"Portrait14","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/15.jpg"}
 
-			,{"idCSV":10,"idClick":"Portrait11","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/12.jpg"}
+			,{"idCSV":10,"idClick":"Portrait11","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/12.jpg"}
 
-			,{"idCSV":13,"idClick":"Portrait3","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/4.jpg"}
+			,{"idCSV":13,"idClick":"Portrait3","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/4.jpg"}
 
-			,{"idCSV":8,"idClick":"Portrait10","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/11.jpg"}
+			,{"idCSV":8,"idClick":"Portrait10","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/11.jpg"}
 
-			,{"idCSV":7,"idClick":"Portrait9","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/10.jpg"}
+			,{"idCSV":7,"idClick":"Portrait9","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/10.jpg"}
 
-			,{"idCSV":0,"idClick":"Portrait8","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/9.jpg"}
+			,{"idCSV":0,"idClick":"Portrait8","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/9.jpg"}
 
-			,{"idCSV":9,"idClick":"Portrait7","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/8.jpg"}
+			,{"idCSV":9,"idClick":"Portrait7","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/8.jpg"}
 
-			,{"idCSV":2,"idClick":"Portrait6","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/7.jpg"}
+			,{"idCSV":2,"idClick":"Portrait6","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/7.jpg"}
 
-			,{"idCSV":11,"idClick":"Portrait2","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/3.jpg"}
+			,{"idCSV":11,"idClick":"Portrait2","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/3.jpg"}
 
-			,{"idCSV":12,"idClick":"Portrait5","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/6.jpg"}
+			,{"idCSV":12,"idClick":"Portrait5","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/6.jpg"}
 
-			,{"idCSV":6,"idClick":"Portrait4","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/5.jpg"}
+			,{"idCSV":6,"idClick":"Portrait4","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/5.jpg"}
 			];
 
 		function load()
@@ -94,7 +94,7 @@
 			var elemIma = document.getElementById('Photodetail');
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			var itemCSV = dataProfil[item.idCSV];
-			elemIma.setAttribute("xlink:href",item.urlTof);
+			elemIma.setAttribute("xlink:href",item.urlphoto);
 
 			var elemTxt = document.getElementById('Nom');
 			elemTxt.textContent=itemCSV["nom"];
@@ -106,7 +106,8 @@
 			elemTxt.textContent=itemCSV["Graphisme"];
 			elemTxt = document.getElementById('Code');
 			elemTxt.textContent=itemCSV["Code"];
-
+			elemTxt = document.getElementById('urlphoto');
+			elemTxt.textContent=itemCSV["Bigportrait"];
 		}
 
 		function getElementArr(arr, prop, val){

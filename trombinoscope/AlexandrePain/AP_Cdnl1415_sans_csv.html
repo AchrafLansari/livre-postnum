@@ -7,12 +7,12 @@
 		
 		<script type="text/javascript">
 
-		var ficSVG = "../../svg/Trombi_AlexPain.svg";																					// Met dans la variable ficSVG le contenu du fichier Trombi_Pain3.svg
+		var ficSVG = "../../svg/Trombi_Alex_Pain.svg";																					// Met dans la variable ficSVG le contenu du fichier Trombi_Pain3.svg
 		
 		var arrIds =																													// Met dans la variable arrIds l'ensemble des informations suivantes:
 		[
-		{"idClick":"Portrait1", "Nom":"Hugo", "Prenom":"Stephan", "Age":"22", "Code":"7", "Graph":"5"},
-		{"idClick":"Portrait2", "Nom":"Barres", "Prenom":"Antoine", "Age":"25", "Code":"2", "Graph":"8"},
+		{"idClick":"Portrait1", "Nom":"Hugo", "Prenom":"Stephan", "Age":"22", "Code":"7", "Graph":"5","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/2.jpg"},
+		{"idClick":"Portrait2", "Nom":"Barres", "Prenom":"Antoine", "Age":"25", "Code":"2", "Graph":"8","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/3.jpg"},
 		{"idClick":"Portrait3", "Nom":"Paredes", "Prenom":"Gabriela", "Age":"28", "Code":"3", "Graph":"7"},
 		{"idClick":"Portrait4", "Nom":"Del Monaco", "Prenom":"Macaire", "Age":"30", "Code":"7", "Graph":"4"},
 		{"idClick":"Portrait5", "Nom":"Pain", "Prenom":"Alexandre", "Age":"25", "Code":"7", "Graph":"5"},
@@ -84,6 +84,8 @@
 			elemTxt.textContent=item.Code;
 			elemTxt = document.getElementById('Graph');
 			elemTxt.textContent=item.Graph;
+			elemTxt = document.getElementById('urlphoto');
+			elemTxt.textContent=item.Bigportrait;
 		}
 
 		function getElementArr(arr, prop, val){
