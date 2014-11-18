@@ -479,9 +479,9 @@ class Model_DbTable_Flux_Doc extends Zend_Db_Table_Abstract
         	->from( array("f" => "flux_doc") )                           
 			->group("f.doc_id");
         if($idUti)
-            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.uti_id = '.$idUti.' AND utd.doc_id = f.doc_id',array('uti_id'));
+            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.uti_id = '.$idUti.' AND utd.doc_id = f.doc_id',array('uti_id',"login"));
 		else
-            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.doc_id = f.doc_id',array('uti_id'));
+            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.doc_id = f.doc_id',array('uti_id', "login"));
 		
 		if($like)
 			$query->where( "f.tronc LIKE '%".$tronc."%'");

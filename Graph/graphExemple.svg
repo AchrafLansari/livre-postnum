@@ -1,0 +1,67 @@
+<svg width="960" height="500" class="">
+   <style type="text/css" >
+      <![CDATA[
+svg {
+  background-color: #FFF;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  border : 1px solid black;
+}
+
+svg:not(.active):not(.ctrl) {
+  cursor: crosshair;
+}
+
+
+path.link {
+  fill: none;
+  stroke: #000;
+  stroke-width: 4px;
+  cursor: default;
+}
+
+svg:not(.active):not(.ctrl) path.link {
+  cursor: pointer;
+}
+
+path.link.selected {
+  stroke-dasharray: 10,2;
+}
+
+path.link.dragline {
+  pointer-events: none;
+}
+
+path.link.hidden {
+  stroke-width: 0;
+}
+
+circle.node {
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+
+circle.node.reflexive {
+  stroke: #000 !important;
+  stroke-width: 2.5px;
+}
+
+text {
+  font: 12px sans-serif;
+  pointer-events: none;
+}
+
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+
+      ]]>
+    </style>
+
+	<defs><marker id="end-arrow" viewBox="0 -5 10 10" refX="6" markerWidth="3" markerHeight="3" orient="auto"><path d="M0,-5L10,0L0,5" fill="#000"></path></marker></defs><defs><marker id="start-arrow" viewBox="0 -5 10 10" refX="4" markerWidth="3" markerHeight="3" orient="auto"><path d="M10,-5L0,0L10,5" fill="#000"></path></marker></defs><path class="link dragline hidden" d="M680.1793515962071,315.5443996491158L515,437" style=""></path><g><path class="link" d="M427.9827200326807,182.0843451803724L393.41811316240984,298.8261693298248" style="marker-end: url(#end-arrow);"></path><path class="link" d="M311.6151508806592,240.80964941440857L421.03780604736227,176.64794039627358" style="marker-start: url(#start-arrow);"></path><path class="link" d="M356.40223297900354,394.9641207256579L465.2914025357413,436.6310877185184" style="marker-end: url(#end-arrow);"></path><path class="link" d="M355.26531960645195,384.1499215707313L464.3916712057405,313.4375385910262" style="marker-end: url(#end-arrow);"></path><path class="link" d="M568.2325945632009,207.48678650261004L490.2104514960677,291.72103775997834" style="marker-end: url(#end-arrow);"></path><path class="link" d="M328.9666445815879,184.558790585763L381.5301436898134,299.662825509848" style="marker-end: url(#end-arrow);"></path><path class="link" d="M495.26669199640867,300.5649716837352L627.5059952815144,271.67831202338414" style="marker-start: url(#start-arrow);"></path><path class="link" d="M395.6395633077601,324.8390900449941L471.1844845649436,428.9474000299091" style="marker-end: url(#end-arrow);"></path><path class="link" d="M442.44093637883435,157.660460020758L520.6431385816611,66.25305228262215" style="marker-start: url(#start-arrow);"></path><path class="link" d="M333.23344691698094,159.3809722390557L398.10055351625084,59.38239584559285" style="marker-start: url(#start-arrow);"></path><path class="link" d="M300.8285297052016,260.76464300136706L339.70058484914193,374.58781416615136" style="marker-end: url(#end-arrow);"></path><path class="link" d="M625.5483650977695,279.20824103527343L537.2990045903886,344.2984440155771" style="marker-start: url(#start-arrow);"></path><path class="link" d="M571.2184429661322,214.87832478067943L531.2901178646756,339.9894655542563" style="marker-start: url(#start-arrow);"></path><path class="link" d="M570.933412769838,182.58159930869795L532.2937947625633,68.50048890023426" style="marker-start: url(#start-arrow);"></path><path class="link" d="M543.6999460086959,64.6355007330386L650.8950981733524,117.33990432344723" style="marker-start: url(#start-arrow);"></path><path class="link" d="M641.0462053459734,257.2556992112108L659.0902776260203,139.43863008442898" style="marker-end: url(#end-arrow);"></path><path class="link selected" d="M497.4486331872585,437.8113778024649L615.3752025239197,402.351960594599" style="marker-start: url(#start-arrow);"></path></g><g><g transform="translate(296.95030252751627,249.40861579295202)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">application (livre applicatif)</text></g><g transform="translate(323.98188039430227,173.64310801447346)"><circle class="node" r="12" transform="" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Stéphane NATKIN</text></g><g transform="translate(345.1947400175295,390.6755193780727)"><circle class="node" r="12" transform="" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Stéphane CHAUDIRON</text></g><g transform="translate(431.3894637084043,170.57808177612526)"><circle class="node" r="12" transform="" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Jacques DUCLOY</text></g><g transform="translate(576.387036355686,198.68308960568237)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">application (livre applicatif)</text></g><g transform="translate(478.6583256233806,304.19294169729255)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">auto-édition</text></g><g transform="translate(388.5918929551347,315.1267091525082)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">blog</text></g><g transform="translate(481.1686842311629,442.7066062942641)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">bibliothèque numérique</text></g><g transform="translate(639.2295480154165,269.11739201381425)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">anthologie</text></g><g transform="translate(528.4441781137294,57.13473104353938)"><circle class="node" r="12" transform="" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">carte conceptuelle</text></g><g transform="translate(404.6310710616711,49.315005886474424)"><circle class="node" r="12" style="fill: rgb(100, 179, 190);"></circle><text x="0" y="4" class="id">arborescence</text></g><g transform="translate(527.6416990014612,351.4213962660189)"><circle class="node" r="12" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Khaldoun ZREIK</text></g><g transform="translate(661.6638755109758,122.63456528074079)"><circle class="node" r="12" transform="" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Alexis Souchet</text></g><g transform="translate(626.8669311988107,398.8965051886231)"><circle class="node" r="12" style="fill: rgb(146, 79, 111);"></circle><text x="0" y="4" class="id">Mehdi</text></g></g></svg>
