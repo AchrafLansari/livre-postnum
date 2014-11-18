@@ -11,13 +11,10 @@
 
 		var dataProfil;
 
-		//alert(window.location.pathname + ficSVG);
+		var hauteurs = [];
 		
 		var arrIds = [
-		      			{"idEle":"Spring_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
-		      			{"idEle":"Summer_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
-		      			{"idEle":"Autumn_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]},
-		      			{"idEle":"Winter_1_","fonction":changeTemperature,"params":[{"mes":"coucou"}]}
+		      			{"idEle":"circle-haut","fonction":changerTemperature,"params":[{"mes":"coucou"}]}
 		      		];
 		
 		function load(){
@@ -34,6 +31,8 @@
 			var importedNode = document.importNode(xml.documentElement, true);
     	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
 
+    	  		setGraph();
+    	  		
     	  		ajouteEvent();
 	    }		
 	    
@@ -42,10 +41,9 @@
 		function ajouteEvent() { 
 		
 			for (var i = 0; i < arrIds.length; i++) {
-				//length = taille du tableau
-			     var el = document.getElementById(arrIds[i].idEle); 
-			     el.addEventListener("click", arrIds[i].fonction,false); 			    	
-			} 		
+			     var svg = d3.select("#"+arrIds[i].idEle)
+			     			 .on("click", changerTemperature);
+			}
 		}
 
 		function chargeData(){
@@ -62,24 +60,174 @@
 					 });
 			
 		}
-		
-		function changeTemperature(evt){
-			var idEleEvt = evt.currentTarget.id;
-			/*
-			var eleChild = evt.currentTarget.children;
-			for (var i = 0; i < eleChild.length; i++) {
-				var el = eleChild[i];
-				if(el.localName=="path"){
-					el.setAttribute("style","fill:red");
-				}
-			}
-			*/
 
-			/*
-			d3.select("#"+idEleEvt)
-				.selectAll("path")
-				.style("fill","red");
-			*/
+		//https://gist.github.com/lrvick/2080648
+		// convert 0..255 R,G,B values to a hexidecimal color string
+		RGBToHex = function(r,g,b){
+		    var bin = r << 16 | g << 8 | b;
+		    return (function(h){
+		        return new Array(7-h.length).join("0")+h
+		    })(bin.toString(16).toUpperCase())
+		}
+		
+		function changerTemperature(){
+			
+			var x_decalage = this.getBBox().x;
+			var y_decalage = this.getBBox().y;
+
+			var x_centre = this.getBBox().width / 2;
+			var y_centre = this.getBBox().height / 2;
+			
+			var x_click = d3.mouse(this)[0] - x_decalage;
+			var y_click = d3.mouse(this)[1] - y_decalage;
+
+			var dist_x_centre = x_click - x_centre;
+			var dist_y_centre = y_click - y_centre;
+			
+			var dist_centre = Math.sqrt(Math.pow(dist_x_centre, 2) + Math.pow(dist_y_centre, 2));
+
+			var cos = dist_x_centre/dist_centre;
+			var sin = -dist_y_centre/dist_centre;
+
+			
+			var r_color = 192 + cos * 50;
+			var g_color = 192 + cos * 50;
+			var b_color = 128 + sin * 50;	
+
+			var color = RGBToHex(r_color, g_color, b_color);
+			
+			var h_variation = cos * 90;
+			var hauteur = 95.62735 + h_variation;
+
+			
+			d3.select("#circle21092")
+				.transition()
+				.duration(1500)
+				.style("fill", "#"+color);
+			d3.select("#rect21094")
+				.transition()
+				.duration(1500)
+				.attr("height", hauteur)
+				.attr("y", 318.54865 - h_variation)
+				.style("fill", "#"+color);
+
+			if(hauteur < 25){
+				d3.select("#t1")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t2")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t3")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t4")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t5")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 1);
+			}
+
+			else if(hauteur < 70){
+				d3.select("#t1")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t2")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t3")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t4")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 1);
+				d3.select("#t5")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+			}
+
+			else if(hauteur < 120){
+				d3.select("#t1")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t2")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t3")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 1);
+				d3.select("#t4")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t5")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+			}
+
+			else if(hauteur < 165){
+				d3.select("#t1")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t2")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 1);
+				d3.select("#t3")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t4")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t5")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+			}
+
+			else{
+				d3.select("#t1")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 1);
+				d3.select("#t2")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t3")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t4")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+				d3.select("#t5")
+				.transition()
+				.duration(1500)
+				.style("fill-opacity", 0);
+			}
+
+			hauteurs[hauteurs.length] = (1 + cos) * 50 + 10;
+			resetGraph();
 		}
 	    
 		function getElementArr(arr, prop, val){
@@ -88,11 +236,39 @@
 			}
 			return false;
 		}
+
+
+
+		function setGraph(){
+		}
+		
+		function resetGraph(){
+			var largeur = 800 / hauteurs.length;
+			
+			for(var i = 0; i < hauteurs.length-1; i++){
+				d3.select("#bar"+i)
+					.transition()
+					.duration(1500)
+					.attr("height", hauteurs[i])
+					.attr("y", 590 - hauteurs[i]) //ok
+					.attr("width", largeur)
+					.attr("x", largeur * i);
+			}
+
+			d3.select("svg")
+				.append("rect")
+				.attr("id", "bar" + hauteurs.length)
+				.attr("y", 590 - hauteurs[i]) //ok
+				.attr("x", largeur * hauteurs.length)
+				.attr("height", hauteurs[i])
+				.attr("width", largeur)
+				.style("fill", "#ff0000");
+		}
 		
 		</script>
 	</head>
 	<body onload="load();">
-		<div onclick="sauveSVG();" >SAUVE SVG</div>
+		<div onclick="sauveSVG();" >Sauve SVG</div>
 		<div id="viz" ></div>
 	</body>
 </html>
