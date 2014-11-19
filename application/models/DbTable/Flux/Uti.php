@@ -64,13 +64,22 @@ class Model_DbTable_Flux_Uti extends Zend_Db_Table_Abstract
      *  
      * @return integer
      */
-    public function ajouter($data, $existe=true)
+    public function ajouter($data, $existe=true, $rs=false)
     {
     	$id=false;
-    	if($existe)$id = $this->existe($data);
+    	if($existe)$id = $this->existe($data);    			
     	if(!$id){
     		if(!isset($data["date_inscription"]))$data["date_inscription"]= new Zend_Db_Expr('NOW()');
     	 	$id = $this->insert($data);
+    	 	$err = "";
+    	}else{
+    		$err = "le login existe déjà";
+    	}
+    	if($rs){
+    		$rs = $this->findByuti_id($id);
+    		$rs = $rs[0];	
+    		$rs["erreur"]=$err;
+    		return $rs;
     	}
     	return $id;
     } 
@@ -237,6 +246,7 @@ class Model_DbTable_Flux_Uti extends Zend_Db_Table_Abstract
             
         return $this->fetchAll($query)->toArray(); 
     }
+    
     /**
      * renoie les valeur distinct d'une colone
      *
@@ -263,7 +273,10 @@ class Model_DbTable_Flux_Uti extends Zend_Db_Table_Abstract
     	$arrRoles = $this->getDistinct("role");
     	$nbRole = count($arrRoles);
     	for ($i = 0; $i < $nbRole; $i++) {
-    		$arrUti = $this->findByRole($arrRoles[$i]["role"],true);
+    		//pour la base flux_tweetpalette
+    		//$arrUti = $this->findByRole($arrRoles[$i]["role"],true);
+    		//pour la base flux_etu
+    		$arrUti = $this->findByRole($arrRoles[$i]["role"],true, true);
     		$arrRoles[$i]['utis'] = $arrUti;
     	}
     	return $arrRoles;        

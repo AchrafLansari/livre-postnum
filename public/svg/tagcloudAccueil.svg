@@ -7,7 +7,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="960"
+   width="800"
    height="600"
    version="1.1"
    id="svg3662"
@@ -21,6 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -35,692 +36,687 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1277"
-     inkscape:window-height="921"
+     inkscape:window-width="1680"
+     inkscape:window-height="947"
      id="namedview3938"
      showgrid="false"
-     inkscape:zoom="0.39333333"
-     inkscape:cx="37.627119"
+     inkscape:zoom="1.2633333"
+     inkscape:cx="325.59367"
      inkscape:cy="300"
      inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3662" />
+     inkscape:current-layer="svg3662"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <g
-     id="g3664" />
+     id="g3664"
+     transform="translate(-73.517717,-12.122716)" />
   <text
      id="text3668"
      style="font-size:128.75537109px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="553.39056"
-     y="151.93134">numérique</text>
-  <text
-     id="text3670"
-     style="font-size:70.81545258px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="686.00861"
-     y="57.939911">de</text>
+     x="456.99152"
+     y="193.19844">numérique</text>
   <text
      id="text3672"
      style="font-size:70.81545258px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="695.02148"
-     y="334.76395">livre</text>
+     x="598.62238"
+     y="376.03104">livre</text>
   <text
      id="text3674"
      style="font-size:51.50214767px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="611.33044"
-     y="312.87555" />
+     x="537.81268"
+     y="300.75281" />
   <text
      id="text3676"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="319.05579"
-     y="378.54077">lecteur</text>
+     x="222.65672"
+     y="419.80786">lecteur</text>
   <text
      id="text3678"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="241.80257"
-     y="321.8884">écriture</text>
+     x="145.40349"
+     y="363.15549">écriture</text>
   <text
      id="text3680"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="186.43776"
-     y="204.72102">lectures</text>
+     x="90.038681"
+     y="245.98811">lectures</text>
   <text
      id="text3682"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="652.53217"
-     y="270.38626">lecture</text>
+     x="556.13306"
+     y="311.65335">lecture</text>
   <text
      id="text3684"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="392.44635"
-     y="248.49785">sémantique</text>
+     x="296.0473"
+     y="289.76495">sémantique</text>
   <text
      id="text3686"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="337.08154"
-     y="309.01288">open</text>
+     x="240.68248"
+     y="350.27997">open</text>
   <text
      id="text3688"
      style="font-size:32.18884277px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="617.76825"
-     y="433.90558">données</text>
+     x="521.3692"
+     y="475.17267">données</text>
   <text
      id="text3690"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="568.84119"
-     y="169.95708">interface</text>
+     x="472.44214"
+     y="211.2242">interface</text>
   <text
      id="text3692"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="713.04718"
-     y="347.6395">api</text>
+     x="616.64807"
+     y="388.90659">api</text>
   <text
      id="text3694"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="218.62662"
-     y="441.63089">bibliothèque</text>
+     x="122.22754"
+     y="482.89795">bibliothèque</text>
   <text
      id="text3696"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="299.74249"
-     y="266.52359">arborescence</text>
+     x="203.34343"
+     y="307.79068">arborescence</text>
   <text
      id="text3698"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="593.30475"
-     y="473.81976">blog</text>
+     x="496.9057"
+     y="515.08685">blog</text>
   <text
      id="text3700"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="401.45923"
-     y="216.30901">carte</text>
+     x="305.06018"
+     y="257.57611">carte</text>
   <text
      id="text3702"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="445.23605"
-     y="167.38197">conceptuelle</text>
+     x="348.83701"
+     y="208.64909">conceptuelle</text>
   <text
      id="text3704"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="280.42917"
-     y="166.09442">citation</text>
+     x="184.03011"
+     y="207.36153">citation</text>
   <text
      id="text3706"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="459.39914"
-     y="348.92703">code</text>
+     x="363.00009"
+     y="390.19412">code</text>
   <text
      id="text3708"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="606.18024"
-     y="383.69098">attention</text>
+     x="509.78119"
+     y="424.95807">attention</text>
   <text
      id="text3710"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="673.13306"
-     y="189.27039">cognition</text>
+     x="576.73395"
+     y="230.53749">cognition</text>
   <text
      id="text3712"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="374.42059"
-     y="263.94849">collaborer</text>
+     x="278.02155"
+     y="305.21558">collaborer</text>
   <text
      id="text3714"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="751.67383"
-     y="168.66953">communauté</text>
+     x="655.27472"
+     y="209.93666">communauté</text>
   <text
      id="text3716"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="422.06009"
-     y="278.1116">auteur</text>
+     x="325.66104"
+     y="319.37869">auteur</text>
   <text
      id="text3718"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="550.81543"
-     y="203.43347">forum</text>
+     x="454.41638"
+     y="244.70058">forum</text>
   <text
      id="text3720"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="544.37769"
-     y="294.84979">contenu</text>
+     x="447.97864"
+     y="336.11688">contenu</text>
   <text
      id="text3722"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="458.1116"
-     y="334.76395">contextualisation</text>
+     x="361.71255"
+     y="376.03104">contextualisation</text>
   <text
      id="text3724"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="789.01288"
-     y="475.1073">contribution</text>
+     x="692.61377"
+     y="516.37439">contribution</text>
   <text
      id="text3726"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="559.82831"
-     y="279.39914">copiercoller</text>
+     x="463.42926"
+     y="320.66623">copiercoller</text>
   <text
      id="text3728"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="514.76398"
-     y="261.37338">crowdsourcing</text>
+     x="418.36493"
+     y="302.64047">crowdsourcing</text>
   <text
      id="text3730"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="704.03436"
-     y="213.7339">curation</text>
+     x="607.63525"
+     y="255.00099">curation</text>
   <text
      id="text3732"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="606.18024"
-     y="239.48499">copyright</text>
+     x="509.78119"
+     y="280.75208">copyright</text>
   <text
      id="text3734"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="373.13306"
-     y="279.39914">creative</text>
+     x="276.73401"
+     y="320.66623">creative</text>
   <text
      id="text3736"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="477.4249"
-     y="364.37769">commons</text>
+     x="381.02585"
+     y="405.64478">commons</text>
   <text
      id="text3738"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="338.36911"
-     y="345.06439">dématérialisation</text>
+     x="241.97005"
+     y="386.33148">dématérialisation</text>
   <text
      id="text3740"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="508.32617"
-     y="181.54506">document</text>
+     x="411.92712"
+     y="222.81218">document</text>
   <text
      id="text3742"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="482.5751"
-     y="221.45923">documentarisation</text>
+     x="386.17606"
+     y="262.72632">documentarisation</text>
   <text
      id="text3744"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="713.04718"
-     y="377.25323">DRM</text>
+     x="616.64807"
+     y="418.52032">DRM</text>
   <text
      id="text3746"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="326.7811"
-     y="216.30901">ealbum</text>
+     x="230.38203"
+     y="257.57611">ealbum</text>
   <text
      id="text3748"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="656.39484"
-     y="240.77254">ebook</text>
+     x="559.99573"
+     y="282.03961">ebook</text>
   <text
      id="text3750"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="459.39914"
-     y="206.00858">écosystème</text>
+     x="363.00009"
+     y="247.27571">écosystème</text>
   <text
      id="text3752"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="366.69528"
-     y="178.96996">dinformation</text>
+     x="270.29623"
+     y="220.23708">dinformation</text>
   <text
      id="text3754"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="657.68243"
-     y="207.29614">écrire</text>
+     x="561.28333"
+     y="248.56325">écrire</text>
   <text
      id="text3756"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="557.25323"
-     y="184.12016">écrit</text>
+     x="460.85419"
+     y="225.38728">écrit</text>
   <text
      id="text3758"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="248.24034"
-     y="224.03433">décran</text>
+     x="151.84126"
+     y="265.30145">écran</text>
   <text
      id="text3760"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="598.45496"
-     y="306.43777">éditeur</text>
+     x="502.05591"
+     y="347.70486">éditeur</text>
   <text
      id="text3762"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="436.22318"
-     y="316.73819">édition</text>
+     x="339.82413"
+     y="358.00528">édition</text>
   <text
      id="text3764"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="478.71246"
-     y="41.201714">éditorialisation</text>
+     x="382.31342"
+     y="82.468819">éditorialisation</text>
   <text
      id="text3766"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="575.27899"
-     y="222.74678">émoticône</text>
+     x="478.87994"
+     y="264.01385">émoticône</text>
   <text
      id="text3768"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="602.31763"
-     y="185.40771">binette</text>
+     x="505.91858"
+     y="226.67482">binette</text>
   <text
      id="text3770"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="210.90128"
-     y="114.59227">encre</text>
+     x="114.5022"
+     y="155.85939">encre</text>
   <text
      id="text3772"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="344.80685"
-     y="325.75107">électronique</text>
+     x="248.40779"
+     y="367.01816">électronique</text>
   <text
      id="text3774"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="530.2146"
-     y="245.92274">encyclopédie</text>
+     x="433.81555"
+     y="287.18982">encyclopédie</text>
   <text
      id="text3776"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="257.25323"
-     y="238.19742">enrichissement</text>
+     x="160.85416"
+     y="279.46454">enrichissement</text>
   <text
      id="text3778"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="450.38626"
-     y="294.84979">epub</text>
+     x="353.98721"
+     y="336.11688">epub</text>
   <text
      id="text3780"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="393.73389"
-     y="360.51501">fiction</text>
+     x="297.33484"
+     y="401.7821">fiction</text>
   <text
      id="text3782"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="790.30042"
-     y="346.35193">interactive</text>
+     x="693.90131"
+     y="387.61902">interactive</text>
   <text
      id="text3784"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="620.34332"
-     y="168.66953">format</text>
+     x="523.94421"
+     y="209.93666">format</text>
   <text
      id="text3786"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="228.92703"
-     y="153.21889">fragment</text>
+     x="132.52795"
+     y="194.48601">fragment</text>
   <text
      id="text3788"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="272.70386"
-     y="485.40771">gamification</text>
+     x="176.30478"
+     y="526.6748">gamification</text>
   <text
      id="text3790"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="280.42917"
-     y="283.26181">humanités</text>
+     x="184.03011"
+     y="324.5289">humanités</text>
   <text
      id="text3792"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="651.24463"
-     y="403.0043">numériques</text>
+     x="554.84552"
+     y="444.27139">numériques</text>
   <text
      id="text3794"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="183.86266"
-     y="287.12445">hyperfiction</text>
+     x="87.463577"
+     y="328.39154">hyperfiction</text>
   <text
      id="text3796"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="416.90988"
-     y="413.30472">hypertexte</text>
+     x="320.51083"
+     y="454.57178">hypertexte</text>
   <text
      id="text3798"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="801.88843"
-     y="60.515018">immersion</text>
+     x="705.48932"
+     y="101.78213">immersion</text>
   <text
      id="text3800"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="219.91415"
-     y="171.24463">indexation</text>
+     x="123.51508"
+     y="212.51173">indexation</text>
   <text
      id="text3802"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="794.16309"
-     y="406.86694">web</text>
+     x="697.76398"
+     y="448.13403">web</text>
   <text
      id="text3804"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="792.87555"
-     y="186.69528">internet</text>
+     x="696.47644"
+     y="227.96242">internet</text>
   <text
      id="text3806"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="320.34335"
-     y="403.0043">archive</text>
+     x="223.94429"
+     y="444.27139">archive</text>
   <text
      id="text3808"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="393.73389"
-     y="61.80257">autoédition</text>
+     x="297.33484"
+     y="103.06968">autoédition</text>
   <text
      id="text3810"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="647.38196"
-     y="480.25751">industrielles</text>
+     x="550.98285"
+     y="521.5246">industrielles</text>
   <text
      id="text3812"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="243.09013"
-     y="254.93562">base</text>
+     x="146.69106"
+     y="296.2027">base</text>
   <text
      id="text3814"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="657.68243"
-     y="169.95708">sur</text>
+     x="561.28333"
+     y="211.2242">sur</text>
   <text
      id="text3816"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="742.66095"
-     y="357.93991">écran</text>
+     x="646.26184"
+     y="399.207">écran</text>
   <text
      id="text3818"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="711.75964"
-     y="240.77254">plurielles</text>
+     x="615.36053"
+     y="282.03961">plurielles</text>
   <text
      id="text3820"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="808.32617"
-     y="363.09012">anthologie</text>
+     x="711.92706"
+     y="404.35721">anthologie</text>
   <text
      id="text3822"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="270.12875"
-     y="339.91415">lien</text>
+     x="173.72968"
+     y="381.18124">lien</text>
   <text
      id="text3824"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="611.33044"
-     y="204.72102">linéaire</text>
+     x="514.9314"
+     y="245.98811">linéaire</text>
   <text
      id="text3826"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="279.14163"
-     y="182.83263">applicatif</text>
+     x="182.74257"
+     y="224.09975">applicatif</text>
   <text
      id="text3828"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="404.03433"
-     y="294.84979">linéarité</text>
+     x="307.63528"
+     y="336.11688">linéarité</text>
   <text
      id="text3830"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="423.34763"
-     y="377.25323">lire</text>
+     x="326.94858"
+     y="418.52032">lire</text>
   <text
      id="text3832"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="483.86267"
-     y="320.60086">liseuse</text>
+     x="387.46362"
+     y="361.86795">liseuse</text>
   <text
      id="text3834"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="447.81116"
-     y="182.83263">reader</text>
+     x="351.41211"
+     y="224.09975">reader</text>
   <text
      id="text3836"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="830.2146"
-     y="171.24463">littérature</text>
+     x="733.81549"
+     y="212.51173">littérature</text>
   <text
      id="text3838"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="756.82404"
-     y="227.89699">volumen</text>
+     x="660.42493"
+     y="269.16406">volumen</text>
   <text
      id="text3840"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="383.43347"
-     y="195.70815">liber</text>
+     x="287.03442"
+     y="236.97527">liber</text>
   <text
      id="text3842"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="782.57513"
-     y="328.32617">codex</text>
+     x="686.17603"
+     y="369.59326">codex</text>
   <text
      id="text3844"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="487.72531"
-     y="276.82404">augmenté</text>
+     x="391.32626"
+     y="318.09113">augmenté</text>
   <text
      id="text3846"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="319.05579"
-     y="200.85837">postnumérique</text>
+     x="222.65672"
+     y="242.1255">postnumérique</text>
   <text
      id="text3848"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="237.93991"
-     y="357.93991">longue</text>
+     x="141.54083"
+     y="399.207">longue</text>
   <text
      id="text3850"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="228.92703"
-     y="269.09872">traîne</text>
+     x="132.52795"
+     y="310.36581">traîne</text>
   <text
      id="text3852"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="738.79828"
-     y="258.79828">matérialité</text>
+     x="642.39917"
+     y="300.06537">matérialité</text>
   <text
      id="text3854"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="483.86267"
-     y="383.69098">métadonnées</text>
+     x="387.46362"
+     y="424.95807">métadonnées</text>
   <text
      id="text3856"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="537.93994"
-     y="311.58798">mémoire</text>
+     x="441.54089"
+     y="352.85507">mémoire</text>
   <text
      id="text3858"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="172.27467"
-     y="155.79399">moteur</text>
+     x="75.875595"
+     y="197.06111">moteur</text>
   <text
      id="text3860"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="223.77682"
-     y="339.91415">recherche</text>
+     x="127.37775"
+     y="381.18124">recherche</text>
   <text
      id="text3862"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="192.87553"
-     y="253.64807">narration</text>
+     x="96.476456"
+     y="294.91516">narration</text>
   <text
      id="text3864"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="546.95282"
-     y="328.32617">augmentée</text>
+     x="450.55377"
+     y="369.59326">augmentée</text>
   <text
      id="text3866"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="647.38196"
-     y="224.03433">navigation</text>
+     x="550.98285"
+     y="265.30145">navigation</text>
   <text
      id="text3868"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="181.28755"
-     y="224.03433">exploratoire</text>
+     x="84.888474"
+     y="265.30145">exploratoire</text>
   <text
      id="text3870"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="585.57941"
-     y="369.52789">numérisation</text>
-  <text
-     id="text3872"
-     style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="841.80255"
-     y="69.527893">et</text>
+     x="489.18036"
+     y="410.79498">numérisation</text>
   <text
      id="text3874"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="204.46352"
-     y="135.19313">access</text>
+     x="108.06444"
+     y="176.46025">access</text>
   <text
      id="text3876"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="729.7854"
-     y="449.35623">data</text>
+     x="633.38629"
+     y="490.62329">data</text>
   <text
      id="text3878"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="723.34766"
-     y="186.69528">optint</text>
+     x="626.94855"
+     y="227.96242">optint</text>
   <text
      id="text3880"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="236.65236"
-     y="99.141624">optout</text>
+     x="140.25328"
+     y="140.40874">optout</text>
   <text
      id="text3882"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="248.24034"
-     y="377.25323">droits</text>
+     x="151.84126"
+     y="418.52032">droits</text>
   <text
      id="text3884"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="236.65236"
-     y="472.5322">oralité</text>
+     x="140.25328"
+     y="513.79926">oralité</text>
   <text
      id="text3886"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="759.39917"
-     y="200.85837">page</text>
+     x="663.00006"
+     y="242.1255">page</text>
   <text
      id="text3888"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="478.71246"
-     y="61.80257">partager</text>
+     x="382.31342"
+     y="103.06968">partager</text>
   <text
      id="text3890"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="414.33475"
-     y="393.99142">pratiques</text>
+     x="317.9357"
+     y="435.25851">pratiques</text>
   <text
      id="text3892"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="579.1416"
-     y="457.08154">informationnelles</text>
+     x="482.74255"
+     y="498.34863">informationnelles</text>
   <text
      id="text3894"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="576.56653"
-     y="59.227463">propriété</text>
+     x="480.16748"
+     y="100.49458">propriété</text>
   <text
      id="text3896"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="577.85406"
-     y="354.07724">intellectuelle</text>
+     x="481.45502"
+     y="395.34433">intellectuelle</text>
   <text
      id="text3898"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7cb94"
-     x="731.073"
-     y="276.82404">poésie</text>
+     x="634.67389"
+     y="318.09113">poésie</text>
   <text
      id="text3900"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#843c39"
-     x="248.24034"
-     y="57.939911">remédiation</text>
+     x="151.84126"
+     y="99.207024">remédiation</text>
   <text
      id="text3902"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ad494a"
-     x="311.33047"
-     y="59.227463">rhizome</text>
+     x="214.93141"
+     y="100.49458">rhizome</text>
   <text
      id="text3904"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#d6616b"
-     x="477.4249"
-     y="306.43777">récit</text>
+     x="381.02585"
+     y="347.70486">récit</text>
   <text
      id="text3906"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7969c"
-     x="286.86694"
-     y="43.776821">hybride</text>
+     x="190.46788"
+     y="85.043922">hybride</text>
   <text
      id="text3908"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#7b4173"
-     x="756.82404"
-     y="387.55365">réseau</text>
+     x="660.42493"
+     y="428.82074">réseau</text>
   <text
      id="text3910"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#a55194"
-     x="653.81976"
-     y="351.50214">séquentiel</text>
+     x="557.42065"
+     y="392.76923">séquentiel</text>
   <text
      id="text3912"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#ce6dbd"
-     x="716.90985"
-     y="418.45493">sérendipité</text>
+     x="620.51074"
+     y="459.72205">sérendipité</text>
   <text
      id="text3914"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#de9ed6"
-     x="461.97424"
-     y="491.84549">support</text>
+     x="365.5752"
+     y="533.11255">support</text>
   <text
      id="text3916"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#393b79"
-     x="711.75964"
-     y="472.5322">tablette</text>
+     x="615.36053"
+     y="513.79926">tablette</text>
   <text
      id="text3918"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#5254a3"
-     x="866.26611"
-     y="51.502144">tabularité</text>
+     x="605.22321"
+     y="90.394592">tabularité</text>
   <text
      id="text3920"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#6b6ecf"
-     x="191.58798"
-     y="240.77254">TEI</text>
+     x="95.188904"
+     y="282.03961">TEI</text>
   <text
      id="text3922"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#9c9ede"
-     x="178.71243"
-     y="99.141624">télélecture</text>
+     x="82.313354"
+     y="140.40874">télélecture</text>
   <text
      id="text3924"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#637939"
-     x="765.83691"
-     y="435.19315">texte</text>
+     x="669.43781"
+     y="476.46021">texte</text>
   <text
      id="text3926"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8ca252"
-     x="361.54507"
-     y="46.351929">textualité</text>
+     x="265.146"
+     y="87.619041">textualité</text>
   <text
      id="text3928"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#b5cf6b"
-     x="133.64806"
-     y="242.06007">traduction</text>
+     x="292.13025"
+     y="492.29813">traduction</text>
   <text
      id="text3930"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#cedb9c"
-     x="805.7511"
-     y="243.34764">translittératie</text>
+     x="709.35199"
+     y="284.61475">translittératie</text>
   <text
      id="text3932"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#8c6d31"
-     x="534.07727"
-     y="400.4292">usages</text>
+     x="437.67822"
+     y="441.69629">usages</text>
   <text
      id="text3934"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#bd9e39"
-     x="818.62659"
-     y="381.11588">visualisation</text>
+     x="722.22748"
+     y="422.38297">visualisation</text>
   <text
      id="text3936"
      style="font-size:12.87553692px;font-family:Impact;text-anchor:middle;opacity:1;fill:#e7ba52"
-     x="519.91418"
-     y="415.87982">application</text>
+     x="423.51514"
+     y="457.14691">application</text>
 </svg>
