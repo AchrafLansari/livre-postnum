@@ -12,6 +12,7 @@
 		var dataProfil;
 
 		var hauteurs = [];
+		var colors = [];
 		
 		var arrIds = [
 		      			{"idEle":"circle-haut","fonction":changerTemperature,"params":[{"mes":"coucou"}]}
@@ -30,9 +31,6 @@
 	    		//Adding our svg file to HTML document
 			var importedNode = document.importNode(xml.documentElement, true);
     	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
-
-    	  		setGraph();
-    	  		
     	  		ajouteEvent();
 	    }		
 	    
@@ -61,13 +59,16 @@
 			
 		}
 
-		//https://gist.github.com/lrvick/2080648
-		// convert 0..255 R,G,B values to a hexidecimal color string
+
+		/*
+		* Source: https://gist.github.com/lrvick/2080648
+		* convert 0..255 R,G,B values to a hexidecimal color string
+		*/
 		RGBToHex = function(r,g,b){
 		    var bin = r << 16 | g << 8 | b;
 		    return (function(h){
-		        return new Array(7-h.length).join("0")+h
-		    })(bin.toString(16).toUpperCase())
+		        return new Array(7-h.length).join("0")+h;
+		    })(bin.toString(16).toUpperCase());
 		}
 		
 		function changerTemperature(){
@@ -86,17 +87,56 @@
 			
 			var dist_centre = Math.sqrt(Math.pow(dist_x_centre, 2) + Math.pow(dist_y_centre, 2));
 
-			var cos = dist_x_centre/dist_centre;
-			var sin = -dist_y_centre/dist_centre;
+			var cos = dist_x_centre / dist_centre;
+			var sin = -dist_y_centre / dist_centre;
 
-			
-			var r_color = 192 + cos * 50;
-			var g_color = 192 + cos * 50;
-			var b_color = 128 + sin * 50;	
+			var r_color;
+			var g_color;
+			var b_color;	
 
-			var color = RGBToHex(r_color, g_color, b_color);
-			
 			var h_variation = cos * 90;
+			
+			if(sin > 0){
+				g_color = 255;
+
+				h_variation = 45 + cos * 45; 
+
+				if(cos > 0){
+					r_color = 0 + cos * 50;
+					b_color = 0 + cos * 100;
+				}
+				else{
+					r_color = 0 - cos * 200;
+					b_color = 0 - cos * 100;
+				}
+			}
+			else{
+				if(cos > -0.2){
+					r_color = 255;
+
+					if(cos > 0){
+						g_color = 150 + cos * 50;
+						b_color = 0 + cos * 30;
+					}
+					else{
+						g_color = 150 - cos * 50;
+						b_color = 0 - cos * 30;
+					}
+
+					h_variation = - 55 + cos * 25;
+				}
+				else{
+					r_color = 200 + cos * 50;
+					g_color = 200 + cos * 50;
+					b_color = 200 + cos * 50;
+
+					h_variation = -35 + cos * 35;
+				}
+			}
+			
+			var color = RGBToHex(r_color, g_color, b_color);
+
+
 			var hauteur = 95.62735 + h_variation;
 
 			
@@ -110,8 +150,13 @@
 				.attr("height", hauteur)
 				.attr("y", 318.54865 - h_variation)
 				.style("fill", "#"+color);
+			d3.select("#rect21050")
+				.transition()
+				.duration(1500)
+				.attr("height", hauteur)
+				.attr("y", 328.54865 - h_variation);
 
-			if(hauteur < 25){
+			if(hauteur < 45){
 				d3.select("#t1")
 				.transition()
 				.duration(1500)
@@ -226,7 +271,8 @@
 				.style("fill-opacity", 0);
 			}
 
-			hauteurs[hauteurs.length] = (1 + cos) * 50 + 10;
+			hauteurs[hauteurs.length] = hauteur;
+			colors[colors.length] = color;
 			resetGraph();
 		}
 	    
@@ -236,33 +282,27 @@
 			}
 			return false;
 		}
-
-
-
-		function setGraph(){
-		}
 		
 		function resetGraph(){
 			var largeur = 800 / hauteurs.length;
-			
-			for(var i = 0; i < hauteurs.length-1; i++){
-				d3.select("#bar"+i)
-					.transition()
-					.duration(1500)
-					.attr("height", hauteurs[i])
-					.attr("y", 590 - hauteurs[i]) //ok
-					.attr("width", largeur)
-					.attr("x", largeur * i);
-			}
 
 			d3.select("svg")
-				.append("rect")
-				.attr("id", "bar" + hauteurs.length)
-				.attr("y", 590 - hauteurs[i]) //ok
-				.attr("x", largeur * hauteurs.length)
-				.attr("height", hauteurs[i])
-				.attr("width", largeur)
-				.style("fill", "#ff0000");
+				.append("rect") //ok ne pas toucher
+				.attr("id", "bar" + hauteurs.length) //ok ne pas toucher
+				.attr("y", 600 - hauteurs[hauteurs.length-1]/2 - 10) //ok ne pas toucher
+				.attr("x", 800)
+				//.attr("x", largeur * (hauteurs.length-1)) //ok ne pas toucher
+				.attr("height", hauteurs[hauteurs.length-1]/2 + 10) //ok ne pas toucher
+				.attr("width", 0) //ok ne pas toucher
+				.style("fill", "#"+colors[colors.length-1]); //ok ne pas toucher
+			
+			for(var i = 0; i <= hauteurs.length; i++){
+				d3.select("#bar"+i) //ok ne pas toucher
+					.transition() //ok ne pas toucher
+					.duration(1500) //ok ne pas toucher
+					.attr("width", largeur)
+					.attr("x", 1 + largeur * (i-1));
+			}
 		}
 		
 		</script>
