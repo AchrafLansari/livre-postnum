@@ -9,21 +9,13 @@
 
 		var ficIHM = "svg/plis-ages.svg";
 		//var ficSVG = "svg/tagcloudAccueil.svg";
-
-<<<<<<< Updated upstream
-		alert(window.location.pathname);
 		
-		var dataProfil;
-		
-		var arrIds = [{"idEle":"g3652","fonction":changeFillPath,"params":[{"mes":"coucou"}]}];
-=======
 		//tableau des inclanations
 		var arrInclinations =  <?php echo json_encode($this->arrInclinations); ?>;	
 		arrInclinations.forEach(function(d){
 			//récupère les notes de l'inclanations
 			d.oNote = JSON.parse(d.note);
 		  });
->>>>>>> Stashed changes
 		
 		var arrInclinaisons =  <?php echo json_encode($this->arrInclinaisons); ?>;		
 		arrInclinaisons.forEach(function(d){
