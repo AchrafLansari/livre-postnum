@@ -9,7 +9,8 @@
 
 		var ficIHM = "svg/plis-ages.svg";
 		//var ficSVG = "svg/tagcloudAccueil.svg";
-		
+		var chaineDate = d3.time.format("%c");
+
 		//tableau des inclanations
 		var arrInclinations =  <?php echo json_encode($this->arrInclinations); ?>;	
 		arrInclinations.forEach(function(d){
@@ -410,16 +411,29 @@
 		}
 		
 		function chargeInclination(oNote, dst){
-	    		queue()
+			//récupère la destination
+			var gDst = document.getElementById(dst);
+			//supprime le contenu sauf le rectangle
+	    		if(gDst.childNodes){
+	    			var childs=gDst.childNodes;
+	    			for(var i=0;i<childs.length;i++){
+	    				if(childs[i].id != "rect4380" && childs[i].id != "rect16999")gDst.removeChild(childs[i]);
+	    			}
+	    		}
+
+			queue()
 	    		.defer(d3.xml, oNote.url, "image/svg+xml")
 	    		.await(function(error, xml) {
 		    		var importedNode = document.importNode(xml.documentElement, true);
-				//récupère la destination
-				var gDst = document.getElementById(dst);
 		    		//redimensionne le svg
 		    		var bbDst = gDst.getBBox();
 		    		var wSrc = importedNode.getAttribute("width");
+		    		//supprime les px
+		    		var px = wSrc.substr(wSrc.length-2);
+		    		if(px=="px")wSrc=wSrc.substr(0, wSrc.length-2);
 		    		var hSrc = importedNode.getAttribute("height");
+		    		px = hSrc.substr(hSrc.length-2);
+		    		if(px=="px")hSrc=hSrc.substr(0, hSrc.length-2);
 		    		var id = importedNode.getAttribute("id");
 		    		importedNode.setAttribute("width",bbDst.width);
 		    		importedNode.setAttribute("height",bbDst.height);
@@ -432,14 +446,29 @@
 		    		var plans = d3.select("#"+dst+" svg").selectAll("g")
 		    			.on("click",function(){
 			    			if(this.id.substr(0,4)=="plan"){
-				    			console.log(this.id);
-				    			var f = d3.select(this).select("rect");
-				    			f.style("fill","red");
-				   			//afiche l'inclinaisons
+							var idPlan = this.id;
+				    			console.log("click plan ="+idPlan);
+				    			//mets à jour la couleur du cadre
+				    			d3.select("#"+dst+" svg").selectAll("rect")
+				    				.style("stroke",function(){
+					    				if(d3.select(this).attr("stroke")=="red") return "black";
+					    				})
+				    				.style("stroke-width",function(d){
+					    				if(d3.select(this).attr("stroke-width")==6) return 1;
+				    				});
+					   		//affiche l'inclinaisons avec l'url
 				   			var arrId = this.id.split("_");
+			    				var incUrl = false;
 							oNote.inclinaisons.forEach(function(inc){
-				    				if(inc.plan==arrId[1])chargeInclinaison(inc.url, "g9800");								
-								});								    			
+				    				if(inc.plan==arrId[1]){
+					    				chargeInclinaison(inc.url, "g9800");
+					    				incUrl = true;
+				    				}								
+							});
+							//affiche l'inclaisons suivant le g
+							if(!incUrl){
+								chargeInclinaison(false, "g9800", idPlan);
+							}								    			
 			    			}else console.log(this.id.substr(0,4));
 			    			
 		    			})
@@ -453,28 +482,78 @@
 		    				}
 					});
 	    			  });				
+	   			//ajoute les binding
+	   			if(oNote.binding){
+					oNote.binding.forEach(function(d){
+						if(d.fct=="setSrcToDst"){
+							document.getElementById(d.idDst).innerHTML = document.getElementById(d.idSrc).innerHTML;
+						}
+						if(d.fct=="getDate"){
+							var now=new Date();
+							var dt = chaineDate(now)
+							document.getElementById(d.idDst).innerHTML = dt;
+						}
+		    			  });				
+	   			}
 	   			    	    	  	
 		    });
     		}		
 
-		function chargeInclinaison(url, dst){
-	    		queue()
-	    		.defer(d3.xml, url, "image/svg+xml")
-	    		.await(function(error, xml) {
-		    		var importedNode = document.importNode(xml.documentElement, true);
-				//récupère la destination
-				var gDst = document.getElementById(dst);
-		    		//redimensionne le svg
-		    		var bbDst = gDst.getBBox();
-		    		var wSrc = importedNode.getAttribute("width");
-		    		var hSrc = importedNode.getAttribute("height");
-		    		importedNode.setAttribute("width",bbDst.width);
-		    		importedNode.setAttribute("height",bbDst.height);
-		    		importedNode.setAttribute("x",bbDst.x);
-		    		importedNode.setAttribute("y",bbDst.y);		    		
-		    		importedNode.setAttribute("viewBox","0 0 "+wSrc+" "+hSrc);
-	   			gDst.appendChild(importedNode);	    	    	  	
-		    });
+		function chargeInclinaison(url, dst, src){
+			//récupère la destination
+			var gDst = document.getElementById(dst);
+	    		var bbDst = gDst.getBBox();
+			//supprime le contenu sauf le rectangle
+	    		if(gDst.childNodes){
+	    			var childs=gDst.childNodes;
+	    			for(var i=0;i<childs.length;i++){
+	    				if(childs[i].id != "rect6156")gDst.removeChild(childs[i]);
+	    			}
+	    		}
+	    		    		
+			if(url){				
+		    		queue()
+		    		.defer(d3.xml, url, "image/svg+xml")
+		    		.await(function(error, xml) {
+			    		var importedNode = document.importNode(xml.documentElement, true);
+			    		//redimensionne le svg
+			    		var wSrc = importedNode.getAttribute("width");
+			    		var hSrc = importedNode.getAttribute("height");
+			    		importedNode.setAttribute("width",bbDst.width);
+			    		importedNode.setAttribute("height",bbDst.height);
+			    		importedNode.setAttribute("x",bbDst.x);
+			    		importedNode.setAttribute("y",bbDst.y);		    		
+			    		importedNode.setAttribute("viewBox","0 0 "+wSrc+" "+hSrc);
+		   			gDst.appendChild(importedNode);	    	    	  	
+			    });
+			}else{
+				//récupère la source
+				var gSrc = document.getElementById(src);
+				var gSrcCopie = gSrc.cloneNode(true);
+		    		var bbSrc = gSrc.getBBox();
+
+		    		//vérifie la rotation du plan
+		    		var arrId = gSrc.getAttribute("id").split("_");
+		    		var idCopie = arrId.join("_")+"_c";
+		    		gSrcCopie.setAttribute("id", idCopie);
+		    		
+		    		var xRot = (bbSrc.width/2)+bbSrc.x;
+		    		var yRot = (bbSrc.height/2)+bbSrc.y;
+		    		if(arrId[2]!="0") gSrcCopie.setAttribute("transform","rotate(" +arrId[2]+" "+xRot+" "+yRot+")");
+				
+				//ajoute un svg à la source
+				var svg = d3.select("#"+dst).append("svg")
+					.attr("id","svgZoom")
+					.attr("width",bbDst.width)
+					.attr("height",bbDst.height)
+					.attr("x",bbDst.x)
+					.attr("y",bbDst.y)
+			    		.attr("viewBox",bbSrc.x+" "+bbSrc.y+" "+bbSrc.width+" "+bbSrc.height);
+				svg.node().appendChild(gSrcCopie);
+	    			var f = d3.select("#"+src).select("rect");
+	    			f.style("stroke","red").style("stroke-width","6");
+				
+			}
 		}		
 		
 		</script>
@@ -506,7 +585,7 @@
 			}
 		    @font-face {
 		        font-family: Origami;
-		        src: url('../fonts/origami/ORIGAMI_.TTF');
+		        src: url('fonts/origami/ORIGAMI_.TTF');
 		    }
 		
 			#promptCompat{ 
@@ -529,7 +608,23 @@
 			dialog::backdrop{ 
 				background-color: rgba(0, 0, 0, 0.6); 
 			} 
-		
+			@font-face {
+				font-family: 'TodaySHOP-Light';
+				src: url('fonts/TodaySHOP/TodaySHOP-Light.otf') format('truetype');
+			}
+			@font-face {
+				font-family: 'TodaySHOP-Medium';
+				src: url('fonts/TodaySHOP/TodaySHOP-Medium.otf') format('truetype');
+			}
+			@font-face {
+				font-family: 'Swift-Light';
+				src: url('fonts/Swift/Swift-03-Light.otf') format('truetype');
+			}
+			@font-face {
+				font-family: 'Impact';
+				src: url('fonts/Impact.ttf') format('truetype');
+			}
+			
 		</style>		
 	</head>
 	<body onload="load();">
