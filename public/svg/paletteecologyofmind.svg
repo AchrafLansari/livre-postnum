@@ -134,7 +134,7 @@
    showgrid="false"
    inkscape:zoom="1.13"
    inkscape:cx="362.97557"
-   inkscape:cy="232.74336"
+   inkscape:cy="303.53982"
    inkscape:window-x="-8"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
@@ -146,7 +146,13 @@
      id="guide11667" /><sodipodi:guide
      orientation="0,1"
      position="132.98969,307.21649"
-     id="guide11669" /></sodipodi:namedview>
+     id="guide11669" /><sodipodi:guide
+     orientation="1,0"
+     position="215.9292,411.50442"
+     id="guide4898" /><sodipodi:guide
+     orientation="1,0"
+     position="110.61947,378.76106"
+     id="guide4900" /></sodipodi:namedview>
 <g
    id="Bground">
 	<linearGradient
@@ -8618,11 +8624,11 @@
    sodipodi:rx="10.73"
    sodipodi:ry="10.73"
    transform="matrix(1.2821804,0,0,1.2821804,-2.3734808,-105.16973)" /><rect
-   style="opacity:0.15"
+   style="opacity:0.95"
    x="78.350037"
-   y="259.46317"
+   y="310.79059"
    width="8.8355045"
-   height="169.19524"
+   height="117.86781"
    id="rect21050" /><rect
    x="92.192451"
    y="395.16272"
@@ -8871,61 +8877,71 @@
      cx="396.07101" /></g><text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0;stroke:none;font-family:Sans"
-   x="116.81416"
-   y="402.65485"
+   x="110.61947"
+   y="401.7699"
    id="text5"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="t5"
-     x="116.81416"
-     y="402.65485"
+     x="110.61947"
+     y="401.7699"
      style="font-size:24px;font-style:oblique;fill:#000000;fill-opacity:0;-inkscape-font-specification:Sans Oblique">Brrr...</tspan></text>
+
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-   x="115.77142"
-   y="196.20045"
+   x="110.61947"
+   y="191.77568"
    id="text1"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="t1"
-     x="115.77142"
-     y="196.20045"
-     style="font-size:18px;font-style:oblique;fill:#000000;fill-opacity:0;-inkscape-font-specification:Sans Oblique">Sortez les lunettes de soleil</tspan></text>
+     x="110.61947"
+     y="191.77568"
+     style="font-size:14px;font-style:oblique;fill:#000000;fill-opacity:0;-inkscape-font-specification:Sans Oblique">Fahrenheit 451</tspan></text>
+
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-   x="114.88646"
-   y="349.29782"
+   x="110.61947"
+   y="345.758"
    id="text4"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="t4"
-     x="114.88646"
-     y="349.29782"
-     style="font-size:20px;font-style:oblique;-inkscape-font-specification:Sans Oblique;fill:#000000;fill-opacity:0">Winter is coming</tspan></text>
+     x="110.61947"
+     y="345.758"
+     style="font-size:14px;font-style:oblique;fill:#000000;fill-opacity:0;-inkscape-font-specification:Sans Oblique">Winter is coming</tspan></text>
+
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-   x="115.77142"
-   y="249.29781"
+   x="110.61947"
+   y="243.98807"
    id="text2"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="t2"
-     x="115.77142"
-     y="249.29781"
-     style="font-size:24px;font-style:oblique;-inkscape-font-specification:Sans Oblique;fill:#000000;fill-opacity:0">Brrr...</tspan></text>
+     x="110.61947"
+     y="243.98807"
+     style="font-size:14px;font-style:oblique;fill:#000000;fill-opacity:0;-inkscape-font-specification:Sans Oblique">Summer time</tspan></text>
+
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-   x="116.65637"
-   y="298.39514"
+   x="110.61947"
+   y="292.78351"
    id="text3"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="t3"
-     x="116.65637"
-     y="298.39514"
-     style="font-size:24px;font-style:oblique;-inkscape-font-specification:Sans Oblique">Calme plat</tspan></text>
+     x="110.61947"
+     y="292.78351"
+     style="font-size:16px;font-style:oblique;-inkscape-font-specification:Sans Oblique">Calme plat</tspan></text>
+
+
 </svg>
