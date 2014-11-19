@@ -26,10 +26,6 @@ class ExploController extends Zend_Controller_Action
 		}    		
     		
     }
-    
-    public function ecologyAction(){
-    	
-    }
 
     public function sauvesvgAction()
     {
@@ -47,6 +43,10 @@ class ExploController extends Zend_Controller_Action
     		
     }
     
+    public function ecologyAction()
+    {
+    
+    }
     
 }
 
