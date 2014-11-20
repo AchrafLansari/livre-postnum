@@ -2,7 +2,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Trombinoscope CDNL 14-15</title>
-        <style>svg {width:100%;margin:0 auto;}</style>
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		
@@ -12,21 +11,35 @@
 		
 		var arrIds =																													// Met dans la variable arrIds l'ensemble des informations suivantes:
 		[
-		{"idClick":"hugo", "nom":"Hugo", "prenom":"Stephan", "age":"22", "Code":"7", "graph":"5","photoCdnl":"http://127.0.0.1/GitHub/livre-postnum/data/trombi/CDNL1415/2.jpg"},
-		{"idClick":"antoine", "Nom":"Barres", "Prenom":"Antoine", "Age":"25", "Code":"2", "Graph":"8","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/3.jpg"},
-		{"idClick":"gabriela", "Nom":"Paredes", "Prenom":"Gabriela", "Age":"28", "Code":"3", "Graph":"7"},
-		{"idClick":"macaire", "Nom":"Del Monaco", "Prenom":"Macaire", "Age":"30", "Code":"7", "Graph":"4"},
-		{"idClick":"alexandre", "Nom":"Pain", "Prenom":"Alexandre", "Age":"25", "Code":"7", "Graph":"5"},
-		{"idClick":"clementine", "Nom":"Plissonier", "Prenom":"Clementine", "Age":"21", "Code":"6", "Graph":"7"},
-		{"idClick":"yolaine", "Nom":"Raymond", "Prenom":"Yolaine", "Age":"24", "Code":"5", "Graph":"8"},
-		{"idClick":"amin", "Nom":"Gazi", "Prenom":"Amin", "Age":"25", "Code":"5", "Graph":"5"},
-		{"idClick":"quentin", "Nom":"Brunet", "Prenom":"Quentin", "Age":"24", "Code":"6", "Graph":"5"},
-		{"idClick":"simon", "Nom":"Tschan", "Prenom":"Simon", "Age":"24", "Code":"3", "Graph":"5"},
-		{"idClick":"alexia", "Nom":"Camail", "Prenom":"Alexia", "Age":"22", "Code":"6", "Graph":"7"},
-		{"idClick":"helene", "Nom":"Donato", "Prenom":"Helene", "Age":"22", "Code":"5", "Graph":"8"},
-		{"idClick":"guillaume", "Nom":"Briand", "Prenom":"Guillaume", "Age":"22", "Code":"6", "Graph":"8"},
-		{"idClick":"louis", "Nom":"Crolus", "Prenom":"Louis", "Age":"22", "Code":"4", "Graph":"5"},
-		{"idClick":"marc", "Nom":"Biofa", "Prenom":"Marc", "Age":"25", "Code":"7", "Graph":"5"},
+		{"idClick":"hugo", "nom":"Hugo", "prenom":"Stephan", "Age":"22", "code":"7", "graph":"5","photoCdnl":"http://127.0.0.1/GitHub/livre-postnum/data/trombi/CDNL1415/2.jpg"},
+		
+		{"idClick":"antoine", "nom":"Barres", "prenom":"Antoine", "Age":"25", "code":"2", "graph":"8","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/3.jpg"},
+		
+		{"idClick":"gabriela", "nom":"Paredes", "prenom":"Gabriela", "Age":"28", "code":"3", "graph":"7"},
+		
+		{"idClick":"macaire", "nom":"Del Monaco", "prenom":"Macaire", "Age":"30", "code":"7", "graph":"4"},
+		
+		{"idClick":"alexandre", "nom":"Pain", "prenom":"Alexandre", "Age":"25", "code":"7", "graph":"5"},
+		
+		{"idClick":"clementine", "nom":"Plissonier", "prenom":"Clementine", "Age":"21", "code":"6", "graph":"7"},
+		
+		{"idClick":"yolaine", "nom":"Raymond", "prenom":"Yolaine", "Age":"24", "code":"5", "graph":"8"},
+		
+		{"idClick":"amin", "nom":"Gazi", "prenom":"Amin", "Age":"25", "code":"5", "graph":"5"},
+		
+		{"idClick":"quentin", "nom":"Brunet", "prenom":"Quentin", "Age":"24", "code":"6", "graph":"5"},
+		
+		{"idClick":"simon", "nom":"Tschan", "prenom":"Simon", "Age":"24", "code":"3", "graph":"5"},
+		
+		{"idClick":"alexia", "nom":"Camail", "prenom":"Alexia", "Age":"22", "code":"6", "graph":"7"},
+		
+		{"idClick":"helene", "nom":"Donato", "prenom":"Helene", "Age":"22", "code":"5", "graph":"8"},
+		
+		{"idClick":"guillaume", "nom":"Briand", "prenom":"Guillaume", "Age":"22", "code":"6", "graph":"8"},
+		
+		{"idClick":"louis", "nom":"Crolus", "prenom":"Louis", "Age":"22", "code":"4", "graph":"5"},
+		
+		{"idClick":"marc", "nom":"Biofa", "prenom":"Marc", "Age":"25", "code":"7", "graph":"5"},
 		];
 		
 		function load()
@@ -75,15 +88,15 @@
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);	//récupère les information de l'étudiant
 			
 			
-			var elemTxt = document.getElementById('nom');						//change les zones ayant l'id correspond par le contenu de arrIds
+			var elemTxt = document.getElementById('Nom');						//change les zones ayant l'id correspond par le contenu de arrIds
 			elemTxt.textContent=item.nom;
 			elemTxt = document.getElementById('prenom');
 			elemTxt.textContent=item.prenom;
 			elemTxt = document.getElementById('age');
 			elemTxt.textContent=item.Age;
-			elemTxt = document.getElementById('code');
+			elemTxt = document.getElementById('resultat-code');
 			elemTxt.textContent=item.code;
-			elemTxt = document.getElementById('graph');
+			elemTxt = document.getElementById('resultat-dessin');
 			elemTxt.textContent=item.graph;
 			elemTxt = document.getElementById('photoCdnl');
 			elemTxt.textContent=item.photoCdnl;
