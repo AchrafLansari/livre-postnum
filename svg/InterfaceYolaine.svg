@@ -2,7 +2,7 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1600px" height="1200px" viewBox="0 0 1600 1200" enable-background="new 0 0 1600 1200" xml:space="preserve">
+	 width="1600px" height="1200px" viewBox="0 0 1600 1200" enable-background="new 0 0 1600 1200" xml:space="preserve" style="width:100%">
 <g id="Calque_1">
 	<rect x="0" y="-1.18" fill="#F59C1F" width="1600" height="1201.181"/>
 	<line fill="none" stroke="#000000" stroke-width="8" x1="0" y1="382.774" x2="1600" y2="382.774"/>
@@ -17129,9 +17129,12 @@ RCwAAAAAgIgFAAAAAICIBQAAAACAiAUAAAAAfG/6/wcA60OodJ81vsUAAAAASUVORK5CYII=" transf
 </g>
 
 <rect x="1001.5" y="569.5" fill="none" width="218" height="48"/>
-<text id="Nom" transform="matrix(1 0 0 1 1001.5002 584.4099)" font-size="21">Nom:</text>
+<text id="Nom" transform="matrix(1 0 0 1 1001.5002 584.4099)" font-size="21">Nom :</text>
 <rect x="1001.5" y="659.5" fill="none" width="218" height="48"/>
-<text id="PreN" transform="matrix(1 0 0 1 1001.5002 674.4104)" font-size="21">Prenom:</text>
-<rect x="1001.5" y="745.5" fill="none" width="218" height="48"/>
-<text id="Graph" transform="matrix(1 0 0 1 1001.5002 760.4104)" font-size="21">Competences : </text>
+<text id="PreN" transform="matrix(1 0 0 1 1001.5002 674.4104)" font-size="21">Prenom :</text>
+<rect x="1001.5" y="745.5" fill="none" width="100" height="48"/>
+<text id="Graph" transform="matrix(1 0 0 1 1001.5002 760.4104)" font-size="21">Compétences en Graphisme (/10) :</text>
+<rect x="1001.5" y="835.5" fill="none" width="100" height="48"/>
+<text id="Code" transform="matrix(1 0 0 1 1001.5002 850.4104)" font-size="21">Compétences en Code (/10) :</text>
+<rect x="1401.5" y="569.5" fill="none" width="100" height="150" id="Photo" transform="matrix(1 0 0 1 1401.5002 584.4104)"/>
 </svg>

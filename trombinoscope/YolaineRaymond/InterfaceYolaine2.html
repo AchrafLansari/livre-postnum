@@ -90,11 +90,13 @@
 			var itemCSV = dataProfil[item.idCSV];
 			//change les textes
 			var elemTxt = document.getElementById('Nom');
-			elemTxt.textContent=itemCSV["nom"];
+			elemTxt.textContent="Nom : "+itemCSV["nom"];
 			var elemTxt = document.getElementById('PreN');
-			elemTxt.textContent=itemCSV["Prénom"];
-			elemTxt = document.getElementById('Graph');
-			elemTxt.textContent=itemCSV["Graphisme"];
+			elemTxt.textContent="Prenom : "+itemCSV["Prénom"];
+			var elemTxt = document.getElementById('Graph');
+			elemTxt.textContent="Compétences en Graphisme (/10) : "+itemCSV["Graphisme"];
+			var elemTxt = document.getElementById('Code');
+			elemTxt.textContent="Compétences en Code (/10) : "+itemCSV["Code"];
 		}
 		
 		function getElementArr(arr, prop, val){
