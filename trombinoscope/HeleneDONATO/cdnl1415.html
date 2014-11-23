@@ -8,22 +8,24 @@
 		<script type="text/javascript">
 
 		var ficSVG = "../../svg/heleneDONATO.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";
+		var dataProfil;
 		
-		var arrIds = [{"idClick":"alexandre", "nom":"Pain", "prenom":"Alexandre", "profil":"Programmeur", "photo":"alex"},
-		{"idClick":"alexia", "nom":"Camail", "prenom":"Alexia", "profil":"Graphiste"},
-		{"idClick":"antoine", "nom":"Barres", "prenom":"Antoine", "profil":"Graphiste"},
-		{"idClick":"gabriela", "nom":"Paredes", "prenom":"Gabriela", "profil":"Graphiste"},
-		{"idClick":"louis", "nom":"Crolus", "prenom":"Louis", "profil":"Programmeur"},
-		{"idClick":"amin", "nom":"Ghazi", "prenom":"Amin", "profil":"Programmeur"},
-		{"idClick":"clementine", "nom":"Plissonnier", "prenom":"Clémentine", "profil":"Graphiste"},
-		{"idClick":"guillaume", "nom":"", "prenom":"Guillaume", "profil":"Graphiste"},
-		{"idClick":"macaire", "nom":"Del Monaco", "prenom":"Macaire", "profil":"Programmeur"},
-		{"idClick":"helene", "nom":"Donato", "prenom":"Hélène", "profil":"Graphiste"},
-		{"idClick":"hugo", "nom":"Stephan", "prenom":"Hugo", "profil":"Programmeur"},
-		{"idClick":"marc", "nom":"Biofa", "prenom":"Marc", "profil":"Programmeur"},
-		{"idClick":"quentin", "nom":"Brunet", "prenom":"Quentin", "profil":"Graphiste"},
-		{"idClick":"simon", "nom":"Tschan", "prenom":"Simon", "profil":"Graphiste"},
-		{"idClick":"yolaine", "nom":"Raymond", "prenom":"Yolaine", "profil":"Graphiste"}];
+		var arrIds = [{"idClick":"alexandre", "nom":"Pain", "prenom":"Alexandre", "profil":"Programmeur", "photo":"alex", "idCSV":12},
+		{"idClick":"alexia", "nom":"Camail", "prenom":"Alexia", "profil":"Graphiste", "idCSV":10},
+		{"idClick":"antoine", "nom":"Barres", "prenom":"Antoine", "profil":"Graphiste", "idCSV":11},
+		{"idClick":"gabriela", "nom":"Paredes", "prenom":"Gabriela", "profil":"Graphiste", "idCSV":13},
+		{"idClick":"louis", "nom":"Crolus", "prenom":"Louis", "profil":"Programmeur", "idCSV":3},
+		{"idClick":"amin", "nom":"Ghazi", "prenom":"Amin", "profil":"Programmeur", "idCSV":0},
+		{"idClick":"clementine", "nom":"Plissonnier", "prenom":"Clémentine", "profil":"Graphiste", "idCSV":2},
+		{"idClick":"guillaume", "nom":"", "prenom":"Guillaume", "profil":"Graphiste", "idCSV":5},
+		{"idClick":"macaire", "nom":"Del Monaco", "prenom":"Macaire", "profil":"Programmeur", "idCSV":6},
+		{"idClick":"helene", "nom":"Donato", "prenom":"Hélène", "profil":"Graphiste","idCSV":4},
+		{"idClick":"hugo", "nom":"Stephan", "prenom":"Hugo", "profil":"Programmeur", "idCSV":1},
+		{"idClick":"marc", "nom":"Biofa", "prenom":"Marc", "profil":"Programmeur", "idCSV":14},
+		{"idClick":"quentin", "nom":"Brunet", "prenom":"Quentin", "profil":"Graphiste", "idCSV":7},
+		{"idClick":"simon", "nom":"Tschan", "prenom":"Simon", "profil":"Graphiste", "idCSV":8},
+		{"idClick":"yolaine", "nom":"Raymond", "prenom":"Yolaine", "profil":"Graphiste", "idCSV":9}];
 		
 		function load(){
 		 	//charge l'IHM SVG
@@ -31,6 +33,7 @@
 		    	queue()
 		    		.defer(d3.xml, ficSVG, "image/svg+xml")
 		    		.await(IHMcharge);
+					chargeData(ficCSV);
 		}
 
 	    function IHMcharge(error, xml){
@@ -39,6 +42,19 @@
     	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
     	  		ajoutelesevenementauxelements();
 	    }		
+		
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
 	    
 		// fonction pour ajouter un écouteur à UN ÉLÉMENT
 		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
@@ -69,13 +85,19 @@
 			//récupère les information de l'étudiant
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			
 			//change les textes
 			var elemTxt = document.getElementById('nom');
-			elemTxt.textContent=item.nom;
+			//elemTxt.textContent=item.nom;
+			elemTxt.textContent=itemCSV["nom"];
 			elemTxt = document.getElementById('prenom');
-			elemTxt.textContent=item.prenom;
+			//elemTxt.textContent=item.prenom;
+			elemTxt.textContent=itemCSV["Prénom"];
 			elemTxt = document.getElementById('profil');
 			elemTxt.textContent=item.profil;
+			//elemTxt.textContent=itemCSV["profil"];
 		}
 
 		function getElementArr(arr, prop, val){
