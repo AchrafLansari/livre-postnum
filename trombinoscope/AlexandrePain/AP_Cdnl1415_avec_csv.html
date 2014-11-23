@@ -7,42 +7,42 @@
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
 
-		var ficSVG = "../../svg/Trombi_Alex_Pain.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficSVG = "../../svg/Trombi_Alex_Pain2.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
 
 		var arrIds = [
-			 {"idCSV":5,"idClick":"Portrait13","urlphoto":"http://127.0.0.1/livre-postnum/data/trombi/CDNL1415/14.jpg"},
+			 {"idCSV":5,"idClick":"Portrait13","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/14.jpg"},
 			 
-		     {"idCSV":14,"idClick":"Portrait15","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/17.jpg"}
+		     {"idCSV":14,"idClick":"Portrait15","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/17.jpg"}
 
-			,{"idCSV":1,"idClick":"Portrait1","urlphoto":"http://127.0.0.1:8887/livre-postnum/data/trombi/CDNL1415/2.jpg"}
+			,{"idCSV":1,"idClick":"Portrait1","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/2.jpg"}
 
-			,{"idCSV":4,"idClick":"Portrait12","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/13.jpg"}
+			,{"idCSV":4,"idClick":"Portrait12","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/13.jpg"}
 
-			,{"idCSV":3,"idClick":"Portrait14","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/15.jpg"}
+			,{"idCSV":3,"idClick":"Portrait14","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/15.jpg"}
 
-			,{"idCSV":10,"idClick":"Portrait11","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/12.jpg"}
+			,{"idCSV":10,"idClick":"Portrait11","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/12.jpg"}
 
-			,{"idCSV":13,"idClick":"Portrait3","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/4.jpg"}
+			,{"idCSV":13,"idClick":"Portrait3","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/4.jpg"}
 
-			,{"idCSV":8,"idClick":"Portrait10","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/11.jpg"}
+			,{"idCSV":8,"idClick":"Portrait10","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/11.jpg"}
 
-			,{"idCSV":7,"idClick":"Portrait9","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/10.jpg"}
+			,{"idCSV":7,"idClick":"Portrait9","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/10.jpg"}
 
-			,{"idCSV":0,"idClick":"Portrait8","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/9.jpg"}
+			,{"idCSV":0,"idClick":"Portrait8","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/9.jpg"}
 
-			,{"idCSV":9,"idClick":"Portrait7","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/8.jpg"}
+			,{"idCSV":9,"idClick":"Portrait7","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/8.jpg"}
 
-			,{"idCSV":2,"idClick":"Portrait6","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/7.jpg"}
+			,{"idCSV":2,"idClick":"Portrait6","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/7.jpg"}
 
-			,{"idCSV":11,"idClick":"Portrait2","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/3.jpg"}
+			,{"idCSV":11,"idClick":"Portrait2","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/3.jpg"}
 
-			,{"idCSV":12,"idClick":"Portrait5","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/6.jpg"}
+			,{"idCSV":12,"idClick":"Portrait5","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/6.jpg"}
 
-			,{"idCSV":6,"idClick":"Portrait4","urlphoto":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/5.jpg"}
+			,{"idCSV":6,"idClick":"Portrait4","urlphoto":"http://127.0.0.1:8080/livre-postnum/data/trombi/CDNL1415/5.jpg"}
 			];
 
-		function load()
+		function load()												// Fonction servant à charger le fichier SVG et le fichier CSV
 		{
 				 queue()
 	 	   		.defer(d3.xml, ficSVG, "image/svg+xml")
@@ -91,23 +91,45 @@
 
 		function afficheDetailEtu(evt){
 		
-			var elemIma = document.getElementById('Photodetail');
+			var elemIma = document.getElementById('Bigportrait');
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			var itemCSV = dataProfil[item.idCSV];
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 
 			var elemTxt = document.getElementById('Nom');
 			elemTxt.textContent=itemCSV["nom"];
+
 			var elemTxt = document.getElementById('Prenom');
 			elemTxt.textContent=itemCSV["Prénom"];
+
 			elemTxt = document.getElementById('Photodetail');
 			elemTxt.textContent=itemCSV["Envies"];
+
 			elemTxt = document.getElementById('Graph');
 			elemTxt.textContent=itemCSV["Graphisme"];
+
 			elemTxt = document.getElementById('Code');
 			elemTxt.textContent=itemCSV["Code"];
-			elemTxt = document.getElementById('urlphoto');
-			elemTxt.textContent=itemCSV["Bigportrait"];
+
+			elemTxt = document.getElementById('LevelPS');
+			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
+
+			elemTxt = document.getElementById('LevelIL');
+			elemTxt.textContent=itemCSV["Logiciels [Illustrator]"];
+
+			elemTxt = document.getElementById('LevelIS');
+			elemTxt.textContent=itemCSV["Logiciels [Inkscape]"];
+
+			elemTxt = document.getElementById('LevelGIMP');
+			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
+
+
+			elemTxt = document.getElementById('LevelID');
+			elemTxt.textContent=itemCSV["Logiciels [In design]"];
+
+
+			//elemTxt = document.getElementById('urlphoto');
+			//elemTxt.textContent=itemCSV["Bigportrait"];
 		}
 
 		function getElementArr(arr, prop, val){
