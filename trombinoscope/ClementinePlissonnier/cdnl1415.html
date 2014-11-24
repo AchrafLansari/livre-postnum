@@ -5,16 +5,16 @@
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">
-
+//l.5-6 charge différentes bibliothèques
 		var ficSVG = "../../svg/InterfaceClementine.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
 		var dataProfil;
 		
 		//var arrIds = ["image16", "image18", "image20", "image22", "image24", "image26", "image28", "image30", "image32", "image34", "image36", "image38", "image40", "image42", "image44"];
 		var arrIds = [
-		     {"idCSV":9,"idClick":"Photo9","urlTof":"http://localhost/livre-postnum/data/trombi/CDNL1415/8.jpg","nom":"Yolaine Raymond","comp":"pas mal"}
-			,{"idCSV":12,"idClick":"Alex","urlTof":"http://localhost/livre-postnum/data/trombi/CDNL1415/6.jpg","nom":"Alex Pain","comp":"pas mal aussi"}
-			,{"idCSV":1,"idClick":"Hugo","urlTof":"http://localhost/livre-postnum/data/trombi/CDNL1415/2.jpg","nom":"Hugo Stéphan","comp":"il confond son nom avec son mail..."}
+		     {"idCSV":9,"idClick":"Yo","urlTof":"../../data/trombi/CDNL1415/8.jpg"}
+			,{"idCSV":12,"idClick":"Alex","urlTof":"../../data/trombi/CDNL1415/6.jpg"}
+			,{"idCSV":1,"idClick":"Hugo","urlTof":"../../data/trombi/CDNL1415/2.jpg"}
 			];
 		
 		function load(){
@@ -34,6 +34,7 @@
 				// Compute the distinct nodes from the links.
 				dataProfil.forEach(function(d, i) {
 				    console.log(i+" : "+d.nom);
+				    //dit à la console d'afficher un message d'erreur
 				});				
 				
 			});
@@ -52,9 +53,9 @@
 		
 			for (var i = 0; i < arrIds.length; i++) {
 				//length = taille du tableau
-			     var el = document.getElementById(arrIds[i].idClick); 
+			     var el = document.getElementById(arrIds[i].idClick); //lie les éléments du tableau entre eux
 				 var j = i;
-			     el.addEventListener("click", afficheDetailEtu,false); 
+			     el.addEventListener("click", afficheDetailEtu,false); // Ajoute un écouteur aux éléments
 			    	
 			} 		
 		}
@@ -68,7 +69,7 @@
 				divInfo.style.display = 'block';
 			else
 				divInfo.style.display = 'none';
-		}
+		}//rend un bloc invisible -> visible
 		
 		function afficheDetailEtu(evt){
 			//récupère la balise image grand format
