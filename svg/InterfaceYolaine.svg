@@ -6,7 +6,7 @@
 <g id="Calque_1">
 	<rect x="0" y="-1.18" fill="#F59C1F" width="1600" height="1201.181"/>
 	<line fill="none" stroke="#000000" stroke-width="8" x1="0" y1="382.774" x2="1600" y2="382.774"/>
-	<g>
+	<g >
 		<g>
 			<path d="M634.107,145.707c0,1.594-0.797,2.875-2.391,3.844c-2.095,1.282-5.5,2.407-10.22,3.375
 				c-4.25,0.875-7.845,1.313-10.78,1.313c-2.72,0-4.375-0.563-4.97-1.688c-0.375-0.719-0.703-5.531-0.983-14.438
@@ -6118,7 +6118,7 @@ RCwAAAAAgIgFAAAAAICIBQAAAACAiAUAAAAAfG/6/wcA60OodJ81vsUAAAAASUVORK5CYII=" transf
 <rect id="hand_louis" x="1326.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
 <rect id="hand_antoine" x="1429.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
 <rect id="hand_simon" x="1536.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-	
+<g id="forTof" ></g>	
 	<g id="Louis">
 		<path fill="#0F0F0F" d="M1321.452,249.448c0.849-0.147,1.145,0.255,1.903,0.19c0,0.063,0,0.127,0,0.19
 			c-0.847,0.147-1.142-0.253-1.903-0.19C1321.452,249.575,1321.452,249.511,1321.452,249.448z"/>

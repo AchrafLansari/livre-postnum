@@ -85,7 +85,8 @@
 		
 		function afficheDetailEtu(evt){
 			//récupère les information de l'étudiant
-			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			var idClick = evt.currentTarget.id;
+			var item = getElementArr(arrIds, "idClick", idClick);
 			//Récupérer les données du csv
 			var itemCSV = dataProfil[item.idCSV];
 			//change les textes
@@ -97,6 +98,27 @@
 			elemTxt.textContent="Compétences en Graphisme (/10) : "+itemCSV["Graphisme"];
 			var elemTxt = document.getElementById('Code');
 			elemTxt.textContent="Compétences en Code (/10) : "+itemCSV["Code"];
+			
+			//affiche la main de présence
+			var idRct = "hand_"+idClick.toLowerCase();
+			var rct = document.getElementById(idRct);
+			var tm = document.getElementById("tofMain");
+			if(tm){
+				tm.setAttribute("x",rct.getAttribute("x"));
+				tm.setAttribute("y",rct.getAttribute("y"));
+			}else{
+				d3.select("#forTof")
+				.append("image")
+				.attr("id","tofMain")
+				.attr("xlink:href","img/main.png")
+				.attr("width",rct.getAttribute("width"))
+				.attr("height",rct.getAttribute("height"))
+				.attr("x",rct.getAttribute("x"))
+				.attr("y",rct.getAttribute("y"));				
+			}
+				
+			
+			
 		}
 		
 		function getElementArr(arr, prop, val){
