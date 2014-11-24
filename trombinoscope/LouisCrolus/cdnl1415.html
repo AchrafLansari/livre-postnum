@@ -11,21 +11,21 @@
 
 
 		var arrIds = [
-			{"idCSV":5,"idClick":"Photo3","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/14.jpg","nom":"Guillaume","comp":"pas mal"},
-		     {"idCSV":14,"idClick":"Photo1","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/17.jpg","nom":"Marc","comp":"pas mal"}
-			,{"idCSV":1,"idClick":"Photo15","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/2.jpg","nom":"Hugo","comp":"pas mal aussi"}
-			,{"idCSV":4,"idClick":"Photo4","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/13.jpg","nom":"Hélène","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":3,"idClick":"Photo2","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/15.jpg","nom":"Louis","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":10,"idClick":"Photo5","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/12.jpg","nom":"Alexia","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":13,"idClick":"Photo13","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/4.jpg","nom":"Gabriela","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":8,"idClick":"Photo6","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/11.jpg","nom":"Simon","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":7,"idClick":"Photo7","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/10.jpg","nom":"Quentin","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":0,"idClick":"Photo8","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/9.jpg","nom":"Amin","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":9,"idClick":"Photo9","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/8.jpg","nom":"Yolaine","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":2,"idClick":"Photo10","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/7.jpg","nom":"Clémentine","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":11,"idClick":"Photo14","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/3.jpg","nom":"Antoine","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":12,"idClick":"Photo11","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/6.jpg","nom":"Alexandre","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":6,"idClick":"Photo12","urlTof":"http://127.0.0.1/exos/livre-postnum/data/trombi/CDNL1415/5.jpg","nom":"Macaire","comp":"il confond son nom avec son mail..."}
+			{"idCSV":5,"idClick":"Photo3","urlTof":"../../data/trombi/CDNL1415/14.jpg","nom":"Guillaume","comp":"pas mal"},
+		     {"idCSV":14,"idClick":"Photo1","urlTof":"../../data/trombi/CDNL1415/17.jpg","nom":"Marc","comp":"pas mal"}
+			,{"idCSV":1,"idClick":"Photo15","urlTof":"../../data/trombi/CDNL1415/2.jpg","nom":"Hugo","comp":"pas mal aussi"}
+			,{"idCSV":4,"idClick":"Photo4","urlTof":"../../data/trombi/CDNL1415/13.jpg","nom":"Hélène","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":3,"idClick":"Photo2","urlTof":"../../data/trombi/CDNL1415/15.jpg","nom":"Louis","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":10,"idClick":"Photo5","urlTof":"../../data/trombi/CDNL1415/12.jpg","nom":"Alexia","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":13,"idClick":"Photo13","urlTof":"../../data/trombi/CDNL1415/4.jpg","nom":"Gabriela","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":8,"idClick":"Photo6","urlTof":"../../data/trombi/CDNL1415/11.jpg","nom":"Simon","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":7,"idClick":"Photo7","urlTof":"../../data/trombi/CDNL1415/10.jpg","nom":"Quentin","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":0,"idClick":"Photo8","urlTof":"../../data/trombi/CDNL1415/9.jpg","nom":"Amin","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":9,"idClick":"Photo9","urlTof":"../../data/trombi/CDNL1415/8.jpg","nom":"Yolaine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":2,"idClick":"Photo10","urlTof":"../../data/trombi/CDNL1415/7.jpg","nom":"Clémentine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":11,"idClick":"Photo14","urlTof":"../../data/trombi/CDNL1415/3.jpg","nom":"Antoine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":12,"idClick":"Photo11","urlTof":"../../data/trombi/CDNL1415/6.jpg","nom":"Alexandre","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":6,"idClick":"Photo12","urlTof":"../../data/trombi/CDNL1415/5.jpg","nom":"Macaire","comp":"il confond son nom avec son mail..."}
 			];
 
 		
@@ -106,6 +106,15 @@
 			elemGraphisme.textContent="Graphisme : " + itemCSV["Graphisme"];
 			elemCode.textContent="Code : " + itemCSV["Code"];
 			elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
+
+			for(i=0; i<20; i++){
+				
+				if(elemParcours.textContent.length > i){
+					console.log("texte trop long");
+					
+				}
+				
+			}
 
 
 		}
