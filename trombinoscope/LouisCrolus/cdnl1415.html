@@ -105,20 +105,24 @@
 			elemNom.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
 			elemGraphisme.textContent="Graphisme : " + itemCSV["Graphisme"];
 			elemCode.textContent="Code : " + itemCSV["Code"];
-			elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
+			//elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
 
-			for(i=0; i<20; i++){
-				
-				if(elemParcours.textContent.length > i){
-					console.log("texte trop long");
-					
-				}
-				
-			}
-
+			var bbCadre = document.getElementById("Cadre_2").getBBox();
+			
+			d3.select("#Rectangles").append('foreignObject')
+            .attr('x', bbCadre.x)
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div style="width: 150px;">'+itemCSV["Parcours"]+'</div>')
 
 		}
 
+
+		//http://bl.ocks.org/mbostock/7555321
+		//code pour tspan
+		
 		function getElementArr(arr, prop, val){
 			for (var i = 0; i < arr.length; i++) {
 				if(arr[i][prop]==val)return arr[i];
