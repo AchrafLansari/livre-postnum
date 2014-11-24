@@ -9,8 +9,25 @@
 		<script type="text/javascript">
 		
 		var ficSVG = "../../svg/trombi_alexia_camail.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";	
 		
-		var arrIds = ["image1", "image2", "image3", "image4", "image5", "image6", "image7","image8", "image9", "image10", "image11", "image12", "image13", "image14", "image15"];
+		var arrIds =  [
+			 {"idCSV":1,"idClick":"Photo1"},
+			 {"idCSV":11,"idClick":"Photo2"},
+			 {"idCSV":13,"idClick":"Photo3"},
+			 {"idCSV":6,"idClick":"Photo4"},
+			 {"idCSV":12,"idClick":"Photo5"},
+			 {"idCSV":2,"idClick":"Photo6"},
+			 {"idCSV":9,"idClick":"Photo7"},
+			 {"idCSV":0,"idClick":"Photo8"},
+			 {"idCSV":7,"idClick":"Photo9"},
+			 {"idCSV":8,"idClick":"Photo10"},
+			 {"idCSV":10,"idClick":"Photo11"},
+			 {"idCSV":4,"idClick":"Photo12"},
+			 {"idCSV":5,"idClick":"Photo13"},
+			 {"idCSV":3,"idClick":"Photo14"},
+			 {"idCSV":14,"idClick":"Photo15"}
+			 ];
 		
 		function load(){
 		 	//charge l'IHM SVG
@@ -18,7 +35,20 @@
 		    	queue()
 		    		.defer(d3.xml, ficSVG, "image/svg+xml")
 		    		.await(IHMcharge);
+					chargeData(ficCSV);
 		}
+		function chargeData(url)
+		{
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+		
 	    function IHMcharge(error, xml){
 	    	//Adding our svg file to HTML document
 			var importedNode = document.importNode(xml.documentElement, true);
@@ -31,9 +61,9 @@
 		function ajoutelesevenementauxelements() { 
 			 
 			 for (i = 0; i < arrIds.length; i++) {
-			//length = taille du tableau
-			     var el = document.getElementById(arrIds[i]); 
-			     el.addEventListener("click", afficheDetailEtu, false); 
+			  var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
 			}  		
 		   } 		
 		function switchInfoPerso()
@@ -45,10 +75,41 @@
 				divInfo.style.display = 'none';
 		}
 		
-		function afficheDetailEtu(){
-			alert("OK");
+		function afficheDetailEtu(evt){
+		
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			var itemCSV = dataProfil[item.idCSV];
 			
+			elemTxt = document.getElementById('Nom');
+			elemTxt.textContent=itemCSV["nom"];
+			
+			var elemTxt = document.getElementById('Prenom');
+		    elemTxt.textContent=itemCSV["Prénom"];
+			
+			elemTxt = document.getElementById('Mail');
+			elemTxt.textContent=itemCSV["Email"];
+			
+			elemTxt = document.getElementById('Etudes');
+			elemTxt.textContent=itemCSV["Parcours"];
+			
+			elemTxt = document.getElementById('Want');
+			elemTxt.textContent=itemCSV["Envies"];
+			
+			elemTxt = document.getElementById('NoteGraph');
+			elemTxt.textContent=itemCSV["Graphisme"];
+			
+			elemTxt = document.getElementById('NoteCode');
+			elemTxt.textContent=itemCSV["Code"];
+					
 		}
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		
 		</script>
 		 </head>
     
