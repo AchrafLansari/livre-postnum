@@ -95,10 +95,48 @@
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlTof);
 			//change les textes
-			var elemTxt = document.getElementById('text37');
+			var elemTxt = document.getElementById('prenomnom');
 			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
-			elemTxt = document.getElementById('text39');
-			elemTxt.textContent=itemCSV["Envies"];
+
+			elemTxt = document.getElementById('parcoursblank');
+			elemTxt.textContent=itemCSV["Parcours"];
+
+			elemTxt = document.getElementById('francaisblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Français]"];
+
+			elemTxt = document.getElementById('anglaisblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Anglais]"];
+
+			elemTxt = document.getElementById('espagnolblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Espagnol]"];
+
+			elemTxt = document.getElementById('graphismeblank');
+			elemTxt.textContent=itemCSV["Graphisme"];
+
+			elemTxt = document.getElementById('photoshopblank');
+			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
+
+			elemTxt = document.getElementById('illustratorblank');
+			elemTxt.textContent=itemCSV["Logiciels [Illustrator]"];
+
+			elemTxt = document.getElementById('indesignblank');
+			elemTxt.textContent=itemCSV["Logiciels [In design]"];
+
+			elemTxt = document.getElementById('gimpblank');
+			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
+
+			elemTxt = document.getElementById('codeblank');
+			elemTxt.textContent=itemCSV["Code"];
+
+			elemTxt = document.getElementById('htmlblank');
+			elemTxt.textContent=itemCSV["Langage [HTML]"]+" / "+itemCSV["Langage [CSS]"];
+
+			elemTxt = document.getElementById('javascriptblank');
+			elemTxt.textContent=itemCSV["Langage [JavaScript]"];
+
+			elemTxt = document.getElementById('phpblank');
+			elemTxt.textContent=itemCSV["Langage [PHP]"];
+
 		}
 
 		function getElementArr(arr, prop, val){
