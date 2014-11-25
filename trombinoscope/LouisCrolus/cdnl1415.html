@@ -85,7 +85,10 @@
 		}
 		
 		function afficheDetailEtu(evt){
-			//alert("OK");
+			
+
+				d3.select("foreignObject").remove();
+
 
 			//récupère la balise image grand format
 			var elemIma = document.getElementById('Cadre');
@@ -115,7 +118,7 @@
             .attr('width', bbCadre.width)
             .attr('height', bbCadre.height)
             .append("xhtml:body")
-				.html('<div style="width: 150px;">'+itemCSV["Parcours"]+'</div>')
+				.html('<div id="Parcours" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Parcours"]+'</div>')
 
 		}
 
