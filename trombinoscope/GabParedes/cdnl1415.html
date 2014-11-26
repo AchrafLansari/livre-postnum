@@ -5,24 +5,59 @@
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">
-		var ficSVG = "../../svg/Interface_GabPar.svg";
 		
-		//var arrIds = ["image16", "image18", "image20", "image22", "image24", "image26", "image28", "image30", "image32", "image34", "image36", "image38", "image40", "image42", "image44"];
-		var arrIds = [{"idClick":"Yo","urlTof":"http://localhost/livre-postnum/data/trombi/CDNL1415/8.jpg","nom":"Yolaine Raymond","comp":"pas mal"}
-		,{"idClick":"Alex","urlTof":"http://localhost/livre-postnum/data/trombi/CDNL1415/6.jpg","nom":"Alex Pain","comp":"pas mal aussi"}];
+		var ficSVG = "../../svg/Interface_GabPar.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";
+		var dataProfil;
+
+
+		var arrIds = [
+			{"idCSV":5,"idClick":"Photo3","urlTof":"../../data/trombi/CDNL1415/14.jpg","nom":"Guillaume","comp":"pas mal"},
+		     {"idCSV":14,"idClick":"Photo1","urlTof":"../../data/trombi/CDNL1415/17.jpg","nom":"Marc","comp":"pas mal"}
+			,{"idCSV":1,"idClick":"hugo","urlTof":"../../data/trombi/CDNL1415/2.jpg","nom":"Hugo","comp":"pas mal aussi"}
+			,{"idCSV":4,"idClick":"Photo4","urlTof":"../../data/trombi/CDNL1415/13.jpg","nom":"Hélène","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":3,"idClick":"Photo2","urlTof":"../../data/trombi/CDNL1415/15.jpg","nom":"Louis","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":10,"idClick":"Photo5","urlTof":"../../data/trombi/CDNL1415/12.jpg","nom":"Alexia","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":13,"idClick":"Photo13","urlTof":"../../data/trombi/CDNL1415/4.jpg","nom":"Gabriela","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":8,"idClick":"Photo6","urlTof":"../../data/trombi/CDNL1415/11.jpg","nom":"Simon","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":7,"idClick":"Photo7","urlTof":"../../data/trombi/CDNL1415/10.jpg","nom":"Quentin","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":0,"idClick":"Photo8","urlTof":"../../data/trombi/CDNL1415/9.jpg","nom":"Amin","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":9,"idClick":"Photo9","urlTof":"../../data/trombi/CDNL1415/8.jpg","nom":"Yolaine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":2,"idClick":"Photo10","urlTof":"../../data/trombi/CDNL1415/7.jpg","nom":"Clémentine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":11,"idClick":"Photo14","urlTof":"../../data/trombi/CDNL1415/3.jpg","nom":"Antoine","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":12,"idClick":"Photo11","urlTof":"../../data/trombi/CDNL1415/6.jpg","nom":"Alexandre","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":6,"idClick":"Photo12","urlTof":"../../data/trombi/CDNL1415/5.jpg","nom":"Macaire","comp":"il confond son nom avec son mail..."}
+			];
+
 		
 		function load(){
 		 	//charge l'IHM SVG
-		    //merci à http://bl.ocks.org/KoGor/8162640
-		    	queue()
-		    		.defer(d3.xml, ficSVG, "image/svg+xml")
-		    		.await(IHMcharge);
+		 	//chargeIHM();
+		 	queue()
+	    		.defer(d3.xml, ficSVG, "image/svg+xml")
+	    		.await(IHMcharge);
+	    	chargeData(ficCSV);
 		}
+
+
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
 	    function IHMcharge(error, xml){
 	    	//Adding our svg file to HTML document
 			var importedNode = document.importNode(xml.documentElement, true);
-    	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
-    	  		ajoutelesevenementauxelements();
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
 	    }		
 	    
 		// fonction pour ajouter un écouteur à UN ÉLÉMENT
@@ -32,13 +67,12 @@
 			for (var i = 0; i < arrIds.length; i++) {
 				//length = taille du tableau
 			     var el = document.getElementById(arrIds[i].idClick); 
-				 var arr = arrIds[i];
-			     el.addEventListener("click", function() {
-			    	 	afficheDetailEtu(arr);
-			     }); 
-			     //afficheDetailEtu
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			    	alert("hola");
 			} 		
-		}
+		}	
+		
 		/*
 		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
 		 */
@@ -51,17 +85,54 @@
 				divInfo.style.display = 'none';
 		}
 		
-		function afficheDetailEtu(arr, id){
+		function afficheDetailEtu(evt){
+			//alert("OK");
+
 			//récupère la balise image grand format
-			var elemIma = document.getElementById('image14');
+			var elemIma = document.getElementById('Cadre');
+			//récupère les informations de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
 			//mettre à jour l'image
-			elemIma.setAttribute("xlink:href",arrIds[i].urlTof);
+			elemIma.setAttribute("xlink:href",item.urlTof);
 			//change les textes
-			var elemTxt = document.getElementById('text37');
-			elemTxt.textContent=arrIds[i].nom;
-			elemTxt = document.getElementById('text39');
-			elemTxt.textContent=arrIds[i].comp;
+			var elemNom = document.getElementById('TxtNom');
+			var elemGraphisme = document.getElementById('Graphisme');
+			var elemCode = document.getElementById('Code');
+			var elemParcours = document.getElementById('Parcours');
+
+
+			elemNom.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
+			elemGraphisme.textContent="Graphisme : " + itemCSV["Graphisme"];
+			elemCode.textContent="Code : " + itemCSV["Code"];
+			//elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
+
+			var bbCadre = document.getElementById("Cadre_2").getBBox();
+			
+			d3.select("#Rectangles").append('foreignObject')
+            .attr('x', bbCadre.x)
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div style="width: 150px;">'+itemCSV["Parcours"]+'</div>')
+
 		}
+
+
+		//http://bl.ocks.org/mbostock/7555321
+		//code pour tspan
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+
+		
+
 		</script>
 	</head>
 	<body onload="load();">
