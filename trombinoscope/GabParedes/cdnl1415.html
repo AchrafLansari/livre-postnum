@@ -12,15 +12,15 @@
 
 
 		var arrIds = [
-			{"idCSV":5,"idClick":"Photo3","urlTof":"../../data/trombi/CDNL1415/14.jpg","nom":"Guillaume","comp":"pas mal"},
-		     {"idCSV":14,"idClick":"Photo1","urlTof":"../../data/trombi/CDNL1415/17.jpg","nom":"Marc","comp":"pas mal"}
+			{"idCSV":5,"idClick":"Photo3","urlTof":"../../data/trombi/CDNL1415/14.jpg","nom":"Guillaume","comp":"pas mal"}
+			,{"idCSV":14,"idClick":"Photo1","urlTof":"../../data/trombi/CDNL1415/17.jpg","nom":"Marc","comp":"pas mal"}
 			,{"idCSV":1,"idClick":"hugo","urlTof":"../../data/trombi/CDNL1415/2.jpg","nom":"Hugo","comp":"pas mal aussi"}
 			,{"idCSV":4,"idClick":"Photo4","urlTof":"../../data/trombi/CDNL1415/13.jpg","nom":"Hélène","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":3,"idClick":"Photo2","urlTof":"../../data/trombi/CDNL1415/15.jpg","nom":"Louis","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":10,"idClick":"Photo5","urlTof":"../../data/trombi/CDNL1415/12.jpg","nom":"Alexia","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":13,"idClick":"Photo13","urlTof":"../../data/trombi/CDNL1415/4.jpg","nom":"Gabriela","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":8,"idClick":"Photo6","urlTof":"../../data/trombi/CDNL1415/11.jpg","nom":"Simon","comp":"il confond son nom avec son mail..."}
-			,{"idCSV":7,"idClick":"Photo7","urlTof":"../../data/trombi/CDNL1415/10.jpg","nom":"Quentin","comp":"il confond son nom avec son mail..."}
+			,{"idCSV":7,"idClick":"quentin","urlTof":"../../data/trombi/CDNL1415/10.jpg","nom":"Quentin","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":0,"idClick":"Photo8","urlTof":"../../data/trombi/CDNL1415/9.jpg","nom":"Amin","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":9,"idClick":"Photo9","urlTof":"../../data/trombi/CDNL1415/8.jpg","nom":"Yolaine","comp":"il confond son nom avec son mail..."}
 			,{"idCSV":2,"idClick":"Photo10","urlTof":"../../data/trombi/CDNL1415/7.jpg","nom":"Clémentine","comp":"il confond son nom avec son mail..."}
@@ -67,9 +67,9 @@
 			for (var i = 0; i < arrIds.length; i++) {
 				//length = taille du tableau
 			     var el = document.getElementById(arrIds[i].idClick); 
-				 var j = i;
-			     el.addEventListener("click", afficheDetailEtu,false); 
-			    	alert("hola");
+				 if(el)
+				     el.addEventListener("click", afficheDetailEtu,false); 
+			    //alert("hola");
 			} 		
 		}	
 		
@@ -89,7 +89,8 @@
 			//alert("OK");
 
 			//récupère la balise image grand format
-			var elemIma = document.getElementById('Cadre');
+			//var elemIma = document.getElementById('Cadre');
+			var elemIma = document.getElementById('quentin_1_');
 			//récupère les informations de l'étudiant
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			//Récupérer les données du csv
@@ -131,6 +132,7 @@
 			return false;
 		}
 
+		
 		
 
 		</script>
