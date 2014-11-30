@@ -6103,21 +6103,21 @@ RCwAAAAAgIgFAAAAAICIBQAAAACAiAUAAAAAfG/6/wcA60OodJ81vsUAAAAASUVORK5CYII=" transf
 		</image>
 	</g>
 	
-<rect id="hand_amin" x="65.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_alexandre" x="168.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_yolaine" x="289.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_hugo" x="391.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_clementine" x="485.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_guillaume" x="584.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_gabriela" x="684.76" y="241.765" fill="#F59C1F" width="54.778" height="107.173"/>
-<rect id="hand_marc" x="797.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_quentin" x="889.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_alexia" x="997.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_amin" x="79.76" y="251.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_alexandre" x="179.76" y="249.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_yolaine" x="298.76" y="250.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_hugo" x="400.76" y="250.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_clementine" x="495.76" y="251.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_guillaume" x="598.76" y="250.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_gabriela" x="700.76" y="249.765" fill="#F59C1F" width="54.778" height="107.173"/>
+<rect id="hand_marc" x="805.76" y="245.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_quentin" x="903.76" y="253.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_alexia" x="1003.76" y="253.765" fill="#F59C1F" width="54.779" height="107.173"/>
 <rect id="hand_helene" x="1118.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_macaire" x="1217.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_louis" x="1326.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_antoine" x="1429.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
-<rect id="hand_simon" x="1536.76" y="241.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_macaire" x="1227.76" y="253.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_louis" x="1332.76" y="252.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_antoine" x="1436.76" y="249.765" fill="#F59C1F" width="54.779" height="107.173"/>
+<rect id="hand_simon" x="1540.76" y="249.765" fill="#F59C1F" width="54.779" height="107.173"/>
 <g id="forTof" ></g>	
 	<g id="Louis">
 		<path fill="#0F0F0F" d="M1321.452,249.448c0.849-0.147,1.145,0.255,1.903,0.19c0,0.063,0,0.127,0,0.19
@@ -17146,11 +17146,23 @@ RCwAAAAAgIgFAAAAAICIBQAAAACAiAUAAAAAfG/6/wcA60OodJ81vsUAAAAASUVORK5CYII=" transf
 </g>
 
 <rect x="1001.5" y="569.5" fill="none" width="218" height="48"/>
-<text id="Nom" transform="matrix(1 0 0 1 1001.5002 584.4099)" font-size="21">Nom :</text>
-<rect x="1001.5" y="659.5" fill="none" width="218" height="48"/>
-<text id="PreN" transform="matrix(1 0 0 1 1001.5002 674.4104)" font-size="21">Prenom :</text>
-<rect x="1001.5" y="745.5" fill="none" width="100" height="48"/>
-<text id="Graph" transform="matrix(1 0 0 1 1001.5002 760.4104)" font-size="21">Compétences en Graphisme (/10) :</text>
-<rect x="1001.5" y="835.5" fill="none" width="100" height="48"/>
-<text id="Code" transform="matrix(1 0 0 1 1001.5002 850.4104)" font-size="21">Compétences en Code (/10) :</text>
+<text id="Nom" transform="matrix(1 0 0 1 1001.5002 584.4099)" font-size="21" font-weight="bold">Nom :</text>
+<rect x="1001.5" y="600.5" fill="none" width="218" height="48"/>
+<text id="PreN" transform="matrix(1 0 0 1 1001.5002 615.4104)" font-size="21" font-weight="bold">Prenom :</text>
+<rect x="1001.5" y="658.5" fill="none" width="100" height="48"/>
+<text id="Graph" transform="matrix(1 0 0 1 1001.5002 673.4104)" font-size="21" font-weight="bold">Compétences en Graphisme (/10) :</text>
+<rect x="1001.5" y="687.5" fill="none" width="100" height="48"/>
+<text id="Photoshop" transform="matrix(1 0 0 1 1001.5002 702.4104)" font-size="21">Photoshop :</text>
+<rect x="1001.5" y="715.5" fill="none" width="100" height="48"/>
+<text id="Illustrator" transform="matrix(1 0 0 1 1001.5002 730.4104)" font-size="21">Illustrator :</text>
+<rect x="1001.5" y="774.5" fill="none" width="100" height="48"/>
+<text id="Code" transform="matrix(1 0 0 1 1001.5002 789.4104)" font-size="21" font-weight="bold">Compétences en Code (/10) :</text>
+<rect x="1001.5" y="803.5" fill="none" width="100" height="48"/>
+<text id="HTML" transform="matrix(1 0 0 1 1001.5002 819.4104)" font-size="21">HTML :</text>
+<rect x="1001.5" y="833.5" fill="none" width="100" height="48"/>
+<text id="CSS" transform="matrix(1 0 0 1 1001.5002 848.4104)" font-size="21">CSS :</text>
+<rect x="1001.5" y="862.5" fill="none" width="100" height="48"/>
+<text id="Javascript" transform="matrix(1 0 0 1 1001.5002 877.4104)" font-size="21">Javascript :</text>
+<rect x="1001.5" y="891.5" fill="none" width="100" height="48"/>
+<text id="PHP" transform="matrix(1 0 0 1 1001.5002 906.4104)" font-size="21">PHP :</text>
 </svg>
