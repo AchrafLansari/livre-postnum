@@ -53,7 +53,7 @@ class TrombinoscopeController extends Zend_Controller_Action
     
     }
 
-	public function zamenmouhanedAction(){
+	public function zamelmouhanedAction(){
     
     }
 	
