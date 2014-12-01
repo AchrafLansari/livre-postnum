@@ -147,15 +147,15 @@
 			elemTxt.textContent=itemCSV["Horodateur"];
 			
 		/*declarer une variable pour le cadre pour sauter la ligne */
-			var bbCadre = document.getElementById("cadre").getBBox();
+			var bbCadre = document.getElementById("formulaire").getBBox();
 			
-			d3.select("#formulaire").append('foreignObject')
+			d3.select("#barre-information").append('foreignObject')
             .attr('x', bbCadre.x)
             .attr('y', bbCadre.y)
             .attr('width', bbCadre.width)
             .attr('height', bbCadre.height)
             .append("xhtml:body")
-			.html('<div id="projets" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Projets"]+'</div>')
+			.html('<div id="projets" style="margin-left : 0px; margin-top : 0px; width: 600px;">'+itemCSV["Projets"]+'</div>')
 			
 			
 			
