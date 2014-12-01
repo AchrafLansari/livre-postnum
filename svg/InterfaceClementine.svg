@@ -5,7 +5,8 @@
 	 id="svg10" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px"
 	 viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
-<rect id="Fond" x="0" y="1" fill="#3F403F" stroke="#000000" stroke-miterlimit="10" width="800" height="600"/>
+<rect id="Fond" y="1" fill="#3F403F" stroke="#000000" stroke-miterlimit="10" width="800" height="600"/>
+<rect id="cadregraph" x="334.5" y="15.544" fill="#3F403F" width="438" height="566.956"/>
 <image overflow="visible" enable-background="new    " width="399" height="300" id="image14" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAUgBSAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAkOAAAUyQAAIBz/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
@@ -150,11 +151,11 @@ y4Sw1EVTiQbUyLAEqzIWdMRRNwFtbKUQO0KjoUeREtKcmCPK4uJg74PgUVuTJtSGO4shD3smpHuT
 Iv73F8Cr+d8ip+d8i/vfIq/nP8Cp+b8iP+6+n2F/df4F/df4FzPwvyfqcI4vqcNuhV+q+xl/L6F/
 I21lT6nQy/m6eFfyehfzehHj+qzVso8P5n1uPs8PBwup/lfnfU08PA3pX/6HyL++3wI/7/yL+/8A
 Iv7/AMiP++2n2FT/AOw+RV/P+Rf3/kVPz/kX9/5Ef95tPsLl/jfm/Vfs8XA3Sv5vQv5vQv5uhl/N
-6EeD6r8M3drcJf0L/9k=" transform="matrix(0.8747 0 0 0.8747 382.1584 15.5449)">
+6EeD6r8M3drcJf0L/9k=" transform="matrix(0.8747 0 0 0.8747 382.1587 15.5442)">
 </image>
 <g id="Photos">
 	
-		<image overflow="visible" width="100" height="100" id="Quentin" xlink:href="data:image/jpeg;base64,/9j/4QgTRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Quentin" xlink:href="data:image/jpeg;base64,/9j/4QgTRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzow
 NjoxNQAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -523,7 +524,7 @@ rhf5b396/wDZTen/AO8/h+8/gS/YavF5v4Prf+HeXT+/q+20/q/3r2OZNGs6KU6i3OlfWnVlmH8n
 p1+XTdPp9fqf0X/c03+l+P6e9rxHSeP+0boSqLzaH1W06F8NtXk+ht5fN+7e3/Gvbp1eVOnTSvdW
 nTsNWg6PPfjT4PuP1fjX/a0/8F5/r7a/GNdOrilMdZ08umHVotz4fB9791p4vr1ft6dX6tfp/r7c
 emk9Xj06cfn1kT9fq+28F+frp8n40/b8X1fXRxf23F+HrcmnQa8Os/8AlXlGr7j6nVo+006L8adH
-7mu3118/196n86/l15NWju49Seb/APKRq1/827af9606P959perdf//Z" transform="matrix(0.8 0 0 0.8 127.5002 442)">
+7mu3118/196n86/l15NWju49Seb/APKRq1/827af9606P959perdf//Z" transform="matrix(0.8 0 0 0.8 127.5 442.0002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Marc" xlink:href="data:image/jpeg;base64,/9j/4QhERXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -936,10 +937,10 @@ e+F9RJp4az9vH/B0it4/wzzP9vq1/dT2tbRp1DT4tX+6tFrf7C/tdiuekrf0vX86dIyH/OD6/Qad
 N734tfR+Lf091OiuadU88dTj9x9wPF+rTzfVf8fq1fm9/em0U8utitfn1sOf8J2/9mJ/2dWr/wBF
 2r/RR/cms/2Yj+Ife/3c/utoqP7o6ft/R/fT+9Gj+EX50fc6/wBjy+0U9PDHr5dOCvfT063tY9Vz
 5fJpt/atr0ahfRb9v9X9Ofp7TQ1q1emTw6mf5Rq/s6NP+0eLx+P/AG+jT/yDq9qM9V/S0/0qfy6/
-/9k=" transform="matrix(0.8 0 0 0.8 220.0002 350)">
+/9k=" transform="matrix(0.8 0 0 0.8 220 350.0002)">
 	</image>
 	
-		<image overflow="visible" width="100" height="100" id="Louis" xlink:href="data:image/jpeg;base64,/9j/4QixRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Louis" xlink:href="data:image/jpeg;base64,/9j/4QixRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzow
 NToyMwAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -1327,10 +1328,10 @@ n0Fbvw/3feeN/AdX2dbMXwj/ANnr/g9V/s3v+jT+E/Zt/Dv4X9n/AKQfubQ6f7x/3a/34Xht5dd/
 3vpbn2N4vF0mtadRjN4FTorXqwml1XOn7Hz6xf8Ah9tPg/a8V/vf8n+n10ej+nPtVHX8ukJ4nR8X
 n05nXb9jx/cafTr1+HVrOvRr/b1aLX/s3+nHvx8Sppw6cFadej06Dfx+TUv3GvyaLf2Nfm/c1203
 txf6cafd1rTPHpxuI9Opx1XXyeTyen/N6rav7Ojyc6LWtb9v63/Ptt9OsauFOmz1yi+18n+6/Jf9
-7T4vJ5bp5PJ9v/k3l8dr39uelOnUrinWX0X/AOUrTr/5v6Pp/wCcOrV7T9njf0tXz6UY/Pr/2Q==" transform="matrix(0.8 0 0 0.8 217.0002 442)">
+7T4vJ5bp5PJ9v/k3l8dr39uelOnUrinWX0X/AOUrTr/5v6Pp/wCcOrV7T9njf0tXz6UY/Pr/2Q==" transform="matrix(0.8 0 0 0.8 217 442.0002)">
 	</image>
 	
-		<image overflow="visible" width="100" height="100" id="Moi" xlink:href="data:image/jpeg;base64,/9j/4QeIRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Moi" xlink:href="data:image/jpeg;base64,/9j/4QeIRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzow
 OTo0OQAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -1699,7 +1700,7 @@ TF59X3Xg+81R6vHq50fXRf8AFr8+5LHh+F8/5fn1Br+LQUp+X+XpbUvj0Ta/Faz2v5P6i3+c9VtP
 1t6f949p38PUdPH5dOrpoK0r04DTri8Xn8emO+vxX06Rr+21cW0W/Tzb6c+2m+Ja8OtprqOPUyLV
 Y21fqX9P/Af6c+fV+7a31t/sPdMeXTj66Dj1mTXpGrVo18f6i1x/mr+nRf8AVq59+62KVzw65QW0
 S6fF/tWnz2/Vz5tX9u3+xtb2ytNTU4dPrTSKcOuH+VW/Gjyf83vDpv8A9TvNb/eP9p90xq+Verdf
-/9k=" transform="matrix(0.795 0 0 0.795 35.5002 442)">
+/9k=" transform="matrix(0.795 0 0 0.795 35.5 442.0002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="louis" xlink:href="data:image/jpeg;base64,/9j/4ROhRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -2193,7 +2194,7 @@ tPGm/wBPz9fc12lPBWnDrGfcaeNitOlVgv75/wB6X/0dfe/afeN9t5PPo8928v2H/Lw8Pm1afxb6
 fj249K/PorFdXb1dn8c/9mk/hmJ/vT/BP4J4E/4+b737nxXGn7b7f/K9dv8Ajp+PaB9Fe34/lw6e
 T4hXo9MX3P7Xl0ebQvm+3/zWu3+6vL67f09qIdVBw49WNKjR/LqZF/zb0eW/+wtYfX/H/W/P19qT
 4lMdaj+IU6cYtelreP6nT9dWrm/15t/vPtptX4ulJroz1JF7c6NVhp0Xve3qtb+xq/r+fdeqdcvR
-f+xa3+xtf/ba7/7x7917r//Z" transform="matrix(0.8 0 0 0.8 220.0002 258.5)">
+f+xa3+xtf/ba7/7x7917r//Z" transform="matrix(0.8 0 0 0.8 220 258.5002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Hugo" xlink:href="data:image/jpeg;base64,/9j/4QgkRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -2608,7 +2609,7 @@ PuvTq/0g/wC4bwefXp1/5Xa3k49zjtPjeDH+8/B+p/Forp+dfn9mOoC3T91eM/7r8T6fy10rX/DT
 7c9bWXw4/wBmj/0H7a/2b/8Aur/pb8r/AHX91ref+DeGH7H+9v2X+4H+9WrV5v4b/klvp69Xs0vP
 ptY8L4aD9vRGlamtNPn0a2PRb/dltZ/V9bem3l8nH6f0auNP09outGmrt6z/ALljov4f29Gvx31c
 Xvq50W/T/vPHvWOno9Ws6q66ddraw8l/qfpqtq0nT578X8n+w/pz79062jHiU6kpp0P/AJ3VY6NP
-1/w1avRp/rb1/wBPz7vFTxE1cK9bXTTt4dZPTo/N/F/006Laf9vo0+6/j+Vf8vVuv//Z" transform="matrix(0.8 0 0 0.8 35.5002 350)">
+1/w1avRp/rb1/wBPz7vFTxE1cK9bXTTt4dZPTo/N/F/006Laf9vo0+6/j+Vf8vVuv//Z" transform="matrix(0.8 0 0 0.8 35.5 350.0002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Helene" xlink:href="data:image/jpeg;base64,/9j/4QgBRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -2972,7 +2973,7 @@ P/xPFf3c/if8e+3wXh/hf3Hk+48MX/Ar7bn7e9ra+f6e3LfwvCGulei+fxa/p04+fV83wO/4cX+y
 xv8Adj73+6/jj0f33/jH92PDdNXi+5/3Ia7fo+19Wn/C3tbb+Pq/Qrpzx4dJ5/pvCH1NdXy4dbHO
 0P72/wB3sZ/e/wDhX96/so/4p/d37r7L73QfJ/Dv4j/l3+c/5D1X/wAPZ5Z/U1/W01+Vafz6Ds/g
 V7Pj6VdPq0p5bW0/v+fy/ceSxv5PL+/5NP6r/j2dnRoHDX1VfhFePTkPL4o7+LRdtHl+3817ceLw
-86dVra/7H+PunW+nT1fwz+39x93/AM2/Jq8X/JdtP/Jv+Hu/6nz69/h6/9k=" transform="matrix(0.8 0 0 0.8 127.5002 258.5)">
+86dVra/7H+PunW+nT1fwz+39x93/AM2/Jq8X/JdtP/Jv+Hu/6nz69/h6/9k=" transform="matrix(0.8 0 0 0.8 127.5 258.5002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Gabi" xlink:href="data:image/jpeg;base64,/9j/4QgxRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -3384,10 +3385,10 @@ q/iFRbRa1vRov+LeH3MGz08KOn8PUA73431smunxY9ek9T6vHU6LeXwNfX+v/O/uWvxfTb6fi/s2
 sLery/f38dvVe+n8eyi48GnfTXTHR9Fq0NWlP5dfSm6V/vf/AKMtj/6Rfs/7+/3awv8AeT+G+bR/
 Gf4dS/xHza+fJ97rvb06v8fbS1xxpjojfTrkp6/6vy6F9f7NvHqv+349Hl1ca9VvRe9v8f8AY+3O
 m011PUqLyaX1+byal1aL6dOr9rya/wB3x/W34t/sPdH4dP8A2+o65c3/AD/yb4/Lf/qXo8nundq/
-pU/l05jT8/8AV+XX/9k=" transform="matrix(0.8 0 0 0.8 127.5002 167.75)">
+pU/l05jT8/8AV+XX/9k=" transform="matrix(0.8 0 0 0.8 127.5 167.7502)">
 	</image>
 	
-		<image overflow="visible" width="100" height="100" id="Macaire" xlink:href="data:image/jpeg;base64,/9j/4QgbRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Macaire" xlink:href="data:image/jpeg;base64,/9j/4QgbRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzox
 MTo1NwAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -3796,10 +3797,10 @@ UQvpr28K9Z4vP5Tfya/H6ftr21afT47ejR/y15v9Pz7t02nDqW36h/q/It7adF7J5vJr/Z+l/p6/
 9j78a07utpw65Q6rp4f4n49UlvFf7PV/ykav91efX9bfuX9uw/GtOPT0Wqppw6ePVoXXr8dl8em/
 3Wm4v5PH6P8AW0eq1vxf3Rvib7en+u38tjbT4bcatWryahb6+vT4/wDU8/1596HEde+3pK7g8mik
 8nk1+ObX5vNo/VBe1/7Fvpf1f19qIfifqz0otOkj/lVvxo8n/N7w6b/9TvNb/eP9p97xq+Veqdf/
-2Q==" transform="matrix(0.795 0 0 0.795 127.7502 350.25)">
+2Q==" transform="matrix(0.795 0 0 0.795 127.75 350.2502)">
 	</image>
 	
-		<image overflow="visible" width="100" height="100" id="Guillaume" xlink:href="data:image/jpeg;base64,/9j/4QiwRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Guillaume" xlink:href="data:image/jpeg;base64,/9j/4QiwRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzox
 Nzo1NwAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -4219,7 +4220,7 @@ DpP/AEv/AMboP9Fv99P75+SL+F/6P/43/ePVqTT4P4F/lX2/9df7f9fclrTSKenUIz6dYp8NOtpb
 4Ef7PJ/dCr/2aD7D+6uuL+7f99/uv9K3i1N5/vvtf2v4br0+P+Jf5Xq/T6Pbg0186dJV4d3Dqy+O
 3ji8v233Po8lraLaRp0fben7rx/p0+jV9ePdxqzppTr36edPDqbLq837P2nj483k8P3+r86Pt/Ro
 t9fxqtb8+9p8Y18eqt8WK0p1Lj8nhFvt9P7mrR9np/V6devi9tVtXFv9j7cl1UFK6evHV+Hj1n/3
-Ia/+UX7fV/zb+6t4/wDqV4dP/JvtP0z36flXr//Z" transform="matrix(0.7975 0 0 0.7975 35.7502 258.5)">
+Ia/+UX7fV/zb+6t4/wDqV4dP/JvtP0z36flXr//Z" transform="matrix(0.7975 0 0 0.7975 35.75 258.4993)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Amin" xlink:href="data:image/jpeg;base64,/9j/4QgbRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -4594,7 +4595,7 @@ dQvJr8JK8aeX29Vs43+K3g0a/Lr/AMivby+G58Wn/dnk1fptzb68e00/hV7qVp0mXXXFerGvjB/w
 5b9/H/ssH+zMW1Uv/Hrf3t/uvo80fj+4/jX+/S+08lv1ejT9fTf2gPg1/wA3Ti+Jq86dbHfxi/4e
 78eJ/wBMH+y2fwPWNf8Apa/4+7T/ALt8n+iL9rz+PVq18Xvfn3oaaYr0oTXUV49XRbY/vN/AcZ/f
 T+7396fCn8a/ur/Ef7v+f8/wv+Lf7lPFqt/nObXv73mvTp16jXhXy6Vf+VeUavuPqdWj7TTovxp0
-fua7fXXz/X3ufzr+XStNWju49Seb/wDKRq1/827af9606P8AefaXq3X/2Q==" transform="matrix(0.795 0 0 0.795 35.7502 168)">
+fua7fXXz/X3ufzr+XStNWju49Seb/wDKRq1/827af9606P8AefaXq3X/2Q==" transform="matrix(0.795 0 0 0.795 35.75 168.0002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Alexia" xlink:href="data:image/jpeg;base64,/9j/4QisRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -4984,7 +4985,7 @@ H+8/+jXa/wDDfuv9If8AfBv9GP8AdPw/3z/gXnj/AIx/eH+x/BP4l4P4V5v3fvfL4/29Xstl0eIu
 ivieVOlM2nt+o/stJrXhw8vn1u7dCf6Rf9E3Xn+lj7D/AEl/3Pxv97P4X5/svv8ASft/+BH+WfxH
 7fT93o9Pn1+L0W9ia28Xwx4vxfLqLb/6b6ubwa+HqNK9DRHrs+rwXuujx6vLr41+bRz+q+nycfX8
 39m0erQNfxdFLUqacOuS28X7Xn16l/znjvf+1fy+r6/pt6NNvbnVT+fSL4+4/t+T+8H+0eS3m/6m
-W0f7HT/h7t3086f5Ot/4ev/Z" transform="matrix(0.8 0 0 0.8 220.0002 167.75)">
+W0f7HT/h7t3086f5Ot/4ev/Z" transform="matrix(0.8 0 0 0.8 220 167.7502)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Alex" xlink:href="data:image/jpeg;base64,/9j/4QesRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -5359,10 +5360,10 @@ fp4q/wAI/wAHUM7zX669pWnitx/0x6MBT+S0enT4dbaNHg1Wv6/Hp9V9X1/F/wDY+12Pz6Jup/o0
 Ravt7a2tr1+a9jqtb06LfW/N/e+vCtccesq/T9vyavTp0+W+jUb318ar/W3FrX9+zXp6LXrHp59S
 PXpT6a7m3k1f1X/MeX0Xt+nV/a+nHuy6vw9LDSmes3qsLW8lh5b+Pyarcfp4v9P9p0/Tm3u36nz6
 8Phx8PXUuq7W83ksvi83+btcePx/7otr/R5PVe349uRVpnhXr2a449BZnLfxjKW8eryR+S3ntq8U
-Wvzav7X9Pzpt7dWmpqcOqmvnx6Yf8qt+NHk/5veHTf8A6nea3+8f7T7pjV8q9b6//9k=" transform="matrix(0.8 0 0 0.8 127.5002 76.5)">
+Wvzav7X9Pzpt7dWmpqcOqmvnx6Yf8qt+NHk/5veHTf8A6nea3+8f7T7pjV8q9b6//9k=" transform="matrix(0.8 0 0 0.8 127.5 76.5002)">
 	</image>
 	
-		<image overflow="visible" width="100" height="100" id="Antoine" xlink:href="data:image/jpeg;base64,/9j/4QgGRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+		<image overflow="visible" enable-background="new    " width="100" height="100" id="Antoine" xlink:href="data:image/jpeg;base64,/9j/4QgGRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzox
 NDoxNgAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -5767,7 +5768,7 @@ jVfRx7kfbdXgd/WO+4/Ta7n6f+w1HTq+Klflj9vRkML5f2Ner9LW13vrsur/ADnGq99V/wAfT2Yd
 Btqa148Py6FXFebxxWt5NTeK/g1eK6Wtq/Fv129dvpzb3vrzfEelPH5LprvfV6tPk03/ABb/AHd9
 L6bc3vb3ddOh60r5daHn69cxfWdOvyaudGryabDXr83p03v9PX/Xm3uq0qK8Onk8/Trkf1D7jT+m
 T/N2vbjx6/H6NWm99PFvr7cj0a8062aU7eujqufH+q66fL5P9SdWrR6vFqvfVx/sPb82rQNNf9jq
-vXv3tP8Ab83l/wCrd4fFf/qVe3/IdvaLFenO2nl1/9k=" transform="matrix(0.8 0 0 0.8 220.0002 76.5)">
+vXv3tP8Ab83l/wCrd4fFf/qVe3/IdvaLFenO2nl1/9k=" transform="matrix(0.8 0 0 0.8 220 76.5002)">
 	</image>
 	
 		<image overflow="visible" enable-background="new    " width="100" height="100" id="Yo" xlink:href="data:image/jpeg;base64,/9j/4QfgRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
@@ -6140,67 +6141,66 @@ wxfP/d/V/ej7K5+x/vtb/fvfxbwafufsPRrvb139vSaa9nQdn06+6tflTo81F5PFBp8PiuNHl0Wv
 qP8Am9Xp16dWm/4v+fdPIaqV6ci0VGilMV416fo/uPG+j66/2dF9Xj1H/OeP+1b6X/P15v79nNOv
 RU1Saa1+fWePyao/ufuNPlf/AD/n0Xv6Pt7/ALej+uj8X976e6kN59baPLp/s6vF472/sf2bf1v6
 7X/HvfV0+IddJo1j7fT4vMb/AG/i/wA5xr83i516v06v7V7+9Hp8/CehT/e/u/8A7t+5/hH+0+LX
-9l/yV4v959+6axX5df/Z" transform="matrix(0.8 0 0 0.8 35.5002 76.5)">
+9l/yV4v959+6axX5df/Z" transform="matrix(0.8 0 0 0.8 35.5 76.5002)">
 	</image>
 </g>
+<rect id="cadrerect" x="381.5" y="333.5" fill="#3F403F" width="345" height="56.5"/>
 <g id="Titres">
 	<rect x="381.5" y="333.5" fill="none" width="67" height="16"/>
-	<text id="Parcours" transform="matrix(1 0 0 1 381.5002 342.0918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Parcours :</text>
+	<text id="Parcours" transform="matrix(1 0 0 1 381.5 342.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Parcours :</text>
 	<rect x="379.75" y="392.5" fill="none" width="68" height="21"/>
-	<text id="Francais" transform="matrix(1 0 0 1 379.7502 401.0918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Français : </text>
+	<text id="Francais" transform="matrix(1 0 0 1 379.75 401.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Français : </text>
 	<rect x="379.75" y="413.5" fill="none" width="57.5" height="20"/>
-	<text id="Anglais" transform="matrix(1 0 0 1 379.7502 422.0918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Anglais :</text>
+	<text id="Anglais" transform="matrix(1 0 0 1 379.75 422.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Anglais :</text>
 	<polygon fill="none" points="380.875,435.5 457.375,435.5 459.625,457.5 383.125,457.5 	"/>
-	<text id="Espagnol" transform="matrix(1 0 0 1 381.7537 444.0918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Espagnol :</text>
+	<text id="Espagnol" transform="matrix(1 0 0 1 381.7539 444.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Espagnol :</text>
 	<rect x="582.5" y="470" fill="none" width="60" height="16"/>
-	<text id="Code" transform="matrix(1 0 0 1 582.5002 478.5918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Code : </text>
+	<text id="Code" transform="matrix(1 0 0 1 582.5 478.592)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Code : </text>
 	<rect x="581.5" y="499.25" fill="none" width="70" height="17.5"/>
-	<text id="HTML" transform="matrix(1 0 0 1 581.5002 507.8418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">HTML/CSS :</text>
+	<text id="HTML" transform="matrix(1 0 0 1 581.5 507.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">HTML/CSS :</text>
 	<rect x="581.5" y="515.75" fill="none" width="70" height="17.5"/>
-	<text id="Javascript" transform="matrix(1 0 0 1 581.5002 524.3418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Javascript : </text>
+	<text id="Javascript" transform="matrix(1 0 0 1 581.5 524.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Javascript : </text>
 	<rect x="581.5" y="532.25" fill="none" width="70" height="17.5"/>
-	<text id="PHP" transform="matrix(1 0 0 1 581.5002 540.8418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">PHP/SQL : </text>
+	<text id="PHP" transform="matrix(1 0 0 1 581.5 540.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">PHP/SQL : </text>
 	<rect x="381.5" y="468.5" fill="none" width="75" height="19"/>
-	<text id="Graphisme" transform="matrix(1 0 0 1 381.5002 477.0918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Graphisme : </text>
+	<text id="Graphisme" transform="matrix(1 0 0 1 381.5 477.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Graphisme : </text>
 	<polygon fill="none" points="466.5,499 382,499 381,511.5 465.5,511.5 	"/>
-	<text id="Photoshop" transform="matrix(1 0 0 1 381.9319 507.5918)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Photoshop : </text>
+	<text id="Photoshop" transform="matrix(1 0 0 1 381.9316 507.592)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Photoshop : </text>
 	<rect x="382" y="530.25" fill="none" width="70" height="17.5"/>
-	<text id="Indesign" transform="matrix(1 0 0 1 382.0002 538.8418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Indesign : </text>
+	<text id="Indesign" transform="matrix(1 0 0 1 382 538.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Indesign : </text>
 	<rect x="382" y="544.75" fill="none" width="56.5" height="17.5"/>
-	<text id="Gimp" transform="matrix(1 0 0 1 382.0002 553.3418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Gimp :</text>
+	<text id="Gimp" transform="matrix(1 0 0 1 382 553.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Gimp :</text>
 	<polygon fill="none" points="457,514.75 383,514.75 377,528.25 451,528.25 	"/>
-	
-		<text id="Illustrator" transform="matrix(1 0 0 1 382.6194 523.3418)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Illustrator : </text>
+	<text id="Illustrator" transform="matrix(1 0 0 1 382.6191 523.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Illustrator : </text>
 </g>
 <g id="textes">
 	<rect x="449.5" y="333.5" fill="none" width="67" height="14"/>
-	<text id="parcoursblank" transform="matrix(1 0 0 1 449.5002 342.0918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">parcours</text>
+	<text id="parcoursblank" transform="matrix(1 0 0 1 449.5 342.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">parcours</text>
 	<rect x="443.5" y="393" fill="none" width="67" height="14"/>
-	<text id="francaisblank" transform="matrix(1 0 0 1 443.5002 401.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">français</text>
+	<text id="francaisblank" transform="matrix(1 0 0 1 443.5 401.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">français</text>
 	<rect x="437.25" y="413.5" fill="none" width="67" height="14"/>
-	<text id="anglaisblank" transform="matrix(1 0 0 1 437.2502 422.0918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">anglais</text>
+	<text id="anglaisblank" transform="matrix(1 0 0 1 437.25 422.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">anglais</text>
 	<rect x="446.5" y="436" fill="none" width="67" height="14"/>
-	<text id="espagnolblank" transform="matrix(1 0 0 1 446.5002 444.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">espagnol</text>
+	<text id="espagnolblank" transform="matrix(1 0 0 1 446.5 444.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">espagnol</text>
 	<rect x="457.5" y="469" fill="none" width="67" height="14"/>
-	<text id="graphismeblank" transform="matrix(1 0 0 1 457.5002 477.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">grahisme</text>
+	<text id="graphismeblank" transform="matrix(1 0 0 1 457.5 477.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">grahisme</text>
 	<rect x="627.5" y="470" fill="none" width="67" height="14"/>
-	<text id="codeblank" transform="matrix(1 0 0 1 627.5002 478.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">code</text>
+	<text id="codeblank" transform="matrix(1 0 0 1 627.5 478.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">code</text>
 	<rect x="457.5" y="499.25" fill="none" width="67" height="14"/>
-	<text id="photoshopblank" transform="matrix(1 0 0 1 457.5002 507.8418)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">photoshop</text>
+	<text id="photoshopblank" transform="matrix(1 0 0 1 457.5 507.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">photoshop</text>
 	<rect x="655.5" y="498.25" fill="none" width="67" height="14"/>
-	<text id="htmlblank" transform="matrix(1 0 0 1 655.5002 506.8418)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">html</text>
+	<text id="htmlblank" transform="matrix(1 0 0 1 655.5 506.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">html</text>
 	<rect x="453.5" y="515" fill="none" width="67" height="14"/>
-	
-		<text id="illustratorblank" transform="matrix(1 0 0 1 453.5002 523.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">illustrator</text>
+	<text id="illustratorblank" transform="matrix(1 0 0 1 453.5 523.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">illustrator</text>
 	<rect x="651.5" y="531" fill="none" width="67" height="14"/>
-	<text id="phpblank" transform="matrix(1 0 0 1 651.5002 539.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">php</text>
+	<text id="phpblank" transform="matrix(1 0 0 1 651.5 539.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">php</text>
 	<rect x="655.5" y="515" fill="none" width="67" height="14"/>
-	<text id="javascriptblank" transform="matrix(1 0 0 1 655.5002 523.5918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">kavascript</text>
+	<text id="javascriptblank" transform="matrix(1 0 0 1 655.5 523.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">kavascript</text>
 	<rect x="446.5" y="530.25" fill="none" width="67" height="14"/>
-	<text id="indesignblank" transform="matrix(1 0 0 1 446.5002 538.8418)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">indesign</text>
+	<text id="indesignblank" transform="matrix(1 0 0 1 446.5 538.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">indesign</text>
 	<rect x="428.125" y="544.5" fill="none" width="67" height="14"/>
-	<text id="gimpblank" transform="matrix(1 0 0 1 428.1252 553.0918)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">gimp</text>
-	<text id="prenomnom" transform="matrix(1 0 0 1 478.0002 310.1836)" fill="#B0AEAE" font-family="'ArialMT'" font-size="24">Prénom Nom</text>
+	<text id="gimpblank" transform="matrix(1 0 0 1 428.125 553.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">gimp</text>
+	<text id="prenomnom" transform="matrix(1 0 0 1 478 310.1838)" fill="#B0AEAE" font-family="'ArialMT'" font-size="24">Prénom Nom</text>
 </g>
-<line id="Separateur" fill="#B0AEAE" stroke="#A6A6A6" stroke-width="5" stroke-miterlimit="10" x1="420.25" y1="457.5" x2="707.5" y2="457.5"/>
+<line id="Separateur" fill="none" stroke="#A6A6A6" stroke-width="5" stroke-miterlimit="10" x1="420.25" y1="457.5" x2="707.5" y2="457.5"/>
 </svg>

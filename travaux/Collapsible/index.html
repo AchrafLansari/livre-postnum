@@ -25,7 +25,7 @@
 }
 
 .node text {
-  font: 10px sans-serif;
+  
   font-family: "todayshop-light";
 }
 
@@ -42,8 +42,8 @@
 
 
 
-var margin = {top: 20, right: 120, bottom: 20, left: 350},
-    width = 960 - margin.right - margin.left,
+var margin = {top: 20, right: 120, bottom: 20, left: 150},
+    width = 1024 - margin.right - margin.left,
     height = 800 - margin.top - margin.bottom;
     
 var i = 0,
@@ -73,9 +73,10 @@ var svg = d3.select("body").append("svg")
     if (d.children) {
       d._children = d.children;
       d._children.forEach(collapse);
-      d.children = null;
-      d.poids = 1;
+      d.children = d._children;
+      
     }
+    d.poids = 1;
   }
 
   root.children.forEach(collapse);
@@ -91,17 +92,22 @@ function update(source) {
       links = tree.links(nodes);
 
   // Normalize for fixed-depth.
-  //nodes.forEach(function(d) { d.y = d.depth * 180; });
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
   
   var somme_poids = 0;
        
-       if(source.children){
-           for(var i=0;i<source.children.length;i++){
+       if(source.parent){
+           /*for(var i=0;i<source.children.length;i++){
                 var child = source.children[i];
                 somme_poids += child.poids;   
            }
            source.poids = somme_poids;
-           
+           */
+          
+          source.parent.poids = source.poids;
+          //var parent = d3.select(source.parent.poids);
+          //clickcircle(parent);
+          update(source.parent);
        }
        
   
@@ -112,7 +118,7 @@ function update(source) {
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; });
       //.on("click", click);
   
   nodeEnter.append("circle")
@@ -133,7 +139,7 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
   nodeUpdate.select("circle")
-      .attr("r",4.5);
+      .attr("r",8.5);
       //.style("fill", function(d) { return d._children ? "#2ca02c" : "lightsteelblue" });
 
   nodeUpdate.select("text")
@@ -145,9 +151,9 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
       .remove();
 
-  nodeExit.select("circle")
+  /*nodeExit.select("circle")
       .attr("r", 1e-6);
-
+  */
   nodeExit.select("text")
       .style("fill-opacity", 1e-6);
 
@@ -203,11 +209,11 @@ function click(d) {
 
 var i = 10;
 var colorize = d3.scale.linear().domain([0, 100]).range(["#2ca02c", "#d62728"] );
-var fontsize = d3.scale.linear().domain([0, 100]).range(["10px", "42px"]);
+var fontsize = d3.scale.linear().domain([0, 100]).range(["18px", "56px"]);
  var tab=new Array;
 function clickcircle(d){
      
-    update(d);
+    //update(d);
        
     var e = d3.select(this);
     
@@ -230,14 +236,14 @@ function clickcircle(d){
                 }
                 
             }else {
-               text.attr('poids',12);
+               text.attr('poids',18);
 
             }
         text.style("font-size", fontsize(parseInt(text.attr('poids'))));
         
             
     
-      //update(d);
+      update(d);
 }
 
 function csvJSON(csv){
