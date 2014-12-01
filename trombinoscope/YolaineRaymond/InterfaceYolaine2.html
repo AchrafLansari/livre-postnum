@@ -4,11 +4,15 @@
 		<title>Trombinoscope CDNL 14-15</title>
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+  		<script src="../../public/js/dimple.v2.1.0.min.js"></script>
 		<script type="text/javascript">
 
 		var ficSVG = "../../svg/InterfaceYolaine.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
-		var dataProfil;
+		var dataProfil, itemCSV;
+		var myChartGra, myChartDev;
+		
+		var valorise = {"novice":1,"base":3,"professionnel":7, "expert":10};
 		
 		//var arrIds = ["Amin",  "Clementine", "Guillaume", "Gabriela", "Marc", "Quentin", "Alexia", "Helene", "Macaire", "Louis", "Antoine", "Simon"];
 		var arrIds = [
@@ -58,6 +62,70 @@
     	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
     	  		ajoutelesevenementauxelements();
 	    }		
+	    
+	    function setPieGraphI(){
+	    		var gDst = document.getElementById("g4376").getBBox();
+	        var svg = dimple.newSvg("#g4376", 590, 400);	
+	        d3.tsv("../../data/example_data.tsv", function (data) {
+	          var myChart = new dimple.chart(svg, data);
+	          myChart.setBounds(20, 20, 460, 360)
+	          myChart.addMeasureAxis("p", "Unit Sales");
+	          myChart.addSeries("Owner", dimple.plot.pie);
+	          myChart.addLegend(500, 20, 90, 300, "left");
+	          /*
+	          myChart.x = gDst.x;
+	          myChart.y = gDst.y;
+	          */
+	          myChart.draw();
+	          svg.attr("width",gDst.width);
+	          svg.attr("height",gDst.height);
+	          svg.attr("x",gDst.x);
+	          svg.attr("y",gDst.y);		    		
+	          svg.attr("viewBox","0 0 "+590+" "+400);
+
+	        });
+	    }
+	    
+	    function setPieGraph(csv){
+	    		//transformation des données
+	    		var dt = [];
+	    		//Logiciels [Photoshop],Logiciels [Illustrator],Logiciels [Eclipse],Logiciels [Inkscape],Logiciels [Gimp],Logiciels [Premiere],Logiciels [In design],Logiciels [Final Cut],Logiciels [Git Hub],Logiciels [FTP],Logiciels [WAMP / Easy PHP...],Logiciels [Dreamweaver],Logiciels [Mysql Workbench],Logiciels [Php MyAdmin],Logiciels [Toad],Logiciels [Tortoise SVN],Logiciels [Flash Builder],Librairie / Framework [D3.js],Librairie / Framework [Zend],Librairie / Framework [JQuery],Librairie / Framework [Three.js],Librairie / Framework [Symphony],Autres librairie,Langage [JSON],Langage [XML],Langage [HTML],Langage [PHP],Langage [SVG],Langage [CSS],Langage [JAVA],Langage [JavaScript],Langage [.Net],Langage [C++],Langage [RUBY],Langage [Python],Langage [VBA],Langage [XUL],Langage [FLEX],Langage [Action script],Langage [Ligne 17],Autres langages,Envies,Parcours,Projets,ambitions,Langues étrangères [Anglais],Langues étrangères [Français],Langues étrangères [Espagnol],Langues étrangères [Chinois],Langues étrangères [Arabe],Langues étrangères [Italiens],Email	    		
+	    		
+	    		for (var k in csv){
+	    			/*
+	    		    if(k.substring(0, 9) == 'Logiciels') {
+	    		    		dt.push({"logiciels":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    		    }
+	    			*/
+	    		    if(k == 'Logiciels [Photoshop]') 
+    		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    		    if(k == 'Logiciels [Illustrator]') 
+		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    			
+	    		}
+	    		if(!document.getElementById("svgPieChart")){
+		    		var gDst = document.getElementById("g4376").getBBox();
+			        var svg = dimple.newSvg("#g4376", (gDst.width/2)+200, (gDst.height)+300);	
+			        myChartGra = new dimple.chart(svg, dt);
+			        myChartGra.setBounds(0, 0, gDst.width/2, gDst.height);
+			        myChartGra.addMeasureAxis("p", "valeur");
+			        myChartGra.addSeries("graphisme", dimple.plot.pie);
+			        myChartGra.addLegend(0, gDst.height, 200, 300, "right");
+			        myChartGra.draw();
+			        svg.attr("id","svgPieChart");
+			        svg.attr("x",gDst.x-20);
+			        svg.attr("y",gDst.y+24);		    		
+			        /*
+			        svg.attr("width",gDst.width/1.5);
+			        svg.attr("height",gDst.height/1.5);
+			        svg.attr("viewBox","0 0 "+590+" "+400);
+			        */
+	    		}else{
+	    			myChartGra.data = dt;
+	    			myChartGra.draw();
+	    		}
+		}
+	    
 	    
 		// fonction pour ajouter un écouteur à UN ÉLÉMENT
 		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
@@ -128,7 +196,8 @@
 				.attr("x",rct.getAttribute("x"))
 				.attr("y",rct.getAttribute("y"));				
 			}
-				
+			
+	  		setPieGraph(itemCSV);
 			
 			
 		}
@@ -141,8 +210,16 @@
 		}
 
 		</script>
+		<style>
+		.dimple-legend {
+			fill: white;
+		}
+		</style>
 	</head>
 	<body onLoad="load();" bgcolor="#F59C1F">
 		<div id="viz" ></div>
+		<div id="divPieChart" ></div>
+		
+		
 	</body>
 </html>
