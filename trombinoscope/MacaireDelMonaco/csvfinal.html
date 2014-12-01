@@ -11,7 +11,8 @@
 		var ficSVG = "../../svg/macaire-svg3.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
 
-
+		var dataProfil;
+		var itemCSV;
 		var arrIds = [
 		
 			{"idCSV":0,"idClick":"amin","Age":"25","urlTof":"../../data/trombi/CDNL1415/9.jpg"},
@@ -89,17 +90,13 @@
 		}
 		
 		function afficheDetailEtu(evt){
-			
-
-				d3.select("foreignObject").remove();
-
 
 			//récupère la balise image grand format
 			var elemIma = document.getElementById('Cadre');
 			//récupère les information de l'étudiant
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			//Récupérer les données du csv
-			var itemCSV = dataProfil[item.idCSV];
+			itemCSV = dataProfil[item.idCSV];
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlTof);
 			//change les textes
@@ -121,39 +118,29 @@
 			elemCode.textContent="Code : " + itemCSV["Code"];
 			//elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
 
-			var bbCadre = document.getElementById("Cadre_5").getBBox();
-			
-			d3.select("#Rectangles").append('foreignObject')
-            .attr('x', bbCadre.x)
-            .attr('y', bbCadre.y)
-            .attr('width', bbCadre.width)
-            .attr('height', bbCadre.height)
-            .append("xhtml:body")
-			.html('<div id="Parcours" style="margin-top : 50px; width: 281px; color:#fff; font-family: BonvenoCF-Light; padding-top:15px;font-size:13px;">'+itemCSV["Parcours"]+'</div>')
-			
-			
-			var bbCadre = document.getElementById("Cadre_3").getBBox();
-			
-			d3.select("#Rectangles").append('foreignObject')
-            .attr('x', bbCadre.x)
-            .attr('y', bbCadre.y)
-            .attr('width', bbCadre.width)
-            .attr('height', bbCadre.height)
-            .append("xhtml:body")
-			.html('<div id="Envies" style=" margin-top : 50px; width: 190px; color:#fff; font-size:13px; font-family: BonvenoCF-Light; padding-top:15px;">'+itemCSV["Envies"]+'</div>')
-
-			var bbCadre = document.getElementById("Cadre_2").getBBox();
-			
-			d3.select("#Rectangles").append('foreignObject')
-            .attr('x', bbCadre.x)
-            .attr('y', bbCadre.y)
-            .attr('width', bbCadre.width)
-            .attr('height', bbCadre.height)
-            .append("xhtml:body")
-			.html('<div id="ambitions" style=" width: 490px; color:#fff; font-size:13px; font-family: BonvenoCF-Light; padding-top:40px;">'+itemCSV["ambitions"]+'</div>')
-
+			setTxtDiv("Cadre_5", "Parcours");
+			setTxtDiv("Cadre_3", "Envies");
+			setTxtDiv("Cadre_2", "ambitions");
 		}	
 			
+		function setTxtDiv(idBbox, idDiv){
+			
+			var txtDiv = document.getElementById("div"+idDiv)
+			if(txtDiv){
+				txtDiv.innerHTML = itemCSV[idDiv];
+			}else{
+				var bbCadre = document.getElementById(idBbox).getBBox();			
+				d3.select("#Rectangles").append('foreignObject')
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+				.html('<div id="div'+idDiv+'" >'+itemCSV[idDiv]+'</div>')
+			}
+			
+			
+		}
 
 
 		//http://bl.ocks.org/mbostock/7555321
@@ -169,6 +156,11 @@
 		
 
 		</script>
+		<style type="text/css">
+			#ambitions{
+			 	width: 490px; color:#fff; font-size:13px; font-family: BonvenoCF-Light; padding-top:40px;
+			 }
+		</style>
 	</head>
 	<body onload="load();">
 		<div id="viz" ></div>
