@@ -98,6 +98,9 @@
 			alert("OK");*/
 			//var elemEtu = document.getElementById('g16893');
 			
+			
+			d3.select("foreignObject").remove();
+			
 			/* ajouter une image dans un cadre */
 			/*alert("Bonjour");*/
 			var elemIma = document.getElementById('cadre');
@@ -142,9 +145,31 @@
 		/*changer l'information competence dans le tableau CSV */
 			elemTxt = document.getElementById('horodateur');
 			elemTxt.textContent=itemCSV["Horodateur"];
+			
+		/*declarer une variable pour le cadre pour sauter la ligne */
+			var bbCadre = document.getElementById("formulaire").getBBox();
+			
+			d3.select("#barre-information").append('foreignObject')
+            .attr('x', bbCadre.x)
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+			.html('<div id="projets" style="padding-left: 76px;padding-top: 278px;width: 501px;">'+itemCSV["Projets"]+'</div>')
+			
+			
+			
+			
+			
+			
 		}
 		
-				function getElementArr(arr, prop, val){
+		
+		
+		
+		
+				function getElementArr(arr, prop, val)
+				{
 			for (var i = 0; i < arr.length; i++) {
 				if(arr[i][prop]==val)return arr[i];
 			}

@@ -98,8 +98,8 @@
 			var elemTxt = document.getElementById('prenomnom');
 			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
 
-			elemTxt = document.getElementById('parcoursblank');
-			elemTxt.textContent=itemCSV["Parcours"];
+			//elemTxt = document.getElementById('parcoursblank');
+			//elemTxt.textContent=itemCSV["Parcours"];
 
 			elemTxt = document.getElementById('francaisblank');
 			elemTxt.textContent=itemCSV["Langues étrangères [Français]"];
@@ -137,6 +137,25 @@
 			elemTxt = document.getElementById('phpblank');
 			elemTxt.textContent=itemCSV["Langage [PHP]"];
 
+
+//vérifie que le div existe
+			var divTxt = document.getElementById("divParcours");
+			if(divTxt){
+				divTxt.innerHTML = itemCSV["Parcours"];
+			}else{
+				var bbCadre = document.getElementById("cadrerect").getBBox();
+				d3.select("#cadregraph").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+					.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Parcours"]+'</div>')				
+			}
+			
+
+		
 		}
 
 		function getElementArr(arr, prop, val){
@@ -147,6 +166,13 @@
 		}
 		
 		</script>
+
+		<style type="text/css">
+		.txtDiv{		
+			margin-left : 10px; padding-top : 50px; width: 250px;
+			}
+		</style>
+		
 	</head>
 	<body onload="load();">
 		<div id="viz" ></div>

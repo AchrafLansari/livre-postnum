@@ -1,0 +1,275 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>CDNL 14-15</title>
+
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
+
+		var ficSVG = "../../svg/tschantrombi.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+
+		var arrIds = [
+			 {"idCSV":5,"idClick":"guillaume","urlphoto":"../../data/trombi/CDNL1415/14.jpg"},
+			 
+		     {"idCSV":14,"idClick":"marc","urlphoto":"../../data/trombi/CDNL1415/17.jpg"}
+
+			,{"idCSV":1,"idClick":"hugo","urlphoto":"../../data/trombi/CDNL1415/2.jpg"}
+
+			,{"idCSV":4,"idClick":"helene","urlphoto":"../../data/trombi/CDNL1415/13.jpg"}
+
+			,{"idCSV":3,"idClick":"louis","urlphoto":"../../data/trombi/CDNL1415/15.jpg"}
+
+			,{"idCSV":10,"idClick":"alexia","urlphoto":"../../data/trombi/CDNL1415/12.jpg"}
+
+			,{"idCSV":13,"idClick":"gabriela","urlphoto":"../../data/trombi/CDNL1415/4.jpg"}
+
+			,{"idCSV":8,"idClick":"simon","urlphoto":"../../data/trombi/CDNL1415/11.jpg"}
+
+			,{"idCSV":7,"idClick":"quentin","urlphoto":"../../data/trombi/CDNL1415/10.jpg"}
+
+			,{"idCSV":0,"idClick":"amin","urlphoto":"../../data/trombi/CDNL1415/9.jpg"}
+
+			,{"idCSV":9,"idClick":"yolaine","urlphoto":"../../data/trombi/CDNL1415/8.jpg"}
+
+			,{"idCSV":2,"idClick":"clementine","urlphoto":"../../data/trombi/CDNL1415/7.jpg"}
+
+			,{"idCSV":11,"idClick":"antoine","urlphoto":"../../data/trombi/CDNL1415/3.jpg"}
+
+			,{"idCSV":12,"idClick":"alexandre","urlphoto":"../../data/trombi/CDNL1415/6.jpg"}
+
+			,{"idCSV":6,"idClick":"macaire","urlphoto":"../../data/trombi/CDNL1415/5.jpg"}
+			];
+
+		function load()												// Fonction servant à charger le fichier SVG et le fichier CSV
+		{
+				 queue()
+	 	   		.defer(d3.xml, ficSVG, "image/svg+xml")
+	   		    .await(IHMcharge);
+	   			chargeData(ficCSV);
+		}
+
+		function chargeData(url)
+		{
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
+		function IHMcharge(error, xml)
+		{
+	  		var importedNode = document.importNode(xml.documentElement, true);
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
+	    }		
+
+	    function ajoutelesevenementauxelements()
+	     { 
+			for (var i = 0; i < arrIds.length; i++) {
+				
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			    	
+			} 		
+		}
+
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}	
+
+		function afficheDetailEtu(evt){
+		
+			var elemIma = document.getElementById('portrait');
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			var itemCSV = dataProfil[item.idCSV];
+			elemIma.setAttribute("xlink:href",item.urlphoto);
+
+			var elemTxt = document.getElementById('Nom');
+			elemTxt.textContent=itemCSV["nom"];
+
+			var elemTxt = document.getElementById('Prenom');
+			elemTxt.textContent=itemCSV["Prénom"];
+
+			var elemTxt = document.getElementById('Graph');
+			elemTxt.textContent=itemCSV["Graphisme"];
+
+			var elemTxt = document.getElementById('Code');
+			elemTxt.textContent=itemCSV["Code"];
+
+			 var elemTxt = document.getElementById('NotePS');
+			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
+
+			var elemTxt = document.getElementById('NoteIllu');
+			elemTxt.textContent=itemCSV["Logiciels [Illustrator]"];
+
+			var elemTxt = document.getElementById('NoteInkscape');
+			elemTxt.textContent=itemCSV["Logiciels [Inkscape]"];
+
+			var elemTxt = document.getElementById('NoteGimp');
+			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
+
+			var elemTxt = document.getElementById('NoteIndesign');
+			elemTxt.textContent=itemCSV["Logiciels [In design]"];
+			
+			var elemTxt = document.getElementById('Envies');
+			elemTxt.textContent=itemCSV["Envies"];
+			
+			var elemTxt = document.getElementById('Parcours');
+			elemTxt.textContent=itemCSV["Parcours"];
+			
+			var elemTxt = document.getElementById('NoteEclipse');
+			elemTxt.textContent=itemCSV["Logiciels [Eclipse]"];
+			
+			var elemTxt = document.getElementById('NotePremiere');
+			elemTxt.textContent=itemCSV["Logiciels [Premiere]"];
+			
+			var elemTxt = document.getElementById('NoteFinalCut');
+			elemTxt.textContent=itemCSV["Logiciels [Final Cut]"];
+			
+			var elemTxt = document.getElementById('NoteFTP');
+			elemTxt.textContent=itemCSV["Logiciels [FTP]"];
+			
+			var elemTxt = document.getElementById('NoteWamp');
+			elemTxt.textContent=itemCSV["Logiciels [WAMP / Easy PHP...]"];
+			
+			var elemTxt = document.getElementById('NoteDreamweaver');
+			elemTxt.textContent=itemCSV["Logiciels [Dreamweaver]"];
+			
+			var elemTxt = document.getElementById('NoteMysql');
+			elemTxt.textContent=itemCSV["Logiciels [Mysql Workbench]"];
+			
+			var elemTxt = document.getElementById('NoteToad');
+			elemTxt.textContent=itemCSV["Logiciels [Toad]"];
+			
+			var elemTxt = document.getElementById('NoteTortoise');
+			elemTxt.textContent=itemCSV["Logiciels [Tortoise SVN]"];
+			
+			var elemTxt = document.getElementById('NoteFlashbuilder');
+			elemTxt.textContent=itemCSV["Logiciels [Flash Builder]"];
+			
+			var elemTxt = document.getElementById('NoteD3JS');
+			elemTxt.textContent=itemCSV["Librairie / Framework [D3.js]"];
+			
+			var elemTxt = document.getElementById('NoteSymphony');
+			elemTxt.textContent=itemCSV["Librairie / Framework [Symphony]"];
+			
+			var elemTxt = document.getElementById('NoteJquery');
+			elemTxt.textContent=itemCSV["Librairie / Framework [JQuery]"];
+			
+			var elemTxt = document.getElementById('ThreeJS');
+			elemTxt.textContent=itemCSV["Librairie / Framework [Three.js]"];
+			
+			var elemTxt = document.getElementById('NoteZend');
+			elemTxt.textContent=itemCSV["Librairie / Framework [Zend]"];
+			
+			var elemTxt = document.getElementById('NoteJSON');
+			elemTxt.textContent=itemCSV["Langage [JSON]"];
+			
+			var elemTxt = document.getElementById('NoteXML');
+			elemTxt.textContent=itemCSV["Langage [XML]"];
+			
+			var elemTxt = document.getElementById('HTML');
+			elemTxt.textContent=itemCSV["Langage [HTML]"];
+			
+			var elemTxt = document.getElementById('NotePHP');
+			elemTxt.textContent=itemCSV["Langage [PHP]"];
+			
+			var elemTxt = document.getElementById('NoteSVG');
+			elemTxt.textContent=itemCSV["Langage [SVG]"];
+			
+			var elemTxt = document.getElementById('NoteCSS');
+			elemTxt.textContent=itemCSV["Langage [CSS]"];
+			
+			var elemTxt = document.getElementById('NoteJava');
+			elemTxt.textContent=itemCSV["Langage [JAVA]"];
+			
+			var elemTxt = document.getElementById('NoteJavascript');
+			elemTxt.textContent=itemCSV["Langage [JSON]"];
+			
+			var elemTxt = document.getElementById('Note.NET');
+			elemTxt.textContent=itemCSV["Langage [.Net]"];
+			
+			var elemTxt = document.getElementById('NoteC_x2B__x2B_');
+			elemTxt.textContent=itemCSV["Langage [C++]"];
+			
+			var elemTxt = document.getElementById('NoteRuby');
+			elemTxt.textContent=itemCSV["Langage [RUBY]"];
+			
+			var elemTxt = document.getElementById('NotePython');
+			elemTxt.textContent=itemCSV["Langage [Python]"];
+			
+			var elemTxt = document.getElementById('NoteVBA');
+			elemTxt.textContent=itemCSV["Langage [VBA]"];
+			
+			var elemTxt = document.getElementById('NoteFlex');
+			elemTxt.textContent=itemCSV["Langage [FLEX]"];
+			
+			var elemTxt = document.getElementById('NoteActionScript');
+			elemTxt.textContent=itemCSV["Langage [Action script]"];
+			
+			var elemTxt = document.getElementById('NoteXul');
+			elemTxt.textContent=itemCSV["Langage [XUL]"];
+			
+			var elemTxt = document.getElementById('NoteAnglais');
+			elemTxt.textContent=itemCSV["Langues étrangères [Anglais]"];
+			
+			var elemTxt = document.getElementById('NoteFrancais');
+			elemTxt.textContent=itemCSV["Langues étrangères [Français]"];
+			
+			var elemTxt = document.getElementById('NoteEspagnol');
+			elemTxt.textContent=itemCSV["Langues étrangères [Espagnol]"];
+			
+			var elemTxt = document.getElementById('NoteChinois');
+			elemTxt.textContent=itemCSV["Langues étrangères [Chinois]"];
+			
+			var elemTxt = document.getElementById('NoteArabe');
+			elemTxt.textContent=itemCSV["Langues étrangères [Arabe]"];
+			
+			var elemTxt = document.getElementById('NoteItalien');
+			elemTxt.textContent=itemCSV["Langues étrangères [Italiens]"];
+			
+			var elemTxt = document.getElementById('adressemail');
+			elemTxt.textContent=itemCSV["Email"];
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+			//elemTxt = document.getElementById('urlphoto');
+			//elemTxt.textContent=itemCSV["Bigportrait"];
+		}
+
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		</script>
+	</head>
+
+	<body onload="load();">
+		<div id="viz"></div>
+	</body>
+
+</html>
