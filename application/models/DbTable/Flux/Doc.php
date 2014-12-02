@@ -82,12 +82,12 @@ class Model_DbTable_Flux_Doc extends Zend_Db_Table_Abstract
     			$dt["note"] = $data["note"];
     			$this->edit($id[0]["doc_id"], $dt);
     		}
-    		*/
+    		*/    		
     		$id = $id[0]["doc_id"];
     	}
     	if($rs)
     		return $this->findBydoc_id($id);
-	    else
+	else
 	    	return $id;
     	
     }     
@@ -139,15 +139,15 @@ class Model_DbTable_Flux_Doc extends Zend_Db_Table_Abstract
 	    			$data['rgt'] = $arr[0]['rgt']+2;
 	    		}else{
 	    			//met à jour les niveaux 
-	    			$sql = 'UPDATE flux_doc SET rgt = rgt + 2 WHERE rgt >'.$arrP[0]['lft'];
+	    			$sql = 'UPDATE flux_doc SET rgt = rgt + 2 WHERE rgt >'.$arrP['lft'];
 	    			$stmt = $this->_db->query($sql);
-	    			$sql = 'UPDATE flux_doc SET lft = lft + 2 WHERE lft >'.$arrP[0]['lft'];
+	    			$sql = 'UPDATE flux_doc SET lft = lft + 2 WHERE lft >'.$arrP['lft'];
 	    			$stmt = $this->_db->query($sql);
 	    			//
 	    			$data['lft'] = $arr[0]['lft']+1;
 	    			$data['rgt'] = $arr[0]['lft']+2;
 	    		}    		
-	    		$data['niveau'] = $arrP[0]['niveau']+1;
+	    		$data['niveau'] = $arrP['niveau']+1;
     		}
     		if(!isset($data['lft']))$data['lft']=0;    		
     		if(!isset($data['rgt']))$data['rgt']=1;    		
@@ -479,9 +479,9 @@ class Model_DbTable_Flux_Doc extends Zend_Db_Table_Abstract
         	->from( array("f" => "flux_doc") )                           
 			->group("f.doc_id");
         if($idUti)
-            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.uti_id = '.$idUti.' AND utd.doc_id = f.doc_id',array('uti_id'));
+            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.uti_id = '.$idUti.' AND utd.doc_id = f.doc_id',array('uti_id',"login"));
 		else
-            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.doc_id = f.doc_id',array('uti_id'));
+            $query->joinInner(array('utd' => 'flux_utitagdoc'),'utd.doc_id = f.doc_id',array('uti_id', "login"));
 		
 		if($like)
 			$query->where( "f.tronc LIKE '%".$tronc."%'");

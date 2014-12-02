@@ -1,0 +1,225 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Trombinoscope CDNL 14-15</title>
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+  		<script src="../../public/js/dimple.v2.1.0.min.js"></script>
+		<script type="text/javascript">
+
+		var ficSVG = "../../svg/InterfaceYolaine.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";
+		var dataProfil, itemCSV;
+		var myChartGra, myChartDev;
+		
+		var valorise = {"novice":1,"base":3,"professionnel":7, "expert":10};
+		
+		//var arrIds = ["Amin",  "Clementine", "Guillaume", "Gabriela", "Marc", "Quentin", "Alexia", "Helene", "Macaire", "Louis", "Antoine", "Simon"];
+		var arrIds = [
+			{"idCSV":0,"idClick":"Amin"}
+			,{"idCSV":1,"idClick":"Hugo"}
+			,{"idCSV":2,"idClick":"Clementine"}
+			,{"idCSV":3,"idClick":"Louis"}
+			,{"idCSV":4,"idClick":"Helene"}
+			,{"idCSV":5,"idClick":"Guillaume"}
+			,{"idCSV":6,"idClick":"Macaire"}
+			,{"idCSV":7,"idClick":"Quentin"}
+			,{"idCSV":8,"idClick":"Simon"}
+			,{"idCSV":9,"idClick":"Yolaine"}
+			,{"idCSV":10,"idClick":"Alexia"}
+			,{"idCSV":11,"idClick":"Antoine"}
+			,{"idCSV":12,"idClick":"Alexandre"}
+			,{"idCSV":13,"idClick":"Gabriela"}
+			,{"idCSV":14,"idClick":"Marc"}
+			];
+		
+		
+		function load(){
+		 	//charge l'IHM SVG
+		 	//merci à http://bl.ocks.org/KoGor/8162640
+		    	queue()
+		    		.defer(d3.xml, ficSVG, "image/svg+xml")
+		    		.await(IHMcharge);
+		    	chargeData(ficCSV);
+		}
+		
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
+    	  		ajoutelesevenementauxelements();
+	    }		
+	    
+	    function setPieGraphI(){
+	    		var gDst = document.getElementById("g4376").getBBox();
+	        var svg = dimple.newSvg("#g4376", 590, 400);	
+	        d3.tsv("../../data/example_data.tsv", function (data) {
+	          var myChart = new dimple.chart(svg, data);
+	          myChart.setBounds(20, 20, 460, 360)
+	          myChart.addMeasureAxis("p", "Unit Sales");
+	          myChart.addSeries("Owner", dimple.plot.pie);
+	          myChart.addLegend(500, 20, 90, 300, "left");
+	          /*
+	          myChart.x = gDst.x;
+	          myChart.y = gDst.y;
+	          */
+	          myChart.draw();
+	          svg.attr("width",gDst.width);
+	          svg.attr("height",gDst.height);
+	          svg.attr("x",gDst.x);
+	          svg.attr("y",gDst.y);		    		
+	          svg.attr("viewBox","0 0 "+590+" "+400);
+
+	        });
+	    }
+	    
+	    function setPieGraph(csv){
+	    		//transformation des données
+	    		var dt = [];
+	    		//Logiciels [Photoshop],Logiciels [Illustrator],Logiciels [Eclipse],Logiciels [Inkscape],Logiciels [Gimp],Logiciels [Premiere],Logiciels [In design],Logiciels [Final Cut],Logiciels [Git Hub],Logiciels [FTP],Logiciels [WAMP / Easy PHP...],Logiciels [Dreamweaver],Logiciels [Mysql Workbench],Logiciels [Php MyAdmin],Logiciels [Toad],Logiciels [Tortoise SVN],Logiciels [Flash Builder],Librairie / Framework [D3.js],Librairie / Framework [Zend],Librairie / Framework [JQuery],Librairie / Framework [Three.js],Librairie / Framework [Symphony],Autres librairie,Langage [JSON],Langage [XML],Langage [HTML],Langage [PHP],Langage [SVG],Langage [CSS],Langage [JAVA],Langage [JavaScript],Langage [.Net],Langage [C++],Langage [RUBY],Langage [Python],Langage [VBA],Langage [XUL],Langage [FLEX],Langage [Action script],Langage [Ligne 17],Autres langages,Envies,Parcours,Projets,ambitions,Langues étrangères [Anglais],Langues étrangères [Français],Langues étrangères [Espagnol],Langues étrangères [Chinois],Langues étrangères [Arabe],Langues étrangères [Italiens],Email	    		
+	    		
+	    		for (var k in csv){
+	    			/*
+	    		    if(k.substring(0, 9) == 'Logiciels') {
+	    		    		dt.push({"logiciels":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    		    }
+	    			*/
+	    		    if(k == 'Logiciels [Photoshop]') 
+    		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    		    if(k == 'Logiciels [Illustrator]') 
+		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    			
+	    		}
+	    		if(!document.getElementById("svgPieChart")){
+		    		var gDst = document.getElementById("g4376").getBBox();
+			        var svg = dimple.newSvg("#g4376", (gDst.width/2)+200, (gDst.height)+300);	
+			        myChartGra = new dimple.chart(svg, dt);
+			        myChartGra.setBounds(0, 0, gDst.width/2, gDst.height);
+			        myChartGra.addMeasureAxis("p", "valeur");
+			        myChartGra.addSeries("graphisme", dimple.plot.pie);
+			        myChartGra.addLegend(0, gDst.height, 200, 300, "right");
+			        myChartGra.draw();
+			        svg.attr("id","svgPieChart");
+			        svg.attr("x",gDst.x-20);
+			        svg.attr("y",gDst.y+24);		    		
+			        /*
+			        svg.attr("width",gDst.width/1.5);
+			        svg.attr("height",gDst.height/1.5);
+			        svg.attr("viewBox","0 0 "+590+" "+400);
+			        */
+	    		}else{
+	    			myChartGra.data = dt;
+	    			myChartGra.draw();
+	    		}
+		}
+	    
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+		
+			for (var i = 0; i < arrIds.length; i++) {
+				//length = taille du tableau
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false);
+			}
+		}
+		
+		/*
+		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
+		 */
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}
+		
+		function afficheDetailEtu(evt){
+			//récupère les information de l'étudiant
+			var idClick = evt.currentTarget.id;
+			var item = getElementArr(arrIds, "idClick", idClick);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//change les textes
+			var elemTxt = document.getElementById('Nom');
+			elemTxt.textContent="Nom : "+itemCSV["nom"];
+			var elemTxt = document.getElementById('PreN');
+			elemTxt.textContent="Prenom : "+itemCSV["Prénom"];
+			var elemTxt = document.getElementById('Graph');
+			elemTxt.textContent="Compétences en Graphisme (/10) : "+itemCSV["Graphisme"];
+			var elemTxt = document.getElementById('Photoshop');
+			elemTxt.textContent="Photoshop : "+itemCSV["Logiciels [Photoshop]"];
+			var elemTxt = document.getElementById('Illustrator');
+			elemTxt.textContent="Illustrator : "+itemCSV["Logiciels [Illustrator]"];
+			var elemTxt = document.getElementById('Code');
+			elemTxt.textContent="Compétences en Code (/10) : "+itemCSV["Code"];
+			var elemTxt = document.getElementById('HTML');
+			elemTxt.textContent="HTML : "+itemCSV["Langage [HTML]"];
+			var elemTxt = document.getElementById('CSS');
+			elemTxt.textContent="CSS : "+itemCSV["Langage [CSS]"];
+			var elemTxt = document.getElementById('Javascript');
+			elemTxt.textContent="Javascript : "+itemCSV["Langage [JavaScript]"];
+			var elemTxt = document.getElementById('PHP');
+			elemTxt.textContent="PHP : "+itemCSV["Langage [PHP]"];
+			
+			//affiche la main de présence
+			var idRct = "hand_"+idClick.toLowerCase();
+			var rct = document.getElementById(idRct);
+			var tm = document.getElementById("tofMain");
+			if(tm){
+				tm.setAttribute("x",rct.getAttribute("x"));
+				tm.setAttribute("y",rct.getAttribute("y"));
+			}else{
+				d3.select("#forTof")
+				.append("image")
+				.attr("id","tofMain")
+				.attr("xlink:href","img/main.png")
+				.attr("width",rct.getAttribute("width"))
+				.attr("height",rct.getAttribute("height"))
+				.attr("x",rct.getAttribute("x"))
+				.attr("y",rct.getAttribute("y"));				
+			}
+			
+	  		setPieGraph(itemCSV);
+			
+			
+		}
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+
+		</script>
+		<style>
+		.dimple-legend {
+			fill: white;
+		}
+		</style>
+	</head>
+	<body onLoad="load();" bgcolor="#F59C1F">
+		<div id="viz" ></div>
+		<div id="divPieChart" ></div>
+		
+		
+	</body>
+</html>

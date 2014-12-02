@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	
+	<script type="text/javascript">
+		function sauveAbscence(idUti){
+			execAjax("ajoutabscence?idUti="+idUti,{"utiId":idUti});
+		}
+
+		function execAjax(url){
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+			  }else{// code for IE6, IE5
+			  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function(){
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				  	var data = JSON.parse(xmlhttp.responseText);
+			    		document.getElementById("rep_"+data.idUti).innerHTML=data.mess;
+			    }
+			}
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send();
+		}		
+	</script>
+	</head>
+	
+	<body>
+
 <?php
 /*charge le flux rss dans un objet PHP
 $xml = simplexml_load_file('https://picasaweb.google.com/data/feed/base/user/112098438788633053665/albumid/6064761146942390433?alt=rss&kind=photo&authkey=Gv1sRgCJG9i8HQ-b61kwE&hl=en_US');
@@ -6,4 +36,18 @@ foreach ($xml->channel->item as $tof) {
 	echo $tof->title;
 }
 */
-echo "toto=".$this->toto;
+//affiche les photos
+foreach ($this->data as $value) {
+	echo "<div align='center'>";
+	echo "<img src='".$value["url"]."' />";
+	echo $value["login"];
+	echo "<img src='../icones/timeA.jpg' onclick='sauveAbscence(".$value["uti_id"].")' />";
+	echo "<div id='rep_".$value["uti_id"]."' ></div>";
+	echo "</div>";
+}
+//echo "toto=".$this->toto;
+?>
+
+
+	</body>
+</html>

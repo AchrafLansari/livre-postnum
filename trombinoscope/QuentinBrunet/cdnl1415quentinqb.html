@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Trombinoscope</title>
+        <meta charset="UTF-8" />
+		 <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		
+		<script type="text/javascript">
+		
+		var ficSVG = "../../svg/trombinoscopequentinqb.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";	
+		
+		var arrIds =  [
+			 {"idCSV":1,"idClick":"vhugo","urlTof":"images/profil6.jpg"},
+			 {"idCSV":11,"idClick":"vantoine","urlTof":"images/profil11.jpg"},
+			 {"idCSV":13,"idClick":"vgabriela","urlTof":"images/profil9.jpg"},
+			 {"idCSV":6,"idClick":"vmacaire","urlTof":"images/profil4.jpg"},
+			 {"idCSV":12,"idClick":"valexandre","urlTof":"images/profil14.jpg"},
+			 {"idCSV":2,"idClick":"vclementine","urlTof":"images/profil10.jpg"},
+			 {"idCSV":9,"idClick":"vyolaine","urlTof":"images/profil15.jpg"},
+			 {"idCSV":0,"idClick":"vamin","urlTof":"images/profil12.jpg"},
+			 {"idCSV":7,"idClick":"vquentin","urlTof":"images/profil2.jpg"},
+			 {"idCSV":8,"idClick":"vsimon","urlTof":"images/profil1.jpg"},
+			 {"idCSV":10,"idClick":"valexia","urlTof":"images/profil13.jpg"},
+			 {"idCSV":4,"idClick":"vhelene","urlTof":"images/profil7.jpg"},
+			 {"idCSV":5,"idClick":"vguillaume","urlTof":"images/profil8.jpg"},
+			 {"idCSV":3,"idClick":"vlouis","urlTof":"images/profil5.jpg"},
+			 {"idCSV":14,"idClick":"vmarc","urlTof":"images/profil3.jpg"},
+			 ];
+		
+		function load(){
+		 	//charge l'IHM SVG
+		    //merci à http://bl.ocks.org/KoGor/8162640
+		    	queue()
+		    		.defer(d3.xml, ficSVG, "image/svg+xml")
+		    		.await(IHMcharge);
+					chargeData(ficCSV);
+		}
+		function chargeData(url)
+		{
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+		
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
+    	  		ajoutelesevenementauxelements();
+	    }		
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+			 
+			 for (i = 0; i < arrIds.length; i++) {
+			  var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			}  		
+		   } 		
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}
+		
+		function afficheDetailEtu(evt){
+		
+			d3.select("foreignObject").remove();
+
+			//récupère la balise image grand format
+			var elemIma = document.getElementById('cadreprofil');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlTof);
+			
+			elemTxt = document.getElementById('nom');
+			elemTxt.textContent=itemCSV["nom"];
+			
+			var elemTxt = document.getElementById('prenom');
+		    elemTxt.textContent=itemCSV["Prénom"];
+			
+			elemTxt = document.getElementById('mail');
+			elemTxt.textContent=itemCSV["Email"];
+			
+			elemTxt = document.getElementById('notegraph');
+			elemTxt.textContent=itemCSV["Graphisme"];
+			
+			elemTxt = document.getElementById('notecode');
+			elemTxt.textContent=itemCSV["Code"];
+					
+		}
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		
+		</script>
+		 </head>
+    
+	<body onload="load();">
+		<div id="viz" position=center></div>
+	</body>
+	
+</html>

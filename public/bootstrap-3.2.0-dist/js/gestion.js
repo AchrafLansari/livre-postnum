@@ -51,7 +51,7 @@ $('#valider').click(function(){
 			} else {
 			$.ajax({
 			type: "POST",
-                        url: "insert.php",
+                        url: "sauveabsence/",
                         data: dataString,
 		    	success: function(){
 					$('.success').fadeIn(200).show();

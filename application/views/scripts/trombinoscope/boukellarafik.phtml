@@ -2,6 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+	
+	<script type="text/javascript">
+		function sauveAbscence(nom){
+			alert(nom);
+		}
+	</script>
 	</head>
 	
 	<body>
@@ -10,10 +16,14 @@
 	//charge le flux rss dans un objet PHP
 	$xml = simplexml_load_file('https://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr');
 	echo "<h1 align='center' style='color:blue' >TROMBINOSCOPE THYP 2014/2015</h1>";
-	echo "<body bgcolor='#8ce8a2'>";
-	
+	echo "<body bgcolor='#2dccd5'>";
+	$i = 0;
 	foreach ($xml->channel->item as $tof) {		
-		echo "<div align='center'><img src='".$tof->enclosure["url"]."' />" . "<p style='color:yellow'><em>$tof->title</em></p></div>"; 
+		echo "<div align='center'>
+			<img src='".$tof->enclosure["url"]."' />" . "<p style='color:yellow'><em>$tof->title</em></p>
+			<img src='../icones/timeA.jpg' onclick='sauveAbscence(".$i.");' />
+		</div>"; 
+		$i ++;
 	}
 	?>
 

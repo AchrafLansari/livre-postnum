@@ -1,0 +1,214 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Trombinoscope CDNL 14-15</title>
+
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
+
+		var ficSVG = "../../svg/Trombi_Alex_Pain.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+
+		var arrIds = [
+			 {"idCSV":5,"idClick":"Portrait13","urlphoto":"../../data/trombi/CDNL1415/14.jpg"},
+			 
+		     {"idCSV":14,"idClick":"Portrait15","urlphoto":"../../data/trombi/CDNL1415/17.jpg"}
+
+			,{"idCSV":1,"idClick":"Portrait1","urlphoto":"../../data/trombi/CDNL1415/2.jpg"}
+
+			,{"idCSV":4,"idClick":"Portrait12","urlphoto":"../../data/trombi/CDNL1415/13.jpg"}
+
+			,{"idCSV":3,"idClick":"Portrait14","urlphoto":"../../data/trombi/CDNL1415/15.jpg"}
+
+			,{"idCSV":10,"idClick":"Portrait11","urlphoto":"../../data/trombi/CDNL1415/12.jpg"}
+
+			,{"idCSV":13,"idClick":"Portrait3","urlphoto":"../../data/trombi/CDNL1415/4.jpg"}
+
+			,{"idCSV":8,"idClick":"Portrait10","urlphoto":"../../data/trombi/CDNL1415/11.jpg"}
+
+			,{"idCSV":7,"idClick":"Portrait9","urlphoto":"../../data/trombi/CDNL1415/10.jpg"}
+
+			,{"idCSV":0,"idClick":"Portrait8","urlphoto":"../../data/trombi/CDNL1415/9.jpg"}
+
+			,{"idCSV":9,"idClick":"Portrait7","urlphoto":"../../data/trombi/CDNL1415/8.jpg"}
+
+			,{"idCSV":2,"idClick":"Portrait6","urlphoto":"../../data/trombi/CDNL1415/7.jpg"}
+
+			,{"idCSV":11,"idClick":"Portrait2","urlphoto":"../../data/trombi/CDNL1415/3.jpg"}
+
+			,{"idCSV":12,"idClick":"Portrait5","urlphoto":"../../data/trombi/CDNL1415/6.jpg"}
+
+			,{"idCSV":6,"idClick":"Portrait4","urlphoto":"../../data/trombi/CDNL1415/5.jpg"}
+			];
+
+		function load()												// Fonction servant à charger le fichier SVG et le fichier CSV
+		{
+				 queue()
+	 	   		.defer(d3.xml, ficSVG, "image/svg+xml")
+	   		    .await(IHMcharge);
+	   			chargeData(ficCSV);
+		}
+
+		function chargeData(url)
+		{
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
+		function IHMcharge(error, xml)
+		{
+	  		var importedNode = document.importNode(xml.documentElement, true);
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
+	    }		
+
+	    function ajoutelesevenementauxelements()
+	     { 
+			for (var i = 0; i < arrIds.length; i++) {
+				
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			    	
+			} 		
+		}
+
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}	
+
+		function afficheDetailEtu(evt){
+		
+			var elemIma = document.getElementById('Bigportrait');
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			var itemCSV = dataProfil[item.idCSV];
+			elemIma.setAttribute("xlink:href",item.urlphoto);
+
+			var elemTxt = document.getElementById('Nom');
+			elemTxt.textContent=itemCSV["nom"];
+
+			var elemTxt = document.getElementById('Prenom');
+			elemTxt.textContent=itemCSV["Prénom"];
+
+			elemTxt = document.getElementById('Photodetail');
+			elemTxt.textContent=itemCSV["Envies"];
+
+			elemTxt = document.getElementById('Graph');
+			elemTxt.textContent=itemCSV["Graphisme"];
+
+			elemTxt = document.getElementById('Code');
+			elemTxt.textContent=itemCSV["Code"];
+
+			elemTxt = document.getElementById('LevelPS');
+			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
+
+			elemTxt = document.getElementById('LevelIL');
+			elemTxt.textContent=itemCSV["Logiciels [Illustrator]"];
+
+			elemTxt = document.getElementById('LevelIS');
+			elemTxt.textContent=itemCSV["Logiciels [Inkscape]"];
+
+			elemTxt = document.getElementById('LevelGIMP');
+			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
+
+			elemTxt = document.getElementById('LevelID');
+			elemTxt.textContent=itemCSV["Logiciels [In design]"];
+
+			elemTxt = document.getElementById('LevelCUT');
+			elemTxt.textContent=itemCSV["Logiciels [Final Cut]"];
+
+			elemTxt = document.getElementById('LevelPHP');
+			elemTxt.textContent=itemCSV["Logiciels [Php MyAdmin]"];
+
+			elemTxt = document.getElementById('LevelWAMP');
+			elemTxt.textContent=itemCSV["Logiciels [WAMP / Easy PHP...]"];
+
+			elemTxt = document.getElementById('LevelDW');
+			elemTxt.textContent=itemCSV["Logiciels [Dreamweaver]"];
+
+			elemTxt = document.getElementById('LevelPREMIERE');
+			elemTxt.textContent=itemCSV["Logiciels [Premiere]"];
+
+			// Languages
+
+			elemTxt = document.getElementById('LevelHTML');
+			elemTxt.textContent=itemCSV["Langage [HTML]"];
+
+			elemTxt = document.getElementById('LevelPhp');
+			elemTxt.textContent=itemCSV["Langage [PHP]"];
+
+			elemTxt = document.getElementById('Levelsvg');
+			elemTxt.textContent=itemCSV["Langage [SVG]"];
+
+			elemTxt = document.getElementById('LevelXML');
+			elemTxt.textContent=itemCSV["Langage [XML]"];
+
+			elemTxt = document.getElementById('LevelCSS');
+			elemTxt.textContent=itemCSV["Langage [CSS]"];
+
+			elemTxt = document.getElementById('LevelJava');
+			elemTxt.textContent=itemCSV["Langage [JAVA]"];
+
+			elemTxt = document.getElementById('LevelJS');
+			elemTxt.textContent=itemCSV["Langage [JavaScript]"];
+
+			elemTxt = document.getElementById('Levelruby');
+			elemTxt.textContent=itemCSV["Langage [RUBY]"];
+
+			elemTxt = document.getElementById('LevelPyt');
+			elemTxt.textContent=itemCSV["Langage [Python]"];
+
+			elemTxt = document.getElementById('LevelCplus');
+			elemTxt.textContent=itemCSV["Langage [C++]"];
+
+			// Langue
+
+			elemTxt = document.getElementById('LevelENG');
+			elemTxt.textContent=itemCSV["Langues étrangères [Anglais]"];
+
+			elemTxt = document.getElementById('LevelFR');
+			elemTxt.textContent=itemCSV["Langues étrangères [Français]"];
+
+			elemTxt = document.getElementById('LevelSPA');
+			elemTxt.textContent=itemCSV["Langues étrangères [Espagnol]"];
+
+			elemTxt = document.getElementById('LevelCN');
+			elemTxt.textContent=itemCSV["Langues étrangères [Chinois]"];
+
+			elemTxt = document.getElementById('LevelAR');
+			elemTxt.textContent=itemCSV["Langues étrangères [Arabe]"];
+
+			elemTxt = document.getElementById('LevelIT');
+			elemTxt.textContent=itemCSV["Langues étrangères [Italiens]"];
+
+			
+			//elemTxt = document.getElementById('urlphoto');
+			//elemTxt.textContent=itemCSV["Bigportrait"];
+		}
+
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		</script>
+	</head>
+
+	<body onload="load();">
+		<div id="viz"></div>
+	</body>
+
+</html>

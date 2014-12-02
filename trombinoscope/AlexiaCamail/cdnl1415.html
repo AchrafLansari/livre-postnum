@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Trombinoscope</title>
+        <meta charset="UTF-8" />
+		 <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		
+		<script type="text/javascript">
+		
+		var ficSVG = "../../svg/trombi_alexia_camail.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";	
+		
+		var arrIds =  [
+			 {"idCSV":1,"idClick":"Photo1"},
+			 {"idCSV":11,"idClick":"Photo2"},
+			 {"idCSV":13,"idClick":"Photo3"},
+			 {"idCSV":6,"idClick":"Photo4"},
+			 {"idCSV":12,"idClick":"Photo5"},
+			 {"idCSV":2,"idClick":"Photo6"},
+			 {"idCSV":9,"idClick":"Photo7"},
+			 {"idCSV":0,"idClick":"Photo8"},
+			 {"idCSV":7,"idClick":"Photo9"},
+			 {"idCSV":8,"idClick":"Photo10"},
+			 {"idCSV":10,"idClick":"Photo11"},
+			 {"idCSV":4,"idClick":"Photo12"},
+			 {"idCSV":5,"idClick":"Photo13"},
+			 {"idCSV":3,"idClick":"Photo14"},
+			 {"idCSV":14,"idClick":"Photo15"}
+			 ];
+		
+		function load(){
+		 	//charge l'IHM SVG
+		    //merci à http://bl.ocks.org/KoGor/8162640
+		    	queue()
+		    		.defer(d3.xml, ficSVG, "image/svg+xml")
+		    		.await(IHMcharge);
+					chargeData(ficCSV);
+		}
+		function chargeData(url)
+		{
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+		
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
+    	  		ajoutelesevenementauxelements();
+	    }		
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+			 
+			 for (i = 0; i < arrIds.length; i++) {
+			  var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			}  		
+		   } 		
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}
+		
+		function afficheDetailEtu(evt){
+		
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			var itemCSV = dataProfil[item.idCSV];
+			
+			elemTxt = document.getElementById('Nom');
+			elemTxt.textContent=itemCSV["nom"];
+			
+			var elemTxt = document.getElementById('Prenom');
+		    elemTxt.textContent=itemCSV["Prénom"];
+			
+			elemTxt = document.getElementById('Mail');
+			elemTxt.textContent=itemCSV["Email"];
+			
+			elemTxt = document.getElementById('Etudes');
+			elemTxt.textContent=itemCSV["Parcours"];
+			
+			elemTxt = document.getElementById('Want');
+			elemTxt.textContent=itemCSV["Envies"];
+			
+			elemTxt = document.getElementById('NoteGraph');
+			elemTxt.textContent=itemCSV["Graphisme"];
+			
+			elemTxt = document.getElementById('NoteCode');
+			elemTxt.textContent=itemCSV["Code"];
+					
+		}
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		
+		</script>
+		 </head>
+    
+	<body onload="load();">
+		<div id="viz" ></div>
+	</body>
+	
+</html>
