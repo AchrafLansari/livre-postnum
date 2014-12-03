@@ -11,7 +11,7 @@
 	</head>
 	
 	<body>
-
+		
 	<?php
 	//charge le flux rss dans un objet PHP
 	$xml = simplexml_load_file('https://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr');
@@ -23,9 +23,14 @@
 			<img src='".$tof->enclosure["url"]."' />" . "<p style='color:yellow'><em>$tof->title</em></p>
 			<img src='../icones/timeA.jpg' onclick='sauveAbscence(".$i.");' />
 		</div>"; 
+		
+		echo "<div align ='center' class='orga-btn'>
+            <button class='present' type='button' id='valider'>Present</button>
+            <button class='present' type='button' id='vider'>Absent</button>
+        </div>";
 		$i ++;
 	}
 	?>
-
+	     
 	</body>
 </html>
