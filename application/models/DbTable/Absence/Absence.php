@@ -132,7 +132,7 @@ class Model_DbTable_Absence_Absence extends Zend_Db_Table_Abstract
         return $db->fetchRow($query); 
     }
     
-   function ajout_absence($date,$nom_absent){
+   public static function ajout_absence($date,$nom_absent){
 	try {
 		$db = Zend_Registry::get('dbAdapter');
 		
