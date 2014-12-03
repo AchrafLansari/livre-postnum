@@ -1,4 +1,3 @@
-
 <?php
 
 class TrombinoscopeController extends Zend_Controller_Action
@@ -6,11 +5,6 @@ class TrombinoscopeController extends Zend_Controller_Action
 	var $rss = array("CDNL1415"=>"https://picasaweb.google.com/data/feed/base/user/112098438788633053665/albumid/6064761146942390433?alt=rss&kind=photo&authkey=Gv1sRgCJG9i8HQ-b61kwE&hl=en_US"
 		,"THYP1415"=>"http://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr"
 		);
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
 
     public function indexAction()
     {
@@ -21,17 +15,22 @@ class TrombinoscopeController extends Zend_Controller_Action
     {
     		$dbUti = new Model_DbTable_Flux_Uti();
     		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    		
     }
-    public function ajoutabscenceAction()
+    public function ajouteventAction()
     {
-    		//TODO: ajouter l'enregistrement dans la base	
-  		$this->view->idUti = $this->_getParam('idUti'); 		
+    		//ajouter l'enregistrement dans la base	
+    		$idUti = $this->_getParam('idUti');
+    		$idTag = $this->_getParam('idTag');
+  		$this->view->idUti = $idUti;
+    		$dbUT = new Model_DbTable_flux_utitag();
+    		$dbUT->ajouter(array("uti_id"=>$idUti,"tag_id"=>$idTag),false);
+  		$this->view->data = $dbUT->findByUti_id($idUti);
     }
     
     public function masseixkevinAction(){
     }
-	 public function abbounisrineAction(){
+	
+    public function abbounisrineAction(){
     
 	}
 	
@@ -42,7 +41,7 @@ class TrombinoscopeController extends Zend_Controller_Action
         
     }
 	
-	 public function hmessarabdelaliAction(){
+	public function hmessarabdelaliAction(){
         
     }
     
@@ -61,6 +60,10 @@ class TrombinoscopeController extends Zend_Controller_Action
 	public function boukellarafikAction(){
     
     }
+	public function guellouzmoudhaferAction(){
+    
+    }
+    
 	public function aimanguemouriAction(){
 					$dbUti = new Model_DbTable_Flux_Uti();
 					$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
@@ -80,13 +83,13 @@ class TrombinoscopeController extends Zend_Controller_Action
                
         
         $this->dbD = new Model_DbTable_Flux_Doc();
-	$trombi = $this->_getParam('trombi', 0);
+		$trombi = $this->_getParam('trombi', 0);
         
         
         
         $this->view->trombi =  $trombi;   
         $chemin = $_SERVER['DOCUMENT_ROOT']."/livre-postnum/data/trombi/".$trombi;
-	$this->view->chemin = $chemin;
+		$this->view->chemin = $chemin;
         
         $url = $this->rss['THYP1415']; 
         $xml = simplexml_load_file($url);
@@ -109,7 +112,7 @@ class TrombinoscopeController extends Zend_Controller_Action
 				/* VALUES */
 				$date= date('Y-m-d H:i:s');
 				$nom_absent=$_POST['nom_absent'];
-                                ajout_absence($date, $nom_absent);					
+                                $this->db->ajout_absence($date, $nom_absent);					
                                 
                                 } else { 
  
@@ -209,9 +212,5 @@ class TrombinoscopeController extends Zend_Controller_Action
 		return $idDoc;   	
 	} 	
     
-    
-	public function guellouzmoudhaferAction(){
-    
-    }
 }
 
