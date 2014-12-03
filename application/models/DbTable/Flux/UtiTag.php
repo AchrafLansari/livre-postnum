@@ -24,7 +24,7 @@ class Model_DbTable_flux_utitag extends Zend_Db_Table_Abstract
     /*
      * Clef primaire de la table.
      */
-    protected $_primary = 'uti_id';
+    protected $_primary = 'utitag_id';
 
     
     /**
