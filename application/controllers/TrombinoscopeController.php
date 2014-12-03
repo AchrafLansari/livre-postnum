@@ -108,7 +108,7 @@ class TrombinoscopeController extends Zend_Controller_Action
 				/* VALUES */
 				$date= date('Y-m-d H:i:s');
 				$nom_absent=$_POST['nom_absent'];
-                                //ajout_absence($date, $nom_absent);					
+                                ajout_absence($date, $nom_absent);					
                                 
                                 } else { 
  
