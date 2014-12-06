@@ -1,26 +1,74 @@
+<!DOCTYPE html>
 <html>
 	<head>
-	<title> Trombinoscope des étudiants du master 2 THYP </title>
+	<script type="text/javascript" src="../js/aimanguemouri.js" ></script>
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js" ></script>
+	<script type="text/javascript">
+		function document_onClick()
+				{alert("L'étudiant est présent!" );
+				} 
+		function sauveAbscence(idUti){
+			execAjax("ajoutabscence?idUti="+idUti,{"utiId":idUti});
+		}
+
+		function execAjax(url){
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+			  }else{// code for IE6, IE5
+			  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function(){
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				  	var data = JSON.parse(xmlhttp.responseText);
+			    		document.getElementById("rep_"+data.idUti).innerHTML=data.mess;
+			    }
+			}
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send();
+		}		
+	</script>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+	<title> Trombinoscope des Etudiants du master 2 THYP </title>
 	</head>
 	<body>
 
 	<?php
 			$url = "https://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr";
 			$xml = simplexml_load_file($url);
+			$i =4;
 			echo "<center>";
 			echo "<table border ='1'>";
 			if(isset($xml->channel->item))
 			{
-				echo "<h1>Trombinoscope des étudiants du master 2 THYP</h1>";
+				echo "<h1>Trombinoscope Etudiants du master 2 THYP</h1>";
+			
 			foreach ($xml->channel->item as $photo){
-				echo "<tr>";
-				echo "<td><img width='400px' src='".$photo->enclosure["url"]."'/><br/><p align='center'>".$photo->title."</p></td>";
-				 echo"</tr>";				
-			}
-			}
+			if ($i%4 == 0) echo "<tr>";
+			echo "<td><img width='250px' src='".$photo->enclosure["url"]."'/><br/><p align='center'>".$photo->title."</p>";
+			//echo $photo["login"];
+			echo "<center>";
+			echo "<img src='../icones/timeA.jpg' onclick='sauveAbscence(".$photo["uti_id"].")' />";
+			echo "<img src='../icones/timeP.jpg' onclick='document_onClick(".$photo["uti_id"].")' />";
+			echo "<div id='rep_".$photo["uti_id"]."' >";
+			echo "</center>";
+			echo "</td>";
+				if($i++ == 0) echo"</tr>";				
+													}
+									}
 			echo "</table>";
 			echo "<center>";
+			/* affiche les photos récupérer par la BDD;
+			foreach ($this->data as $value) {
+			echo "<div align='center'>";
+			echo "<img src='".$value["url"]."' />";
+			echo $value["login"];
+			echo "<img src='../icones/timeA.jpg' onclick='sauveAbscence(".$value["uti_id"].")' />";
+			echo "<div id='rep_".$value["uti_id"]."' ></div>";
+			echo "</div>";
+											}
+											*/
 		
 	?>
+	<img src="../icones/fleche.png" onclick="backtotop();return false;" alt="Retour haut de page">
 	</body>
 </html>

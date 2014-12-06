@@ -24,7 +24,7 @@ class Model_DbTable_flux_utitag extends Zend_Db_Table_Abstract
     /*
      * Clef primaire de la table.
      */
-    protected $_primary = 'uti_id';
+    protected $_primary = 'utitag_id';
 
     
     /**
@@ -58,6 +58,7 @@ class Model_DbTable_flux_utitag extends Zend_Db_Table_Abstract
     	$id=false;
     	if($existe)$id = $this->existe($data);
     	if(!$id){
+    		if(!isset($data["maj"])) $data["maj"] = new Zend_Db_Expr('NOW()');    		
     	 	$id = $this->insert($data);
     	}else{
     		//met à jour le poids
