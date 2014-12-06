@@ -39,7 +39,7 @@
 				execAjax("ajoutabsence?idUti="+idUti, {"utiId":idUti});
 			}
 			
-			function execAjax(url) {
+			function execAjax(url, params) {
 				if(windows.XMLHttpRequest) {
 					xmlhttp = new XMLHttpRequest();
 				}
@@ -48,8 +48,7 @@
 				}
 				xmlhttp.onreadystatechange=function() [
 					if(xmlhttp.readyState==4 xmlhttp.status==200) {
-						var data = JSON.parse(xmlhttp.responceText);
-						document.getElementById("rep_"+data.idUti).innerHTML = data.mess;
+						document.getElementById("rep_".params.utiId).innerHTML = xmlhttp.responceText;
 					}
 				}
 				xmlhttp.open("Get",url,true);
