@@ -109,7 +109,7 @@ function load(){
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 			//change les textes
-			var elemnom = document.getElementById('nom');
+			var elemnom = document.getElementById('tspan4832');
 			var elemprenom = document.getElementById('prénom');
 			var elemmail = document.getElementById('mail');
 			var elemNote_Graphisme = document.getElementById('0');
@@ -118,7 +118,7 @@ function load(){
 			var elemenvies = document.getElementById('envies');
 
 
-			elemnom=itemCSV["nom"];
+			elemnom.innerHTML=itemCSV["nom"];
 			elemprenom=itemCSV["Prenom"];
 			elemmail=itemCSV["Email"];
 			elemNote_Graphisme=itemCSV["Graphisme"];
