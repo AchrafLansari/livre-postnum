@@ -68,7 +68,7 @@
 			     var el = document.getElementById(arrIds[i].idClick); 
 				 var j = i;
 			     el.addEventListener("click", afficheDetailEtu,false); 
-			    	
+
 			} 		
 		}	
 		
@@ -110,8 +110,30 @@
 			elemCode.textContent="Code : " + itemCSV["Code"];
 			//elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
 
+/*
+
+
+			//vérifie que le div existe
+			var divTxt = document.getElementById("divParcours");
+			if(divTxt){
+				divTxt.innerHTML = itemCSV["Parcours"];
+			}else{
+				var bbCadre = document.getElementById("Cadre_2").getBBox();
+				d3.select("#Rectangles").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+					.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Parcours"]+'</div>')				
+			}
+*/	
+			// gestion graphique
+
 			var bbCadre = document.getElementById("Cadre_2").getBBox(); // la fonction getBBbox sert à récuperer les coordonnées x, y la hauteur et la largueur d'un élément
-																		// On stock ces informations dans la variable bbCadre
+			
+			// On stock ces informations dans la variable bbCadre
 			d3.select("#Rectangles").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
             .attr('x', bbCadre.x)										
             .attr('y', bbCadre.y)
@@ -120,6 +142,10 @@
             .append("xhtml:body")
 				.html('<div id="Parcours" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Parcours"]+'</div>')
 
+
+			d3.select("#barre").transition().duration(1000).attr("width", itemCSV["Graphisme"]*20);
+			d3.select("#barre2").transition().duration(1000).attr("width", itemCSV["Code"]*20);
+			//alert(itemCSV["Graphisme"]);
 		}
 
 
@@ -132,6 +158,9 @@
 			}
 			return false;
 		}
+
+
+
 
 		
 
