@@ -85,6 +85,10 @@
 		}
 		
 		function afficheDetailEtu(evt){
+			
+
+				d3.select("foreignObject").remove();
+
 
 			//récupère la balise image grand format
 			var elemIma = document.getElementById('Cadre');
@@ -106,22 +110,15 @@
 			elemCode.textContent="Code : " + itemCSV["Code"];
 			//elemParcours.textContent="Parcours : " + itemCSV["Parcours"];
 
-			//vérifie que le div existe
-			var divTxt = document.getElementById("divParcours");
-			if(divTxt){
-				divTxt.innerHTML = itemCSV["Parcours"];
-			}else{
-				var bbCadre = document.getElementById("Cadre_2").getBBox();
-				d3.select("#Rectangles").append('foreignObject')
-	            .attr('id', "foRectComp")
-	            .attr('x', bbCadre.x)
-	            .attr('y', bbCadre.y)
-	            .attr('width', bbCadre.width)
-	            .attr('height', bbCadre.height)
-	            .append("xhtml:body")
-					.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Parcours"]+'</div>')				
-			}
-			
+			var bbCadre = document.getElementById("Cadre_2").getBBox(); // la fonction getBBbox sert à récuperer les coordonnées x, y la hauteur et la largueur d'un élément
+																		// On stock ces informations dans la variable bbCadre
+			d3.select("#Rectangles").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', bbCadre.x)										
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div id="Parcours" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Parcours"]+'</div>')
 
 		}
 
@@ -139,11 +136,6 @@
 		
 
 		</script>
-		<style type="text/css">
-		.txtDiv{		
-			margin-left : 10px; padding-top : 50px; width: 250px;
-			}
-		</style>
 	</head>
 	<body onload="load();">
 		<div id="viz" ></div>
