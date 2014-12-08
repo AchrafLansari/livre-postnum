@@ -11,7 +11,7 @@
 		var ficCSV = "../../data/ManOfCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
 		var dataProfil;
 var arrIds = [
-			 {"idCSV":2,"idClick":"alexandre","urlphoto":"images/alexandre.jpg"},
+			 {"idCSV":2,"idClick":"alexandre","urlphoto":"../../data/ImgbyMarc/alexandre.jpg"},
 			 
 		     {"idCSV":3,"idClick":"alexia","urlphoto":"../../data/ImgbyMarc/alexia.jpg"}
 
@@ -90,7 +90,7 @@ function load(){
 		 */
 		function switchInfoPerso()
 		{
-			divInfo = document.getElementById('divacacher');
+			divInfo = document.getElementById('info_etudiants');
 			if (divInfo.style.display == 'none')
 				divInfo.style.display = 'block';
 			else
@@ -101,7 +101,7 @@ function load(){
 
 
 			//récupère la balise image grand format
-			var elemIma = document.getElementById('cadre_x5F_toff');
+			var elemIma = document.getElementById('cadre_x5F_yo');
 			//récupère les information de l'étudiant
 			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
 			//Récupérer les données du csv
@@ -110,18 +110,20 @@ function load(){
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 			//change les textes
 			var elemnom = document.getElementById('nom');
-			var elemprenom = document.getElementById('prenom');
+			var elemprenom = document.getElementById('prénom');
 			var elemmail = document.getElementById('mail');
-			var elemN_graphisme = document.getElementById('N_graphisme');
-			var elemN_developpement = document.getElementById('N_developpement');
+			var elemNote_Graphisme = document.getElementById('0');
+			var elemNote_Developpement = document.getElementById('0');
 			var elemparcours= document.getElementById('parcours');
 			var elemenvies = document.getElementById('envies');
 
 
-			elemnom.textContent=itemCSV["nom"];
-			elemprénom.textContent=itemCSV["Prénom"];
-			elemGraphisme.textContent="Graphisme : " + itemCSV["Graphisme"];
-			elemCode.textContent="Code : " + itemCSV["Code"];
+			elemnom=itemCSV["nom"];
+			elemprenom=itemCSV["Prenom"];
+			elemmail=itemCSV["Email"];
+			elemNote_Graphisme=itemCSV["Graphisme"];
+			elemNote_Developpement=itemCSV["Developpment"];
+			
 			
 
 			
