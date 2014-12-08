@@ -1,5 +1,4 @@
 <?php
-try{
 	// Define path to application directory
 	defined('APPLICATION_PATH')
 	    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
@@ -9,6 +8,7 @@ try{
 	    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 	    
 	set_include_path(get_include_path().PATH_SEPARATOR."/var/www/Zend/library");
+	set_include_path(get_include_path().PATH_SEPARATOR."../library");
 	
 	/** Zend_Application */
 	require_once 'Zend/Application.php';
@@ -21,6 +21,3 @@ try{
 
 	$application->bootstrap()
 	            ->run();
-} catch(Exception $e){
-    print_r($e);
-}

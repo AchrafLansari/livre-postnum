@@ -127,9 +127,9 @@
 			elemTxt.textContent=itemCSV["Email"];	
 			
 		/*changer l'information projects dans le tableau CSV */
-			elemTxt = document.getElementById('projets');
+		/*	elemTxt = document.getElementById('projets');
 			elemTxt.textContent=itemCSV["Projets"];
-			
+*/			
 		/*changer l'information ambition dans le tableau CSV */
 			elemTxt = document.getElementById('ambition');
 			elemTxt.textContent=itemCSV["ambitions"];
@@ -147,17 +147,67 @@
 			elemTxt.textContent=itemCSV["Horodateur"];
 			
 		/*declarer une variable pour le cadre pour sauter la ligne */
-			var bbCadre = document.getElementById("formulaire").getBBox();
-			
-			d3.select("#barre-information").append('foreignObject')
-            .attr('x', bbCadre.x)
-            .attr('y', bbCadre.y)
-            .attr('width', bbCadre.width)
-            .attr('height', bbCadre.height)
-            .append("xhtml:body")
-			.html('<div id="projets" style="padding-left: 76px;padding-top: 278px;width: 501px;">'+itemCSV["Projets"]+'</div>')
+			//vérifie que le div existe
+			var divTxt = document.getElementById("divParcours");
+			if(divTxt)
 			
 			
+			{
+				divTxt.innerHTML = itemCSV["Projets"];
+				divTxt.innerHTML = itemCSV["ambitions"];
+				divTxt.innerHTML = itemCSV["Parcours"];
+				divTxt.innerHTML = itemCSV["Envies"];
+				
+				
+			}
+			
+			
+			else
+			
+			{
+				var bbCadre = document.getElementById("barre-information").getBBox();
+				d3.select("#barre-information").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+				.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Projets"]+'</div>')	
+				
+				
+				var bbCadre = document.getElementById("barre-information").getBBox();
+				d3.select("#barre-information").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+				.html('<div id="divParcours" class="txtDiv1" >'+itemCSV["ambitions"]+'</div>')	
+				
+				
+				var bbCadre = document.getElementById("barre-information").getBBox();
+				d3.select("#barre-information").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+				.html('<div id="divParcours" class="txtDiv2" >'+itemCSV["Parcours"]+'</div>')	
+				
+				var bbCadre = document.getElementById("barre-information").getBBox();
+				d3.select("#barre-information").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+				.html('<div id="divParcours" class="txtDiv3" >'+itemCSV["Envies"]+'</div>')	
+							
+			}
 			
 			
 			
@@ -177,6 +227,58 @@
 		}
 
 		</script>
+        <!-- declarer le style -->
+        <style type="text/css">
+		.txtDiv
+		{		
+					font-size: 13px;
+    				/*margin-left: 74px;
+   					margin-top: 321px;*/
+					padding-left: 74px;
+   					padding-top: 313px;
+    				width: 493px;
+					overflow: hidden;
+					height: 64px;
+					font-family: MV Boli;
+			}
+			
+			.txtDiv1
+		{		
+					font-size: 13px;
+    				/*margin-left: 74px;
+   					margin-top: 392px;*/
+					padding-left: 74px;
+   					padding-top: 381px;
+    				width: 493px;
+					font-family: MV Boli;
+			}
+			
+			.txtDiv2
+		{		
+					font-size: 13px;
+    				/*margin-left: 74px;
+   					margin-top: 392px;*/
+					padding-left: 74px;
+   					padding-top: 251px;
+    				width: 493px;
+					font-family: MV Boli;
+					overflow: hidden;
+					height: 63px;
+			}
+			
+				.txtDiv3
+		{		
+					font-size: 13px;
+    				/*margin-left: 74px;
+   					margin-top: 392px;*/
+					padding-left: 74px;
+   					padding-top: 166px;
+    				width: 493px;
+					font-family: MV Boli;
+					overflow: hidden;
+					height: 43px;
+			}
+		</style>
 	</head>
 	<body onLoad="load();" bgcolor="#F59C1F">
 		<div id="viz" ></div>

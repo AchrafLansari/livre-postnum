@@ -7,14 +7,14 @@ class ExploController extends Zend_Controller_Action
 	
     public function indexAction()
     {
-	    	$this->view->idBase = $this->idBase;
-        //chargement des inclanations
-        $s = new Flux_Site($this->idBase); 
-    		$dbDoc = new Model_DbTable_Flux_Doc($s->db);
+
+	    	//chargement des inclanations        
+	    	$dbDoc = new Model_DbTable_Flux_Doc();
+
     		$this->view->arrInclinations = $dbDoc->findByTronc("inclination");
     		$this->view->arrInclinaisons = $dbDoc->findByTronc("inclinaison");
 
-		$auth = Zend_Auth::getInstance();
+    		$auth = Zend_Auth::getInstance();
 		if ($auth->hasIdentity()) {
 		    // l'identité existe ; on la récupère
 		    $this->view->identite = $auth->getIdentity();
@@ -23,8 +23,8 @@ class ExploController extends Zend_Controller_Action
 		    $this->view->uti = $ssUti->uti;
 		}else{			
 		    $this->view->identite = false;
-		}    		
-    		
+		}   
+		 		
     }
 
     public function sauvesvgAction()
