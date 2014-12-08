@@ -2,62 +2,146 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Trombinoscope CDNL 14-15</title>
+		<link rel="stylesheet" href="marc_css/cdnl1415.css" type="text/css">
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
-		<script type="text/javascript">
+		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
 
-		var ficSVG = "../../svg/marc.svg";
-		
-		var arrIds = ["marc","antoine","quentin","macaire","clemenetine","louis","helene","guillaume","alexia","hugo","yolaine","haziz","gabriela","alexandre"];
-		
-		function load(){
+		var ficSVG = "../../svg/MarcBiofa.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficCSV = "../../data/ManOfCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+		var dataProfil;
+var arrIds = [
+			 {"idCSV":2,"idClick":"alexandre","urlphoto":"../../data/ImgbyMarc/alexandre.jpg"},
+			 
+		     {"idCSV":3,"idClick":"alexia","urlphoto":"../../data/ImgbyMarc/alexia.jpg"}
+
+			,{"idCSV":4,"idClick":"amir","urlphoto":"../../data/ImgbyMarc/amir.jpg"}
+
+			,{"idCSV":5,"idClick":"antoine","urlphoto":"../../data/ImgbyMarc/antoine.jpg"}
+
+			,{"idCSV":6,"idClick":"clementine","urlphoto":"../../data/ImgbyMarc/clementine.jpg"}
+
+			,{"idCSV":7,"idClick":"gabriela","urlphoto":"../../data/ImgbyMarc/gabriela.jpg"}
+
+			,{"idCSV":8,"idClick":"guillaume","urlphoto":"../../data/ImgbyMarc/guillaume.jpg"}
+
+			,{"idCSV":9,"idClick":"helene","urlphoto":"../../data/ImgbyMarc/helene.jpg"}
+
+			,{"idCSV":10,"idClick":"hugo","urlphoto":"../../data/ImgbyMarc/hugo.jpg"}
+
+			,{"idCSV":11,"idClick":"louis","urlphoto":"../../data/ImgbyMarc/louis.jpg"}
+
+			,{"idCSV":12,"idClick":"macaire","urlphoto":"../../data/ImgbyMarc/macaire.jpg"}
+
+			,{"idCSV":13,"idClick":"marc","urlphoto":"../../data/ImgbyMarc/marc.jpg"}
+
+			,{"idCSV":14,"idClick":"quentin","urlphoto":"../../data/ImgbyMarc/quentin.jpg"}
+
+			,{"idCSV":15,"idClick":"simon","urlphoto":"../../data/ImgbyMarc/simon.jpg"}
+
+			,{"idCSV":16,"idClick":"yolaine","urlphoto":"../../data/ImgbyMarc/yolaine.jpg"}
+			];
+
+function load(){
 		 	//charge l'IHM SVG
-		 	chargeIHM();
-
-		}
-
-		//charge le svg
-	    //merci à http://bl.ocks.org/KoGor/8162640
-	    function chargeIHM(){
-	    	queue()
+		 	//chargeIHM();
+		 	queue()
 	    		.defer(d3.xml, ficSVG, "image/svg+xml")
 	    		.await(IHMcharge);
-	    }
+	    	chargeData(ficCSV);
+		}
+
+
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
 	    function IHMcharge(error, xml){
 	    	//Adding our svg file to HTML document
 			var importedNode = document.importNode(xml.documentElement, true);
-    	  		d3.select("#viz").node().appendChild(importedNode);
-    	  		//ajoute les événements
-    	  		ajoutelesevenementauxelements();
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
 	    }		
 	    
-		// fonction pour ajouter un écouteur à UN ÉLÉMENT en occurence ici afficher quelque chose quand on click sur l'element
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
 		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
 		function ajoutelesevenementauxelements() { 
-			
-			for (i = 0; i < arrIds.length; i++) { 
-			     var el = document.getElementById(arrIds[i]); 
-			     el.addEventListener("click", afficheDetailEtu, false); 
-			}
-		} 		
+		
+			for (var i = 0; i < arrIds.length; i++) {
+				//length = taille du tableau
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+			    	
+			} 		
+		}	
 		
 		/*
 		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
 		 */
 		function switchInfoPerso()
 		{
-			divInfo = document.getElementById('divacacher');
+			divInfo = document.getElementById('info_etudiants');
 			if (divInfo.style.display == 'none')
 				divInfo.style.display = 'block';
 			else
 				divInfo.style.display = 'none';
 		}
 		
-		function afficheDetailEtu(){
-			alert("OK");
-			//var elemEtu = document.getElementById('g16893');
+		function afficheDetailEtu(evt){
+
+
+			//récupère la balise image grand format
+			var elemIma = document.getElementById('cadre_x5F_yo');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlphoto);
+			//change les textes
+			var elemnom = document.getElementById('tspan4832');
+			var elemprenom = document.getElementById('prénom');
+			var elemmail = document.getElementById('mail');
+			var elemNote_Graphisme = document.getElementById('0');
+			var elemNote_Developpement = document.getElementById('0');
+			var elemparcours= document.getElementById('parcours');
+			var elemenvies = document.getElementById('envies');
+
+
+			elemnom.innerHTML=itemCSV["nom"];
+			elemprenom=itemCSV["Prenom"];
+			elemmail=itemCSV["Email"];
+			elemNote_Graphisme=itemCSV["Graphisme"];
+			elemNote_Developpement=itemCSV["Developpment"];
 			
+			
+
+			
+
 		}
+
+
+		//http://bl.ocks.org/mbostock/7555321
+		//code pour tspan
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+
+		
 
 		</script>
 	</head>

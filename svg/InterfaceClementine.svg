@@ -6,7 +6,7 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px"
 	 viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
 <rect id="Fond" y="1" fill="#3F403F" stroke="#000000" stroke-miterlimit="10" width="800" height="600"/>
-<rect id="cadregraph" x="334.5" y="15.544" fill="#3F403F" width="438" height="566.956"/>
+<rect id="cadregraph" x="377" y="15.544" fill="#3F403F" width="366.5" height="546.706"/>
 <image overflow="visible" enable-background="new    " width="399" height="300" id="image14" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAUgBSAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAkOAAAUyQAAIBz/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
@@ -6144,7 +6144,7 @@ RU1Saa1+fWePyao/ufuNPlf/AD/n0Xv6Pt7/ALej+uj8X976e6kN59baPLp/s6vF472/sf2bf1v6
 9l/yV4v959+6axX5df/Z" transform="matrix(0.8 0 0 0.8 35.5 76.5002)">
 	</image>
 </g>
-<rect id="cadrerect" x="381.5" y="333.5" fill="#3F403F" width="345" height="56.5"/>
+<rect id="cadrerect" x="381.5" y="319.5" fill="#3F403F" width="345" height="70.5"/>
 <g id="Titres">
 	<rect x="381.5" y="333.5" fill="none" width="67" height="16"/>
 	<text id="Parcours" transform="matrix(1 0 0 1 381.5 342.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Parcours :</text>
