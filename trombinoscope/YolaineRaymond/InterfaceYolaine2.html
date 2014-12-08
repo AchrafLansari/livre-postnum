@@ -101,16 +101,28 @@
     		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
 	    		    if(k == 'Logiciels [Illustrator]') 
 		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
-	    			
+	    		    if(k == 'Logiciels [Inkscape]') 
+		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
+	    		    if(k == 'Logiciels [Gimp]') 
+		    			dt.push({"graphisme":k.substring(11, k.length-1),"valeur":valorise[csv[k]]}); 
 	    		}
 	    		if(!document.getElementById("svgPieChart")){
+	    			var opa = 1;
 		    		var gDst = document.getElementById("g4376").getBBox();
 			        var svg = dimple.newSvg("#g4376", (gDst.width/2)+200, (gDst.height)+300);	
 			        myChartGra = new dimple.chart(svg, dt);
 			        myChartGra.setBounds(0, 0, gDst.width/2, gDst.height);
 			        myChartGra.addMeasureAxis("p", "valeur");
 			        myChartGra.addSeries("graphisme", dimple.plot.pie);
-			        myChartGra.addLegend(0, gDst.height, 200, 300, "right");
+			        myLegend = myChartGra.addLegend(0, gDst.height, 200, 200, "right");
+			        myLegend.fontSize = "14";
+			     	// Set a variety of default colors
+			        myChartGra.defaultColors = [
+			            new dimple.color("rgb(245, 156, 31)","black",opa), 
+			            new dimple.color("White","black",opa),
+			            new dimple.color("rgb(90, 90, 90)","black",opa), 
+			            new dimple.color("rgb(128, 128, 128)","black",opa), 
+			        ]; 			        
 			        myChartGra.draw();
 			        svg.attr("id","svgPieChart");
 			        svg.attr("x",gDst.x-20);
