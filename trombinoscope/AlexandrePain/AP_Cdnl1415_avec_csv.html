@@ -7,7 +7,7 @@
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
 
-		var ficSVG = "../../svg/Trombi_Alex_Pain.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficSVG = "../../svg/Trombi_Alex_Pain3.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
 
 		var arrIds = [
@@ -76,6 +76,7 @@
 			     var el = document.getElementById(arrIds[i].idClick); 
 				 var j = i;
 			     el.addEventListener("click", afficheDetailEtu,false); 
+			     el.style.cursor = "pointer";
 			    	
 			} 		
 		}
@@ -207,7 +208,7 @@
 		</script>
 	</head>
 
-	<body onload="load();">
+	<body onload="load();"bgcolor="#202835">
 		<div id="viz"></div>
 	</body>
 
