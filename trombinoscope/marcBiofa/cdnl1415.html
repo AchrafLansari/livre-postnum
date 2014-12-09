@@ -8,38 +8,38 @@
 		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
 
 		var ficSVG = "../../svg/MarcBiofa.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
-		var ficCSV = "../../data/ManOfCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+		var ficCSV = "../../data/EtudiantsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
 		var dataProfil;
 var arrIds = [
-			 {"idCSV":2,"idClick":"alexandre","urlphoto":"../../data/ImgbyMarc/alexandre.jpg"},
+			 {"idCSV":12,"idClick":"alexandre","urlphoto":"images/alexandre.jpg"},
 			 
-		     {"idCSV":3,"idClick":"alexia","urlphoto":"../../data/ImgbyMarc/alexia.jpg"}
+		     {"idCSV":10,"idClick":"alexia","urlphoto":"images/alexia.jpg"}
 
-			,{"idCSV":4,"idClick":"amir","urlphoto":"../../data/ImgbyMarc/amir.jpg"}
+			,{"idCSV":0,"idClick":"amir","urlphoto":"images/amir.jpg"}
 
-			,{"idCSV":5,"idClick":"antoine","urlphoto":"../../data/ImgbyMarc/antoine.jpg"}
+			,{"idCSV":11,"idClick":"antoine","urlphoto":"images/antoine.jpg"}
 
-			,{"idCSV":6,"idClick":"clementine","urlphoto":"../../data/ImgbyMarc/clementine.jpg"}
+			,{"idCSV":2,"idClick":"clementine","urlphoto":"images/clementine.jpg"}
 
-			,{"idCSV":7,"idClick":"gabriela","urlphoto":"../../data/ImgbyMarc/gabriela.jpg"}
+			,{"idCSV":13,"idClick":"gabriela","urlphoto":"images/gabriela.jpg"}
 
-			,{"idCSV":8,"idClick":"guillaume","urlphoto":"../../data/ImgbyMarc/guillaume.jpg"}
+			,{"idCSV":5,"idClick":"guillaume","urlphoto":"images/guillaume.jpg"}
 
-			,{"idCSV":9,"idClick":"helene","urlphoto":"../../data/ImgbyMarc/helene.jpg"}
+			,{"idCSV":4,"idClick":"helene","urlphoto":"images/helene.jpg"}
 
-			,{"idCSV":10,"idClick":"hugo","urlphoto":"../../data/ImgbyMarc/hugo.jpg"}
+			,{"idCSV":1,"idClick":"hugo","urlphoto":"images/hugo.jpg"}
 
-			,{"idCSV":11,"idClick":"louis","urlphoto":"../../data/ImgbyMarc/louis.jpg"}
+			,{"idCSV":3,"idClick":"louis","urlphoto":"images/louis.jpg"}
 
-			,{"idCSV":12,"idClick":"macaire","urlphoto":"../../data/ImgbyMarc/macaire.jpg"}
+			,{"idCSV":6,"idClick":"macaire","urlphoto":"images/macaire.jpg"}
 
-			,{"idCSV":13,"idClick":"marc","urlphoto":"../../data/ImgbyMarc/marc.jpg"}
+			,{"idCSV":14,"idClick":"marc","urlphoto":"images/marc.jpg"}
 
-			,{"idCSV":14,"idClick":"quentin","urlphoto":"../../data/ImgbyMarc/quentin.jpg"}
+			,{"idCSV":7,"idClick":"quentin","urlphoto":"images/quentin.jpg"}
 
-			,{"idCSV":15,"idClick":"simon","urlphoto":"../../data/ImgbyMarc/simon.jpg"}
+			,{"idCSV":8,"idClick":"simon","urlphoto":"images/simon.jpg"}
 
-			,{"idCSV":16,"idClick":"yolaine","urlphoto":"../../data/ImgbyMarc/yolaine.jpg"}
+			,{"idCSV":9,"idClick":"yolaine","urlphoto":"images/yolaine.jpg"}
 			];
 
 function load(){
@@ -110,8 +110,8 @@ function load(){
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 			//change les textes
 			var elemnom = document.getElementById('tspan4832');
-			var elemprenom = document.getElementById('prénom');
-			var elemmail = document.getElementById('mail');
+			var elemprenom = document.getElementById('text4838');
+			var elemmail = document.getElementById('text4835');
 			var elemNote_Graphisme = document.getElementById('0');
 			var elemNote_Developpement = document.getElementById('0');
 			var elemparcours= document.getElementById('parcours');
@@ -119,10 +119,10 @@ function load(){
 
 
 			elemnom.innerHTML=itemCSV["nom"];
-			elemprenom=itemCSV["Prenom"];
-			elemmail=itemCSV["Email"];
-			elemNote_Graphisme=itemCSV["Graphisme"];
-			elemNote_Developpement=itemCSV["Developpment"];
+			elemprenom.innerHTML=itemCSV["Prénom"];
+			elemmail.innerHTML=itemCSV["Email"];
+			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"];
+			elemNote_Developpement.innerHTML=itemCSV["Developpment"];
 			
 			
 
