@@ -109,13 +109,13 @@
 	    		if(!document.getElementById("svgPieChart")){
 	    			var opa = 1;
 		    		var gDst = document.getElementById("g4376").getBBox();
-			        var svg = dimple.newSvg("#g4376", (gDst.width/2)+200, (gDst.height)+300);	
+			        var svg = dimple.newSvg("#g4376", (gDst.width/2)+150, (gDst.height)+300);	
 			        myChartGra = new dimple.chart(svg, dt);
 			        myChartGra.setBounds(0, 0, gDst.width/2, gDst.height);
 			        myChartGra.addMeasureAxis("p", "valeur");
 			        myChartGra.addSeries("graphisme", dimple.plot.pie);
-			        myLegend = myChartGra.addLegend(0, gDst.height, 200, 200, "right");
-			        myLegend.fontSize = "14";
+			        myLegend = myChartGra.addLegend(0, gDst.height, 200, 200, "center");
+			        myLegend.fontSize = "12";
 			     	// Set a variety of default colors
 			        myChartGra.defaultColors = [
 			            new dimple.color("rgb(245, 156, 31)","black",opa), 
@@ -148,6 +148,7 @@
 			     var el = document.getElementById(arrIds[i].idClick); 
 				 var j = i;
 			     el.addEventListener("click", afficheDetailEtu,false);
+				 el.style.cursor = "pointer";
 			}
 		}
 		
