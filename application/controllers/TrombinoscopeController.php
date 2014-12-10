@@ -48,7 +48,8 @@ class TrombinoscopeController extends Zend_Controller_Action
     }
     
     public function mehdiamaskaneAction(){
-    
+    	$dbUti = new Model_DbTable_Flux_Uti();
+    	$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
     }
     
 	public function zinebslaouiAction(){
