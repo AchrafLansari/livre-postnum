@@ -8,8 +8,7 @@
 //l.5-6 charge différentes bibliothèques
 		var ficSVG = "../../svg/InterfaceClementine.svg";
 		var ficCSV = "../../data/ProfilsCDNL1415.csv";
-		var dataProfil;
-		
+	
 		//var arrIds = ["image16", "image18", "image20", "image22", "image24", "image26", "image28", "image30", "image32", "image34", "image36", "image38", "image40", "image42", "image44"];
 		var arrIds = [
 		     {"idCSV":9,"idClick":"Yo","urlTof":"../../data/trombi/CDNL1415/8.jpg"}
@@ -110,8 +109,8 @@
 			elemTxt = document.getElementById('espagnolblank');
 			elemTxt.textContent=itemCSV["Langues étrangères [Espagnol]"];
 
-			elemTxt = document.getElementById('graphismeblank');
-			elemTxt.textContent=itemCSV["Graphisme"];
+			/*elemTxt = document.getElementById('graphismeblank');
+			elemTxt.textContent=itemCSV["Graphisme"];*/
 
 			elemTxt = document.getElementById('photoshopblank');
 			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
@@ -125,8 +124,8 @@
 			elemTxt = document.getElementById('gimpblank');
 			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
 
-			elemTxt = document.getElementById('codeblank');
-			elemTxt.textContent=itemCSV["Code"];
+			/*elemTxt = document.getElementById('codeblank');
+			elemTxt.textContent=itemCSV["Code"];*/
 
 			elemTxt = document.getElementById('htmlblank');
 			elemTxt.textContent=itemCSV["Langage [HTML]"]+" / "+itemCSV["Langage [CSS]"];
@@ -136,7 +135,7 @@
 
 			elemTxt = document.getElementById('phpblank');
 			elemTxt.textContent=itemCSV["Langage [PHP]"];
-
+/*
 
 //vérifie que le div existe
 			var divTxt = document.getElementById("divParcours");
@@ -144,7 +143,7 @@
 				divTxt.innerHTML = itemCSV["Parcours"];
 			}else{
 				var bbCadre = document.getElementById("cadrerect").getBBox();
-				d3.select("#cadregraph").append('foreignObject')
+				d3.select("#groupecadre").append('foreignObject')
 	            .attr('id', "foRectComp")
 	            .attr('x', bbCadre.x)
 	            .attr('y', bbCadre.y)
@@ -153,8 +152,23 @@
 	            .append("xhtml:body")
 					.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Parcours"]+'</div>')				
 			}
-			
+			*/
 
+			var bbCadre = document.getElementById("cadrerect").getBBox(); // la fonction getBBbox sert à récuperer les coordonnées x, y la hauteur et la largueur d'un élément
+			
+			// On stock ces informations dans la variable bbCadre
+			d3.select("#svg10").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', bbCadre.x)										
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div id="txtDiv" style="margin-left : 1px; padding-top : 5px; width: 350px; color:#B0AEAE; font-size: 80%;">'+itemCSV["Parcours"]+'</div>')
+
+
+d3.select("#barregraph").transition().duration(1000).attr("width", itemCSV["Graphisme"]*20);
+			d3.select("#barrecode").transition().duration(1000).attr("width", itemCSV["Code"]*20);
+	
 		
 		}
 

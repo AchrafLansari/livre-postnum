@@ -6,7 +6,6 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px"
 	 viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
 <rect id="Fond" y="1" fill="#3F403F" stroke="#000000" stroke-miterlimit="10" width="800" height="600"/>
-<rect id="cadregraph" x="377" y="15.544" fill="#3F403F" width="366.5" height="546.706"/>
 <image overflow="visible" enable-background="new    " width="399" height="300" id="image14" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAUgBSAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAkOAAAUyQAAIBz/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
@@ -5770,8 +5769,9 @@ L6bc3vb3ddOh60r5daHn69cxfWdOvyaudGryabDXr83p03v9PX/Xm3uq0qK8Onk8/Trkf1D7jT+m
 T/N2vbjx6/H6NWm99PFvr7cj0a8062aU7eujqufH+q66fL5P9SdWrR6vFqvfVx/sPb82rQNNf9jq
 vXv3tP8Ab83l/wCrd4fFf/qVe3/IdvaLFenO2nl1/9k=" transform="matrix(0.8 0 0 0.8 220 76.5002)">
 	</image>
-	
-		<image overflow="visible" enable-background="new    " width="100" height="100" id="Yo" xlink:href="data:image/jpeg;base64,/9j/4QfgRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
+	<g>
+		
+			<image overflow="visible" enable-background="new    " width="100" height="100" id="Yo" xlink:href="data:image/jpeg;base64,/9j/4QfgRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUAAAABAAAAYgEbAAUAAAABAAAA
 agEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdpAAQAAAABAAAApAAAANAACvyA
 AAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykAMjAxNDoxMDoyNCAxNzow
 ODoyMgAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAABAAAAZAAAAAAAAAAGAQMAAwAA
@@ -6142,65 +6142,38 @@ qP8Am9Xp16dWm/4v+fdPIaqV6ci0VGilMV416fo/uPG+j66/2dF9Xj1H/OeP+1b6X/P15v79nNOv
 RU1Saa1+fWePyao/ufuNPlf/AD/n0Xv6Pt7/ALej+uj8X976e6kN59baPLp/s6vF472/sf2bf1v6
 7X/HvfV0+IddJo1j7fT4vMb/AG/i/wA5xr83i516v06v7V7+9Hp8/CehT/e/u/8A7t+5/hH+0+LX
 9l/yV4v959+6axX5df/Z" transform="matrix(0.8 0 0 0.8 35.5 76.5002)">
-	</image>
+		</image>
+	</g>
 </g>
-<rect id="cadrerect" x="381.5" y="319.5" fill="#3F403F" width="345" height="70.5"/>
+<rect id="cadrerect" x="377" y="319.5" fill="#3F403F" width="349.5" height="70.5"/>
 <g id="Titres">
-	<rect x="381.5" y="333.5" fill="none" width="67" height="16"/>
-	<text id="Parcours" transform="matrix(1 0 0 1 381.5 342.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Parcours :</text>
-	<rect x="379.75" y="392.5" fill="none" width="68" height="21"/>
-	<text id="Francais" transform="matrix(1 0 0 1 379.75 401.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Français : </text>
-	<rect x="379.75" y="413.5" fill="none" width="57.5" height="20"/>
-	<text id="Anglais" transform="matrix(1 0 0 1 379.75 422.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Anglais :</text>
-	<polygon fill="none" points="380.875,435.5 457.375,435.5 459.625,457.5 383.125,457.5 	"/>
-	<text id="Espagnol" transform="matrix(1 0 0 1 381.7539 444.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Espagnol :</text>
-	<rect x="582.5" y="470" fill="none" width="60" height="16"/>
-	<text id="Code" transform="matrix(1 0 0 1 582.5 478.592)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Code : </text>
-	<rect x="581.5" y="499.25" fill="none" width="70" height="17.5"/>
-	<text id="HTML" transform="matrix(1 0 0 1 581.5 507.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">HTML/CSS :</text>
-	<rect x="581.5" y="515.75" fill="none" width="70" height="17.5"/>
-	<text id="Javascript" transform="matrix(1 0 0 1 581.5 524.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Javascript : </text>
-	<rect x="581.5" y="532.25" fill="none" width="70" height="17.5"/>
-	<text id="PHP" transform="matrix(1 0 0 1 581.5 540.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">PHP/SQL : </text>
-	<rect x="381.5" y="468.5" fill="none" width="75" height="19"/>
-	<text id="Graphisme" transform="matrix(1 0 0 1 381.5 477.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Graphisme : </text>
-	<polygon fill="none" points="466.5,499 382,499 381,511.5 465.5,511.5 	"/>
-	<text id="Photoshop" transform="matrix(1 0 0 1 381.9316 507.592)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Photoshop : </text>
-	<rect x="382" y="530.25" fill="none" width="70" height="17.5"/>
-	<text id="Indesign" transform="matrix(1 0 0 1 382 538.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Indesign : </text>
-	<rect x="382" y="544.75" fill="none" width="56.5" height="17.5"/>
-	<text id="Gimp" transform="matrix(1 0 0 1 382 553.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Gimp :</text>
-	<polygon fill="none" points="457,514.75 383,514.75 377,528.25 451,528.25 	"/>
-	<text id="Illustrator" transform="matrix(1 0 0 1 382.6191 523.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Illustrator : </text>
+	<text id="Francais" transform="matrix(1 0 0 1 379.75 406.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Français : </text>
+	<text id="Anglais" transform="matrix(1 0 0 1 379.75 426.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Anglais :</text>
+	<text id="Espagnol" transform="matrix(1 0 0 1 381.7539 443.092)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Espagnol :</text>
+	<text id="Code" transform="matrix(1 0 0 1 382.6191 510.0002)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Code : </text>
+	<text id="HTML" transform="matrix(1 0 0 1 581.5 533.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">HTML/CSS :</text>
+	<text id="Javascript" transform="matrix(1 0 0 1 581.5 550.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Javascript : </text>
+	<text id="PHP" transform="matrix(1 0 0 1 581.5 566.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">PHP/SQL : </text>
+	<text id="Graphisme" transform="matrix(1 0 0 1 379.75 486.0002)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Graphisme : </text>
+	<text id="Photoshop" transform="matrix(1 0 0 1 381.9316 533.592)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Photoshop : </text>
+	<text id="Indesign" transform="matrix(1 0 0 1 382 564.842)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Indesign : </text>
+	<text id="Gimp" transform="matrix(1 0 0 1 382 579.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Gimp :</text>
+	<text id="Illustrator" transform="matrix(1 0 0 1 382.6191 549.342)" fill="#B0AEAE" font-family="'Arial-BoldMT'" font-size="12">Illustrator : </text>
 </g>
 <g id="textes">
-	<rect x="449.5" y="333.5" fill="none" width="67" height="14"/>
-	<text id="parcoursblank" transform="matrix(1 0 0 1 449.5 342.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">parcours</text>
-	<rect x="443.5" y="393" fill="none" width="67" height="14"/>
-	<text id="francaisblank" transform="matrix(1 0 0 1 443.5 401.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">français</text>
-	<rect x="437.25" y="413.5" fill="none" width="67" height="14"/>
-	<text id="anglaisblank" transform="matrix(1 0 0 1 437.25 422.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">anglais</text>
-	<rect x="446.5" y="436" fill="none" width="67" height="14"/>
-	<text id="espagnolblank" transform="matrix(1 0 0 1 446.5 444.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">espagnol</text>
-	<rect x="457.5" y="469" fill="none" width="67" height="14"/>
-	<text id="graphismeblank" transform="matrix(1 0 0 1 457.5 477.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">grahisme</text>
-	<rect x="627.5" y="470" fill="none" width="67" height="14"/>
-	<text id="codeblank" transform="matrix(1 0 0 1 627.5 478.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">code</text>
-	<rect x="457.5" y="499.25" fill="none" width="67" height="14"/>
-	<text id="photoshopblank" transform="matrix(1 0 0 1 457.5 507.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">photoshop</text>
-	<rect x="655.5" y="498.25" fill="none" width="67" height="14"/>
-	<text id="htmlblank" transform="matrix(1 0 0 1 655.5 506.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">html</text>
-	<rect x="453.5" y="515" fill="none" width="67" height="14"/>
-	<text id="illustratorblank" transform="matrix(1 0 0 1 453.5 523.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">illustrator</text>
-	<rect x="651.5" y="531" fill="none" width="67" height="14"/>
-	<text id="phpblank" transform="matrix(1 0 0 1 651.5 539.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">php</text>
-	<rect x="655.5" y="515" fill="none" width="67" height="14"/>
-	<text id="javascriptblank" transform="matrix(1 0 0 1 655.5 523.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">kavascript</text>
-	<rect x="446.5" y="530.25" fill="none" width="67" height="14"/>
-	<text id="indesignblank" transform="matrix(1 0 0 1 446.5 538.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">indesign</text>
-	<rect x="428.125" y="544.5" fill="none" width="67" height="14"/>
-	<text id="gimpblank" transform="matrix(1 0 0 1 428.125 553.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">gimp</text>
-	<text id="prenomnom" transform="matrix(1 0 0 1 478 310.1838)" fill="#B0AEAE" font-family="'ArialMT'" font-size="24">Prénom Nom</text>
+	<text id="francaisblank" transform="matrix(1 0 0 1 443.5 406.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">français</text>
+	<text id="anglaisblank" transform="matrix(1 0 0 1 437.25 426.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">anglais</text>
+	<text id="espagnolblank" transform="matrix(1 0 0 1 446.5 442.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">espagnol</text>
+	<text id="photoshopblank" transform="matrix(1 0 0 1 457.5 533.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">photoshop</text>
+	<text id="htmlblank" transform="matrix(1 0 0 1 655.5 532.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">html</text>
+	<text id="illustratorblank" transform="matrix(1 0 0 1 453.5 549.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">illustrator</text>
+	<text id="phpblank" transform="matrix(1 0 0 1 651.5 565.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">php</text>
+	<text id="javascriptblank" transform="matrix(1 0 0 1 655.5 549.592)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">kavascript</text>
+	<text id="indesignblank" transform="matrix(1 0 0 1 446.5 564.842)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">indesign</text>
+	<text id="gimpblank" transform="matrix(1 0 0 1 428.125 579.092)" fill="#B0AEAE" font-family="'ArialMT'" font-size="12">gimp</text>
+	<text id="prenomnom" transform="matrix(1 0 0 1 478 309.1838)" fill="#B0AEAE" font-family="'ArialMT'" font-size="24">Prénom Nom</text>
 </g>
 <line id="Separateur" fill="none" stroke="#A6A6A6" stroke-width="5" stroke-miterlimit="10" x1="420.25" y1="457.5" x2="707.5" y2="457.5"/>
+<rect id="barregraph" x="459.5" y="480" fill="#FFB000" width="271.664" height="6"/>
+<rect id="barrecode" x="459.5" y="504" fill="#0080FF" width="271.664" height="6"/>
 </svg>
