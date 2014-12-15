@@ -109,22 +109,22 @@ function load(){
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 			//change les textes
-			var elemnom = document.getElementById('tspan4832');
+			var elemnom = document.getElementById('text88');
 			var elemprenom = document.getElementById('text4838');
 			var elemmail = document.getElementById('text4835');
-			var elemNote_Graphisme = document.getElementById('0');
-			var elemNote_Developpement = document.getElementById('0');
-			var elemparcours= document.getElementById('parcours');
-			var elemenvies = document.getElementById('envies');
+			var elemNote_Graphisme = document.getElementById('text4817');
+			var elemNote_Developpement = document.getElementById('text4820');
+			var elemparcours= document.getElementById('text102');
+			var elemenvies = document.getElementById('text98');
 
 
-			elemnom.innerHTML=itemCSV["nom"];
-			elemprenom.innerHTML=itemCSV["Prénom"];
-			elemmail.innerHTML=itemCSV["Email"];
-			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"];
-			elemNote_Developpement.innerHTML=itemCSV["Developpment"];
-			
-			
+			elemnom.innerHTML= itemCSV["nom"];
+			elemprenom.innerHTML=itemCSV["Prenom"];
+			elemmail.innerHTML= "Mail : "+ itemCSV["Email"];
+			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"]+ "/100";
+			elemNote_Developpement.innerHTML=itemCSV["Code"]+ "/100";
+			elemparcours.innerHTML=itemCSV["Parcours"];
+			elemenvies.innerHTML=itemCSV["Envies"];
 
 			
 
