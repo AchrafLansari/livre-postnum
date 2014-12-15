@@ -165,7 +165,10 @@
             .attr('width', bbCadre.width)
             .attr('height', bbCadre.height)
             .append("xhtml:body")
-				.html('<div id="txtDiv" style="margin-left : 1px; padding-top : 5px; width: 350px; color:#B0AEAE; font-size: 80%;">'+itemCSV["Parcours"]+'</div>')
+				.html('<div id="txtDiv" style="margin-left : 1px; padding-top : 5px; width: 350px; height: 65px; color:#B0AEAE; font-size: 80%; overflow : auto;">'+itemCSV["Parcours"]+'</div>')
+
+			
+			
 
 
 d3.select("#barregraph").transition().duration(1000).attr("width", itemCSV["Graphisme"]*20);
@@ -173,6 +176,10 @@ d3.select("#barregraph").transition().duration(1000).attr("width", itemCSV["Grap
 	
 		
 		}
+// Merci à Louis Crolus pour le graphique !
+
+
+
 
 		function getElementArr(arr, prop, val){
 			for (var i = 0; i < arr.length; i++) {
@@ -185,7 +192,7 @@ d3.select("#barregraph").transition().duration(1000).attr("width", itemCSV["Grap
 
 		<style type="text/css">
 		.txtDiv{		
-			margin-left : 10px; padding-top : 50px; width: 250px;
+			 padding-top : 50px; width: 250px;
 			}
 		</style>
 		
