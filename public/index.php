@@ -13,6 +13,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 set_include_path(get_include_path().PATH_SEPARATOR."../library");
+set_include_path(get_include_path().PATH_SEPARATOR."../library/Epub");
 
 
 /** Zend_Application */

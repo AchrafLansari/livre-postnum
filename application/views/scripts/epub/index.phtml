@@ -1,0 +1,116 @@
+<?php
+error_reporting(E_ALL | E_STRICT);
+ini_set('error_reporting', E_ALL | E_STRICT);
+ini_set('display_errors', 1);
+
+// Example.
+// Create a test book for download.
+// ePub uses XHTML 1.1, preferably strict.
+// This is the minimalistic version.
+
+// This is for the example, this is the XHTML 1.1 header
+$content_start =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+. "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
+. "<head>"
+. "<meta http-equiv=\"Default-Style\" content=\"text/html; charset=utf-8\" />\n"
+. "<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />\n"
+. "<title>Test Book</title>\n"
+. "</head>\n"
+. "<body>\n";
+
+$bookEnd = "</body>\n</html>\n";
+
+// setting timezone for time functions used for logging to work properly
+date_default_timezone_set('Europe/Berlin');
+
+$fileDir = './PHPePub';
+
+include_once("EPub.php");
+
+$book = new EPub(EPub::BOOK_VERSION_EPUB3, "fr", EPub::DIRECTION_LEFT_TO_RIGHT); // no argumetns gives us the default ePub 2, lang=en and dir="ltr"
+
+// Title and Identifier are mandatory!
+$book->setTitle("Simple Test book");
+$book->setIdentifier("http://JohnJaneDoePublications.com/books/TestBookSimple.html", EPub::IDENTIFIER_URI); // Could also be the ISBN number, prefered for published books, or a UUID.
+$book->setLanguage("fr"); // Not needed, but included for the example, Language is mandatory, but EPub defaults to "en". Use RFC3066 Language codes, such as "en", "da", "fr" etc.
+$book->setDescription("This is a brief description\nA test ePub book as an example of building a book in PHP");
+$book->setAuthor("John Doe Johnson", "Johnson, John Doe");
+$book->setPublisher("John and Jane Doe Publications", "http://JohnJaneDoePublications.com/"); // I hope this is a non existant address :)
+$book->setDate(time()); // Strictly not needed as the book date defaults to time().
+$book->setRights("Copyright and licence information specific for the book."); // As this is generated, this _could_ contain the name or licence information of the user who purchased the book, if needed. If this is used that way, the identifier must also be made unique for the book.
+$book->setSourceURL("http://JohnJaneDoePublications.com/books/TestBookSimple.html");
+
+// A book need styling, in this case we use static text, but it could have been a file.
+$cssData = "body {\n  margin-left: .5em;\n  margin-right: .5em;\n  text-align: justify;\n}\n\np {\n  font-family: serif;\n  font-size: 10pt;\n  text-align: justify;\n  text-indent: 1em;\n  margin-top: 0px;\n  margin-bottom: 1ex;\n}\n\nh1, h2 {\n  font-family: sans-serif;\n  font-style: italic;\n  text-align: center;\n  background-color: #6b879c;\n  color: white;\n  width: 100%;\n}\n\nh1 {\n    margin-bottom: 2px;\n}\n\nh2 {\n    margin-top: -2px;\n    margin-bottom: 2px;\n}\n";
+$book->addCSSFile("styles.css", "css1", $cssData);
+
+// Add cover page
+$cover = $content_start . "<h1>Test Book</h1>\n<h2>By: John Doe Johnson</h2>\n" . $bookEnd;
+$book->addChapter("Notices", "Cover.html", $cover);
+
+$chapter1 = $content_start . "<h1>Chapter 1</h1>\n"
+    . "<h2>Mon SVG qu'il est beau</h2>\n"
+    . '<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 322.00003 367.71424"
+   version="1.1"
+   id="svg2"
+   height="367.71423"
+   width="322.00003">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-224.71428,-274.21936)"
+     id="layer1">
+    <rect
+       y="275.21936"
+       x="225.71428"
+       height="271.42856"
+       width="234.28572"
+       id="rect4320"
+       style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       d="m 545.7143,562.36218 a 97.14286,78.571426 0 0 1 -97.14286,78.57143 97.14286,78.571426 0 0 1 -97.14286,-78.57143 97.14286,78.571426 0 0 1 97.14286,-78.57142 97.14286,78.571426 0 0 1 97.14286,78.57142 z"
+       ry="78.571426"
+       rx="97.14286"
+       cy="562.36218"
+       cx="448.57144"
+       id="path4322"
+       onclick="alert(2)"
+       style="fill:#000080;fill-opacity:1;stroke:#ff0000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>'
+    . $bookEnd;
+$book->addChapter("Chapter 1: Lorem ipsum", "Chapter001.html", $chapter1, true, EPub::EXTERNAL_REF_ADD);
+
+$chapter2 = $content_start . "<h1>Mon javascript qui marche bien</h1>\n"
+    .'<script type="text/javascript">
+ 	   alert("Name: ");
+    </script>'
+    . $bookEnd;
+$book->addChapter("Chapter 2: Vivamus bibendum massa", "Chapter002.html", $chapter2, true, EPub::EXTERNAL_REF_ADD);
+
+$book->finalize(); // Finalize the book, and build the archive.
+
+// Send the book to the client. ".epub" will be appended if missing.
+$zipData = $book->sendBook("ExampleBookSimple");
+
+// After this point your script should call exit. If anything is written to the output,
+// it'll be appended to the end of the book, causing the epub file to become corrupt.
