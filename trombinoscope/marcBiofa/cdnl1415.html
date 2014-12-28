@@ -2,7 +2,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Trombinoscope CDNL 14-15</title>
-		<link rel="stylesheet" href="marc_css/cdnl1415.css" type="text/css">
+		<link rel="stylesheet" href="css/cdnl1415.css" type="text/css">
 	    <script type="text/javascript" src="../../public/js/d3.js"></script>
 	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
 		<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
@@ -97,9 +97,30 @@ function load(){
 				divInfo.style.display = 'none';
 		}
 		
+	var bbCadre = document.getElementById("rect97").getBBox(); 
+		// On stock ces informations dans la variable bbCadre
+			d3.select("#cadre_Envies").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', bbCadre.x)										
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div id="Envies" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Envies"]+'</div>')
+		
+		
+		var bbCadre = document.getElementById("rect102").getBBox(); 
+		// On stock ces informations dans la variable bbCadre
+			d3.select("#cadre_parcours").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', bbCadre.x)										
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div id="parcours" style="margin-left : 10px; margin-top : 50px; width: 250px;">'+itemCSV["Parcours"]+'</div>')
+				
 		function afficheDetailEtu(evt){
 
-
+			d3.select("foreignObject").remove();
 			//récupère la balise image grand format
 			var elemIma = document.getElementById('cadre_x5F_yo');
 			//récupère les information de l'étudiant
@@ -109,22 +130,22 @@ function load(){
 			//mettre à jour l'image
 			elemIma.setAttribute("xlink:href",item.urlphoto);
 			//change les textes
-			var elemnom = document.getElementById('text88');
-			var elemprenom = document.getElementById('text4838');
-			var elemmail = document.getElementById('text4835');
-			var elemNote_Graphisme = document.getElementById('text4817');
-			var elemNote_Developpement = document.getElementById('text4820');
-			var elemparcours= document.getElementById('text102');
-			var elemenvies = document.getElementById('text98');
+			var elemnom = document.getElementById('nom');
+			var elemprenom = document.getElementById('prenom');
+			var elemmail = document.getElementById('mail');
+			var elemNote_Graphisme = document.getElementById('graphisme');
+			var elemNote_Developpement = document.getElementById('dev');
+			var elemparcours= document.getElementById('text112');
+			var elemenvies = document.getElementById('text116');
 
 
-			elemnom.innerHTML= itemCSV["nom"];
-			elemprenom.innerHTML=itemCSV["Prenom"];
+			elemnom.innerHTML= "Nom :  "+ itemCSV["nom"];
+			elemprenom.innerHTML="Prénom :  "+ itemCSV["Prenom"];
 			elemmail.innerHTML= "Mail : "+ itemCSV["Email"];
 			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"]+ "/100";
 			elemNote_Developpement.innerHTML=itemCSV["Code"]+ "/100";
-			elemparcours.innerHTML=itemCSV["Parcours"];
-			elemenvies.innerHTML=itemCSV["Envies"];
+			elemparcours.innerHTML="Parcours" +"<br/>"+itemCSV["Parcours"];
+			elemenvies.innerHTML="Envies" +"<br/>"+itemCSV["Envies"];
 
 			
 
