@@ -19,15 +19,15 @@ class Form_Eleve_Modifier
     public function init()
     {
         
-        $id = new Zend_Form_Element_Text('id');
+        $id = new Zend_Form_Element_Text('id_etu');
         $id->setRequired(true)
             ->addValidators(array(new Zend_Validate_Int(), new Zend_Validate_StringLength()));
         
-        $nom = new Zend_Form_Element_Text('nom');
+        $nom = new Zend_Form_Element_Text('nom_etu');
         $nom->setRequired(true)
             ->addValidators(array(new Zend_Validate_Alnum(true), new Zend_Validate_StringLength(20)));
         
-        $prénom = new Zend_Form_Element_Text('prénom');
+        $prénom = new Zend_Form_Element_Text('prénom_etu');
         $prénom->setRequired(true)
             ->addValidators(array(new Zend_Validate_Alnum(true), new Zend_Validate_StringLength(20)));
         

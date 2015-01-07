@@ -2,8 +2,7 @@
 
 class TrombinoscopeController extends Zend_Controller_Action
 {
-	var $rss = array("CDNL1415"=>"https://picasaweb.google.com/data/feed/base/user/112098438788633053665/albumid/6064761146942390433?alt=rss&kind=photo&authkey=Gv1sRgCJG9i8HQ-b61kwE&hl=en_US"
-		,"THYP1415"=>"http://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr"
+	var $rss = array("THYP1415"=>"http://picasaweb.google.com/data/feed/base/user/107401320610499259896/albumid/6065229773950541889?alt=rss&kind=photo&authkey=Gv1sRgCNak7e60l-7VlgE&hl=fr"
 		);
 
     public function indexAction()
@@ -11,11 +10,6 @@ class TrombinoscopeController extends Zend_Controller_Action
         // action body
     }
 
-    public function samszoAction()
-    {
-    		$dbUti = new Model_DbTable_Flux_Uti();
-    		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    }
     public function ajouteventAction()
     {
     		//ajouter l'enregistrement dans la base	
@@ -26,71 +20,19 @@ class TrombinoscopeController extends Zend_Controller_Action
     		$dbUT->ajouter(array("uti_id"=>$idUti,"tag_id"=>$idTag),false);
   		$this->view->data = $dbUT->findByUti_id($idUti);
     }
-    
-    public function masseixkevinAction(){
-    }
-	
-    public function abbounisrineAction(){
-    
-	}
-	
-	public function hajbelgacemAction(){
-		$dbUti = new Model_DbTable_Flux_Uti();
-		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    }
-    
-    public function achraflansariAction(){
-        
-    }
-	
-	public function hmessarabdelaliAction(){
-        
-    }
-    
-    public function benmakhloufsaadAction(){
-    
-    }
-    
-    public function mehdiamaskaneAction(){
-    	$dbUti = new Model_DbTable_Flux_Uti();
-    	$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    }
-    
-	public function zinebslaouiAction(){
-		$dbUti = new Model_DbTable_Flux_Uti();
-		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true,true);
-    }
+
 	
 	public function ajoutAbsenceAction(){
 		//TODO: ajouter l'enregistrement dans la base
 		$this->view->idUti = $this->_getParam('uti_id');
     }
 
-	public function zamelmouhanedAction(){
-    
-    }
-	
-	public function boukellarafikAction(){
-		$dbUti = new Model_DbTable_Flux_Uti();
-		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    }
-	public function guellouzmoudhaferAction(){
-		$dbUti = new Model_DbTable_Flux_Uti();
-		$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);   
-    }
-    
+
 	public function aimanguemouriAction(){
 					$dbUti = new Model_DbTable_Flux_Uti();
 					$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
     }
-	public function cherfaouiwafaeAction(){
-    
-    }
-	public function ameursaadmansourAction(){
-		
-		$dbUti = new Model_DbTable_Flux_Uti();
-    	$this->view->data = $dbUti->findByRole($this->_getParam('role', "THYP 14-15"),true, true);
-    }
+
     public function joursoffAction(){
     
     }

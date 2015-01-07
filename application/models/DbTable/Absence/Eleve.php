@@ -23,12 +23,12 @@ class Eleve extends Zend_Db_Table_Abstract
     /*
      * Nom de la table.
      */
-    protected $_name = 'eleve';
+    protected $_name = 'etudiant';
     
     /*
      * ClÃ© primaire de la table.
      */
-    protected $_primary = 'id';
+    protected $_primary = 'id_etu';
     
     /**
      * Recherche une entrÃ©e Eleve avec la clÃ© primaire spÃ©cifiÃ©e
@@ -42,7 +42,7 @@ class Eleve extends Zend_Db_Table_Abstract
     public static function edit($id, $data)
     {        
         $db = Zend_Registry::get('dbAdapter');
-        $db->update('eleve', $data, 'eleve.id = ' . $id);
+        $db->update('etudiant', $data, 'id_etu = ' . $id);
     }
     
     /**
@@ -56,7 +56,7 @@ class Eleve extends Zend_Db_Table_Abstract
     public static function remove($id)
     {
         $db = Zend_Registry::get('dbAdapter');
-        $db->delete('eleve', 'eleve.id = ' . $id);
+        $db->delete('etudiant', 'id_etu = ' . $id);
     }
     
     /**
@@ -68,7 +68,7 @@ class Eleve extends Zend_Db_Table_Abstract
         $db = Zend_Registry::get('dbAdapter');
         
         $query = $db->select()
-                    ->from( array("%ftable%" => "eleve") );
+                    ->from( array("%ftable%" => "etudiant") );
                     
         if($order != null)
         {
@@ -94,8 +94,8 @@ class Eleve extends Zend_Db_Table_Abstract
         $db = Zend_Registry::get('dbAdapter');
 
         $query = $db->select()
-                    ->from( array("e" => "eleve") )                           
-                    ->where( "e.id = " . $id );
+                    ->from( array("e" => "etudiant") )
+                    ->where( "e.id_etu = " . $id );
 
         return $db->fetchRow($query); 
     }
@@ -110,8 +110,8 @@ class Eleve extends Zend_Db_Table_Abstract
         $db = Zend_Registry::get('dbAdapter');
 
         $query = $db->select()
-                    ->from( array("e" => "eleve") )                           
-                    ->where( "e.nom = " . $nom );
+                    ->from( array("e" => "etudiant") )
+                    ->where( "e.nom_etu = " . $nom );
 
         return $db->fetchRow($query); 
     }
@@ -119,15 +119,15 @@ class Eleve extends Zend_Db_Table_Abstract
      * Recherche une entrÃ©e Eleve avec la valeur spÃ©cifiÃ©e
      * et retourne cette entrÃ©e.
      *
-     * @param varchar $prénom
+     * @param varchar $prï¿½nom
      */
-    public static function findByPrénom($prénom)
+    public static function findBymail($mail)
     {
         $db = Zend_Registry::get('dbAdapter');
 
         $query = $db->select()
-                    ->from( array("e" => "eleve") )                           
-                    ->where( "e.prénom = " . $prénom );
+                    ->from( array("e" => "etudiant") )
+                    ->where( "e.mail_etu = " . $prï¿½nom );
 
         return $db->fetchRow($query); 
     }
