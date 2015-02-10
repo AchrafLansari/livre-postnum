@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Trombinoscope CDNL 14-15</title>
+		
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
+
+		var ficSVG = "../../svg/MarcBiofa-rect.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficCSV = "../../data/EtudiantsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+		var dataProfil;
+var arrIds = [
+			 {"idCSV":12,"idClick":"alexandre","urlphoto":"images/alexandre.jpg"},
+			 
+		     {"idCSV":10,"idClick":"alexia","urlphoto":"images/alexia.jpg"}
+
+			,{"idCSV":0,"idClick":"amir","urlphoto":"images/amir.jpg"}
+
+			,{"idCSV":11,"idClick":"antoine","urlphoto":"images/antoine.jpg"}
+
+			,{"idCSV":2,"idClick":"clementine","urlphoto":"images/clementine.jpg"}
+
+			,{"idCSV":13,"idClick":"gabriela","urlphoto":"images/gabriela.jpg"}
+
+			,{"idCSV":5,"idClick":"guillaume","urlphoto":"images/guillaume.jpg"}
+
+			,{"idCSV":4,"idClick":"helene","urlphoto":"images/helene.jpg"}
+
+			,{"idCSV":1,"idClick":"hugo","urlphoto":"images/hugo.jpg"}
+
+			,{"idCSV":3,"idClick":"louis","urlphoto":"images/louis.jpg"}
+
+			,{"idCSV":6,"idClick":"macaire","urlphoto":"images/macaire.jpg"}
+
+			,{"idCSV":14,"idClick":"marc","urlphoto":"images/marc.jpg"}
+
+			,{"idCSV":7,"idClick":"quentin","urlphoto":"images/quentin.jpg"}
+
+			,{"idCSV":8,"idClick":"simon","urlphoto":"images/simon.jpg"}
+
+			,{"idCSV":9,"idClick":"yolaine","urlphoto":"images/yolaine.jpg"}
+			];
+
+function load(){
+		 	//charge l'IHM SVG
+		 	//chargeIHM();
+		 	queue()
+	    		.defer(d3.xml, ficSVG, "image/svg+xml")
+	    		.await(IHMcharge);
+	    	chargeData(ficCSV);
+		}
+
+
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
+	    }		
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+		
+			for (var i = 0; i < arrIds.length; i++) {
+				//length = taille du tableau
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+				 el.style.cursor = "pointer";
+			    	
+			} 		
+		}	
+		
+		/*
+		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
+		 */
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('info_etudiants');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}
+		
+	
+				
+		function afficheDetailEtu(evt){
+	
+			d3.select("foreignObject").remove();
+			//récupère la balise image grand format
+			var elemIma = document.getElementById('cadre_x5F_yo');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlphoto);
+			//change les textes
+			var elemnom = document.getElementById('nom');
+			var elemprenom = document.getElementById('prenom');
+			var elemmail = document.getElementById('mail');
+			var elemNote_Graphisme = document.getElementById('graphisme');
+			var elemNote_Developpement = document.getElementById('dev');
+			
+
+
+			elemnom.innerHTML= "Nom :  "+ itemCSV["nom"];
+			elemprenom.innerHTML="Prénom :  "+ itemCSV["Prenom"];
+			elemmail.innerHTML= "Mail : "+ itemCSV["Email"];
+			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"]+ "/100";
+			elemNote_Developpement.innerHTML=itemCSV["Code"]+ "/100";
+			
+			var encadrement = document.getElementById("rect17").getBBox(); // la fonction getBBbox sert à récuperer les coordonnées x, y la hauteur et la largueur d'un élément
+			
+			// On stock ces informations dans la variable encadrement
+			d3.select("#rect17").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', encadrement.x)									
+            .attr('y', encadrement.y)
+            .attr('width', encadrement.width)
+            .attr('height', encadrement.height)
+			
+			d3.select("#level_ps").transition().duration(1000).attr("width", itemCSV["Photoshop"]*1.65);
+			d3.select("#level_ai").transition().duration(1000).attr("width", itemCSV["Illustrator"]*1.65);
+			d3.select("#level_svg").transition().duration(1000).attr("width", itemCSV["SVG"]*1.5);
+			d3.select("#level_in_design").transition().duration(1000).attr("width", itemCSV["In design"]*1.65);
+			d3.select("#level_html").transition().duration(1000).attr("width", itemCSV["HTML"]*1.65);
+			d3.select("#level_css").transition().duration(1000).attr("width", itemCSV["CSS"]*1.65);
+			d3.select("#level_js").transition().duration(1000).attr("width", itemCSV["JavaScript"]*1.65);
+			d3.select("#level_php").transition().duration(1000).attr("width", itemCSV["PHP"]*1.65);
+			
+			var pourcent_ps = document.getElementById('ps');
+			var pourcent_ai = document.getElementById('ai');
+			var pourcent_svg = document.getElementById('svg');
+			var pourcent_in_d = document.getElementById('in_d');
+			var pourcent_html = document.getElementById('html');
+			var pourcent_css = document.getElementById('css');
+			var pourcent_js = document.getElementById('js');
+			var pourcent_php = document.getElementById('php');
+			
+			pourcent_ps.innerHTML=itemCSV["Photoshop"]+ "%";
+			pourcent_ai.innerHTML=itemCSV["Illustrator"]+ "%";
+			pourcent_svg.innerHTML=itemCSV["SVG"]+ "%";
+			pourcent_in_d.innerHTML=itemCSV["In design"]+ "%";
+			pourcent_html.innerHTML=itemCSV["HTML"]+ "%";
+			pourcent_css.innerHTML=itemCSV["CSS"]+ "%";
+			pourcent_js.innerHTML=itemCSV["JavaScript"]+ "%";
+			pourcent_php.innerHTML=itemCSV["PHP"]+ "%";
+			
+	}	
+		
+		
+		
+		
+
+
+		//http://bl.ocks.org/mbostock/7555321
+		//code pour tspan
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+
+		
+
+		</script>
+	</head>
+	<body onload="load();">
+
+	<div id="viz" ></div>
+		
+	</body>
+</html>

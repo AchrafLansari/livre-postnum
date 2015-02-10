@@ -1,0 +1,203 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Trombinoscope CDNL 14-15</title>
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+		<script type="text/javascript">
+//l.5-6 charge différentes bibliothèques
+		var ficSVG = "../../svg/InterfaceClementine.svg";
+		var ficCSV = "../../data/ProfilsCDNL1415.csv";
+	
+		//var arrIds = ["image16", "image18", "image20", "image22", "image24", "image26", "image28", "image30", "image32", "image34", "image36", "image38", "image40", "image42", "image44"];
+		var arrIds = [
+		     {"idCSV":9,"idClick":"Yo","urlTof":"../../data/trombi/CDNL1415/8.jpg"}
+		   ,{"idCSV":12,"idClick":"Alex","urlTof":"../../data/trombi/CDNL1415/6.jpg"}
+			,{"idCSV":11, "idClick":"Antoine", "urlTof":"../../data/trombi/CDNL1415/3.jpg"}
+			,{"idCSV":0, "idClick":"Amin", "urlTof":"../../data/trombi/CDNL1415/9.jpg"}
+			,{"idCSV":13, "idClick":"Gabi", "urlTof":"../../data/trombi/CDNL1415/4.jpg"}
+			,{"idCSV":10,"idClick":"Alexia","urlTof":"../../data/trombi/CDNL1415/12.jpg"}
+			,{"idCSV":5,"idClick":"Guillaume","urlTof":"../../data/trombi/CDNL1415/14.jpg"}
+			,{"idCSV":4,"idClick":"Helene","urlTof":"../../data/trombi/CDNL1415/13.jpg"}
+			,{"idCSV":3,"idClick":"louis","urlTof":"../../data/trombi/CDNL1415/15.jpg"}
+			,{"idCSV":1,"idClick":"Hugo","urlTof":"../../data/trombi/CDNL1415/2.jpg"}
+			,{"idCSV":6,"idClick":"Macaire","urlTof":"../../data/trombi/CDNL1415/5.jpg"}
+			,{"idCSV":14,"idClick":"Marc","urlTof":"../../data/trombi/CDNL1415/17.jpg"}
+			,{"idCSV":2,"idClick":"Moi","urlTof":"../../data/trombi/CDNL1415/7.jpg"}
+			,{"idCSV":7,"idClick":"Quentin","urlTof":"../../data/trombi/CDNL1415/10.jpg"}
+			,{"idCSV":8,"idClick":"Louis","urlTof":"../../data/trombi/CDNL1415/11.jpg"}
+
+			
+			];
+		
+		function load(){
+		 	//charge l'IHM SVG
+		    //merci à http://bl.ocks.org/KoGor/8162640
+		    	queue()
+		    		.defer(d3.xml, ficSVG, "image/svg+xml")
+		    		.await(IHMcharge);
+		    	chargeData(ficCSV);
+		}
+
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				    //dit à la console d'afficher un message d'erreur
+				});				
+				
+			});
+		}
+		
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  		d3.select("#viz").node().appendChild(importedNode);	    	    	  	
+    	  		ajoutelesevenementauxelements();
+	    }		
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+		
+			for (var i = 0; i < arrIds.length; i++) {
+				//length = taille du tableau
+			     var el = document.getElementById(arrIds[i].idClick); //lie les éléments du tableau entre eux
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); // Ajoute un écouteur aux éléments
+			     el.style.cursor = "pointer";
+			     //ajoute un curseur
+			    	
+			} 		
+		}
+		/*
+		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
+		 */
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('divacacher');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}//rend un bloc invisible -> visible
+		
+		function afficheDetailEtu(evt){
+			//récupère la balise image grand format
+			var elemIma = document.getElementById('image14');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlTof);
+			//change les textes
+			var elemTxt = document.getElementById('prenomnom');
+			elemTxt.textContent=itemCSV["Prénom"]+" "+itemCSV["nom"];
+
+			//elemTxt = document.getElementById('parcoursblank');
+			//elemTxt.textContent=itemCSV["Parcours"];
+
+			elemTxt = document.getElementById('francaisblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Français]"];
+
+			elemTxt = document.getElementById('anglaisblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Anglais]"];
+
+			elemTxt = document.getElementById('espagnolblank');
+			elemTxt.textContent=itemCSV["Langues étrangères [Espagnol]"];
+
+			/*elemTxt = document.getElementById('graphismeblank');
+			elemTxt.textContent=itemCSV["Graphisme"];*/
+
+			elemTxt = document.getElementById('photoshopblank');
+			elemTxt.textContent=itemCSV["Logiciels [Photoshop]"];
+
+			elemTxt = document.getElementById('illustratorblank');
+			elemTxt.textContent=itemCSV["Logiciels [Illustrator]"];
+
+			elemTxt = document.getElementById('indesignblank');
+			elemTxt.textContent=itemCSV["Logiciels [In design]"];
+
+			elemTxt = document.getElementById('gimpblank');
+			elemTxt.textContent=itemCSV["Logiciels [Gimp]"];
+
+			/*elemTxt = document.getElementById('codeblank');
+			elemTxt.textContent=itemCSV["Code"];*/
+
+			elemTxt = document.getElementById('htmlblank');
+			elemTxt.textContent=itemCSV["Langage [HTML]"]+" / "+itemCSV["Langage [CSS]"];
+
+			elemTxt = document.getElementById('javascriptblank');
+			elemTxt.textContent=itemCSV["Langage [JavaScript]"];
+
+			elemTxt = document.getElementById('phpblank');
+			elemTxt.textContent=itemCSV["Langage [PHP]"];
+/*
+
+//vérifie que le div existe
+			var divTxt = document.getElementById("divParcours");
+			if(divTxt){
+				divTxt.innerHTML = itemCSV["Parcours"];
+			}else{
+				var bbCadre = document.getElementById("cadrerect").getBBox();
+				d3.select("#groupecadre").append('foreignObject')
+	            .attr('id', "foRectComp")
+	            .attr('x', bbCadre.x)
+	            .attr('y', bbCadre.y)
+	            .attr('width', bbCadre.width)
+	            .attr('height', bbCadre.height)
+	            .append("xhtml:body")
+					.html('<div id="divParcours" class="txtDiv" >'+itemCSV["Parcours"]+'</div>')				
+			}
+			*/
+
+			var bbCadre = document.getElementById("cadrerect").getBBox(); // la fonction getBBbox sert à récuperer les coordonnées x, y la hauteur et la largueur d'un élément
+			
+			// On stock ces informations dans la variable bbCadre
+			d3.select("#svg10").append('foreignObject')			// on sélectionne l'id : Rectangles, le foreign0bject permet de manipuler du html dans un svg
+            .attr('x', bbCadre.x)										
+            .attr('y', bbCadre.y)
+            .attr('width', bbCadre.width)
+            .attr('height', bbCadre.height)
+            .append("xhtml:body")
+				.html('<div id="txtDiv" style="margin-left : 1px; padding-top : 5px; width: 350px; height: 65px; color:#B0AEAE; font-size: 80%; overflow : auto;">'+itemCSV["Parcours"]+'</div>')
+
+			
+			
+
+
+d3.select("#barregraph").transition().duration(1000).attr("width", itemCSV["Graphisme"]*20);
+			d3.select("#barrecode").transition().duration(1000).attr("width", itemCSV["Code"]*20);
+	
+		
+		}
+// Merci à Louis Crolus pour le graphique !
+
+
+
+
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+		
+		</script>
+
+		<style type="text/css">
+		.txtDiv{		
+			 padding-top : 50px; width: 250px;
+			}
+		</style>
+		
+	</head>
+	<body onload="load();">
+		<div id="viz" ></div>
+	</body>
+</html>

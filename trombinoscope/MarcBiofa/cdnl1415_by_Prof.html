@@ -1,0 +1,174 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Trombinoscope CDNL 14-15</title>
+		
+	    <script type="text/javascript" src="../../public/js/d3.js"></script>
+	    <script type="text/javascript" src="../../public/js/queue.v1.min.js" ></script>
+<script type="text/javascript">														// On ouvre la partie JavaScript (qui peut être contenu aussi bien dans le head que dans le body)
+
+		var ficSVG = "../../svg/MarcBiofa.svg";										// Met dans la variable ficSVG le contenu du dossier .svg
+		var ficCSV = "../../data/EtudiantsCDNL1415.csv";										// Met dans la variable ficCSV la contenu du dossier .csv
+		var dataProfil;
+var arrIds = [
+			 {"idCSV":12,"idClick":"alexandre","urlphoto":"images/alexandre.jpg"},
+			 
+		     {"idCSV":10,"idClick":"alexia","urlphoto":"images/alexia.jpg"}
+
+			,{"idCSV":0,"idClick":"amir","urlphoto":"images/amir.jpg"}
+
+			,{"idCSV":11,"idClick":"antoine","urlphoto":"images/antoine.jpg"}
+
+			,{"idCSV":2,"idClick":"clementine","urlphoto":"images/clementine.jpg"}
+
+			,{"idCSV":13,"idClick":"gabriela","urlphoto":"images/gabriela.jpg"}
+
+			,{"idCSV":5,"idClick":"guillaume","urlphoto":"images/guillaume.jpg"}
+
+			,{"idCSV":4,"idClick":"helene","urlphoto":"images/helene.jpg"}
+
+			,{"idCSV":1,"idClick":"hugo","urlphoto":"images/hugo.jpg"}
+
+			,{"idCSV":3,"idClick":"louis","urlphoto":"images/louis.jpg"}
+
+			,{"idCSV":6,"idClick":"macaire","urlphoto":"images/macaire.jpg"}
+
+			,{"idCSV":14,"idClick":"marc","urlphoto":"images/marc.jpg"}
+
+			,{"idCSV":7,"idClick":"quentin","urlphoto":"images/quentin.jpg"}
+
+			,{"idCSV":8,"idClick":"simon","urlphoto":"images/simon.jpg"}
+
+			,{"idCSV":9,"idClick":"yolaine","urlphoto":"images/yolaine.jpg"}
+			];
+
+function load(){
+		 	//charge l'IHM SVG
+		 	//chargeIHM();
+		 	queue()
+	    		.defer(d3.xml, ficSVG, "image/svg+xml")
+	    		.await(IHMcharge);
+	    	chargeData(ficCSV);
+		}
+
+
+		function chargeData(url){
+			d3.csv(url, function(error, data) {
+
+				dataProfil = data;
+				//affiche les données dans la console
+				// Compute the distinct nodes from the links.
+				dataProfil.forEach(function(d, i) {
+				    console.log(i+" : "+d.nom);
+				});				
+				
+			});
+		}
+
+	    function IHMcharge(error, xml){
+	    	//Adding our svg file to HTML document
+			var importedNode = document.importNode(xml.documentElement, true);
+    	  	d3.select("#viz").node().appendChild(importedNode);	 
+    	  	ajoutelesevenementauxelements();	  	
+	    }		
+	    
+		// fonction pour ajouter un écouteur à UN ÉLÉMENT
+		//merci à https://developer.mozilla.org/fr/docs/DOM/element.addEventListener
+		function ajoutelesevenementauxelements() { 
+		
+			for (var i = 0; i < arrIds.length; i++) {
+				//length = taille du tableau
+			     var el = document.getElementById(arrIds[i].idClick); 
+				 var j = i;
+			     el.addEventListener("click", afficheDetailEtu,false); 
+				 el.style.cursor = "pointer";
+			    	
+			} 		
+		}	
+		
+		/*
+		 merci à http://www.commentcamarche.net/forum/affich-21135416-html-afficher-cacher-une-div-sur-clique-a
+		 */
+		function switchInfoPerso()
+		{
+			divInfo = document.getElementById('info_etudiants');
+			if (divInfo.style.display == 'none')
+				divInfo.style.display = 'block';
+			else
+				divInfo.style.display = 'none';
+		}
+		
+	
+				
+		function afficheDetailEtu(evt){
+	
+			d3.select("foreignObject").remove();
+			//récupère la balise image grand format
+			var elemIma = document.getElementById('cadre_x5F_yo');
+			//récupère les information de l'étudiant
+			var item = getElementArr(arrIds, "idClick", evt.currentTarget.id);
+			//Récupérer les données du csv
+			var itemCSV = dataProfil[item.idCSV];
+			//mettre à jour l'image
+			elemIma.setAttribute("xlink:href",item.urlphoto);
+			//change les textes
+			var elemnom = document.getElementById('nom');
+			var elemprenom = document.getElementById('prenom');
+			var elemmail = document.getElementById('mail');
+			var elemNote_Graphisme = document.getElementById('graphisme');
+			var elemNote_Developpement = document.getElementById('dev');
+			//var elemPlusInfos = document.getElementById('droit_x5F_liste_x5F_etudiants');
+			//var elemparcours= document.getElementById('text112');
+			//var elemenvies = document.getElementById('text116');
+
+
+			elemnom.innerHTML= "Nom :  "+ itemCSV["nom"];
+			elemprenom.innerHTML="Prénom :  "+ itemCSV["Prenom"];
+			elemmail.innerHTML= "Mail : "+ itemCSV["Email"];
+			elemNote_Graphisme.innerHTML=itemCSV["Graphisme"]+ "/100";
+			elemNote_Developpement.innerHTML=itemCSV["Code"]+ "/100";
+			//elemPlusInfos.innerHTML= "grahisme"+ itemCSV["code"];
+			//elemparcours.innerHTML=itemCSV["Parcours"];
+			//elemenvies.innerHTML=itemCSV["Envies"];
+
+			
+			/*declarer une variable pour le cadre pour sauter la ligne */
+			//vérifie que le div existe
+			
+			
+			
+				
+	            
+			
+			
+			d3.select("#anneau_html").transition().duration(1000).attr("width", itemCSV["HTML"]*20);
+			d3.select("#anneau_css").transition().duration(1000).attr("width", itemCSV["CSS"]*20);
+
+		
+	}	
+		
+		
+		
+		
+
+
+		//http://bl.ocks.org/mbostock/7555321
+		//code pour tspan
+		
+		function getElementArr(arr, prop, val){
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i][prop]==val)return arr[i];
+			}
+			return false;
+		}
+
+		
+
+		</script>
+	</head>
+	<body onload="load();">
+
+	<div id="viz" ></div>
+		
+	</body>
+</html>

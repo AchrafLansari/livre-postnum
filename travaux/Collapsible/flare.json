@@ -1,0 +1,89 @@
+{
+    "name": "conference",
+    "children": [
+        {
+            "name": "arborescence",
+            "children": [
+                
+                {
+                    "name": "auteur",
+                    "children": []
+                },
+                {
+                    "name": "citation",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "contenu",
+            "children": [
+                {
+                    "name": "Original",
+                    "size": 1041
+                },
+                {
+                    "name": "Manque d’originalité",
+                    "size": 1041
+                }
+            ]
+        },
+        {
+            "name": "contribution",
+            "children": [
+                
+            ]
+        },
+        {
+            "name": "citation",
+            "children": [
+                {
+                    "name": "Référencer",
+                    "size": 8833
+                },
+                {
+                    "name": "Pas Référencer",
+                    "size": 10066
+                }
+            ]
+        },
+        {
+            "name": "déterminé",
+            "children": [
+                
+            ]
+        },
+        {
+            "name": "suiveur"
+        },
+        {
+            "name": "leader",
+            "children": [
+                {
+                    "name": " OUI ",
+                    "size": 843
+                },
+                {
+                    "name": " NON ",
+                    "size": 1101
+                }
+            ]
+        },
+        {
+            "name": "indéterminé",
+            "children": [
+                
+            ]
+        },
+        {
+            "name": "pértinent"
+            
+        },
+        {
+            "name": "Manque de pertinence",
+            "children": [
+                
+            ]
+        }
+    ]
+}

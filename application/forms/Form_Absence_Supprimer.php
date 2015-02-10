@@ -19,15 +19,15 @@ class Form_Absence_Supprimer
     public function init()
     {
         
-        $id = new Zend_Form_Element_Text('id_absence');
+        $id = new Zend_Form_Element_Text('id');
         $id->setRequired(true)
             ->addValidators(array(new Zend_Validate_Int(), new Zend_Validate_StringLength()));
         
-        $date = new Zend_Form_Element_('date_absence');
+        $date = new Zend_Form_Element_('date');
         $date->setRequired(true)
             ->addValidators(array());
         
-        $nom_absent = new Zend_Form_Element_Text('nom_absence');
+        $nom_absent = new Zend_Form_Element_Text('nom_absent');
         $nom_absent->setRequired(true)
             ->addValidators(array(new Zend_Validate_Alnum(true), new Zend_Validate_StringLength(550)));
         
