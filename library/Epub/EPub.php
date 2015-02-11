@@ -1754,6 +1754,11 @@ class EPub {
         return TRUE;
 	}
 
+	private $rawsMeta	=	null;
+	function addRawsMeta($string){
+		$this->rawsMeta	=	$string;
+	}
+	
 	/**
      * Check for mandatory parameters and finalize the e-book.
      * Once finalized, the book is locked for further additions.
@@ -1825,6 +1830,13 @@ class EPub {
 
         if ($this->isCoverImageSet) {
             $this->opf->addMeta("cover", "CoverImage");
+        }
+        
+        /**
+         * @author Kévin Masseix
+         */
+        if(!is_null($this->rawsMeta)){
+        	$this->opf->addRawsMeta($this->rawsMeta);
         }
 
         if (!empty($this->generator)) {

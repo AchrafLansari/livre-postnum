@@ -182,6 +182,16 @@ class Opf {
     }
 
     /**
+     * Ajoute des meta au document
+     * 
+     * @author Kévin Masseix
+     * @param unknown $string
+     */
+    function addRawsMeta($string){
+    	$this->metadata->addRawsMetas($string);
+    }
+    
+    /**
      *
      * Enter description here ...
      *
@@ -265,6 +275,16 @@ class Metadata {
     }
 
     /**
+     * @author	Kévin Masseix
+     * @param unknown $string
+     */
+    function addRawsMetas($string){
+    	$this->rawMeta = $string;
+    }
+    
+    private $rawMeta	=	"";
+    
+    /**
      *
      * Enter description here ...
      *
@@ -308,6 +328,11 @@ class Metadata {
             $metadata .= "\t\t<meta name=\"" . $name . "\" content=\"" . $content . "\" />\n";
         }
 
+        /**
+         * @author Kévin Masseix
+         */
+        $metadata .= $this->rawMeta;
+        
         return $metadata . "\t</metadata>\n";
     }
 }

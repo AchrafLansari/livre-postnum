@@ -1,6 +1,27 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<script type="text/javascript">
+		$('.present').click(function(){
+			
+		});
+
+		$('.absent').click(function(){
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+			  }else{// code for IE6, IE5
+			  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function(){
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				  	var data = JSON.parse(xmlhttp.responseText);
+				  		
+			    }
+			}
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send();
+		});
+		</script>
 	</head>
 	<body>
 
@@ -19,15 +40,40 @@
 			foreach ($xml->channel->item as $photo){
 				if ($i%4 == 0) echo "<tr>";
 				
-				echo "<td><img width='250px' src='".$photo->enclosure["url"]."'/><br/><p align='center'>".$photo->title."</p></td>";
+				echo "<td class='cadre_photo' align='center'>
+						<h2 class='nom_photo' align='center'>".$photo->title."</h2>	
+						<img class='image_photo' width='250px' src='".$photo->enclosure["url"]."'/>
+						<div class='present' value='".$photo->title."'>Présent</div>
+						<div class='absent' value='".$photo->title."'>Absent</div>
+					</td>";
 				
 				if($i++ == 0) echo"</tr>";				
 			}
-			echo "</table>";
+			echo "</table>
+				<div class='envoyer'>Cliquer ici pour confirmer</div>
+				<div class='retour'></div>";
 		}
 		catch (Exception $e){
 			echo $e->getMessage();
 		}
+		
+		foreach ($this->data as $photo){
+		
+			if ($i%4 == 0) echo "<tr>";
+		
+			echo "<td class='cadre_photo' align='center'>
+						<h2 class='nom_photo' align='center'>".$photo['login']."</h2>
+						<img class='image_photo' width='250px' src='".$photo['url']."'/>
+						<div class='present' id'".$photo['uti_id']."' value='".$photo['login']."'>Présent</div>
+						<div class='absent' value='".$photo['login']."'>Absent</div>
+					</td>";
+		
+			if($i++ == 0) echo"</tr>";
+		}
+		echo "</table>
+				<div class='envoyer'>Cliquer ici pour confirmer</div>
+				<div class='retour'></div>";
 	?>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</body>
 </html>
